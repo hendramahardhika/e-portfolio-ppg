@@ -1,0 +1,2533 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portfolio PPG Prajabatan | Pendidik Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        /* ==================== CSS VARIABLES ==================== */
+        :root {
+            --bg-main: #f8fafc; /* Sangat terang (Slate 50) */
+            --bg-card: #ffffff;
+            --text-main: #1e293b; /* Slate 800 */
+            --text-muted: #64748b; /* Slate 500 */
+            --primary-color: #2563eb; /* Blue 600 */
+            --primary-light: #eff6ff; /* Blue 50 */
+            --accent-color: #f59e0b; /* Amber 500 */
+            
+            --font-heading: 'Lora', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --border-color: #e2e8f0; /* Slate 200 */
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+            
+            --transition-smooth: all 0.3s ease;
+        }
+
+        /* Dark Theme Variables */
+        body.dark-theme {
+            --bg-main: #0f172a; /* Slate 900 */
+            --bg-card: #1e293b; /* Slate 800 */
+            --text-main: #f8fafc; /* Slate 50 */
+            --text-muted: #94a3b8; /* Slate 400 */
+            --primary-color: #3b82f6; /* Blue 500 */
+            --primary-light: rgba(59, 130, 246, 0.15);
+            --border-color: #334155; /* Slate 700 */
+        }
+
+        /* ==================== GLOBAL STYLES ==================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-main);
+            background-color: var(--bg-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        }
+
+        body.dark-theme .navbar {
+            background: rgba(15, 23, 42, 0.95);
+        }
+
+        body.dark-theme .card,
+        body.dark-theme .contact-form,
+        body.dark-theme .info-grid,
+        body.dark-theme .modal-content {
+            background: var(--bg-card) !important;
+            border-color: var(--border-color);
+        }
+
+        body.dark-theme .form-control {
+            background: #1e293b;
+            color: #f8fafc;
+            border-color: #334155;
+        }
+
+        body.dark-theme .modal-close {
+            background: #334155;
+            color: #f8fafc;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul { list-style: none; }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ==================== COMPONENTS ==================== */
+        .card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition-smooth);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            border-radius: 6px;
+            font-family: var(--font-body);
+            font-weight: 500;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: 1px solid transparent;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-light);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary-color);
+        }
+
+        .section-title span {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-body);
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        .navbar {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 0.75rem 0;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+            width: 100%;
+        }
+
+        .logo-container {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.75rem;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .logo-container:hover {
+            opacity: 0.85;
+        }
+
+        .nav-links {
+            flex: none;
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+            position: relative;
+            padding: 0.5rem 0.25rem;
+        }
+
+        /* Modern, minimal horizontal underline effect */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--text-main);
+            cursor: pointer;
+        }
+
+        /* Utilities buttons */
+        .nav-utilities {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.75rem;
+        }
+
+        .nav-util-btn {
+            border: 2px solid var(--border-color);
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-size: 1.3rem;
+        }
+
+        .nav-util-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            padding-top: 120px; /* Offset for navbar */
+            padding-bottom: 4rem;
+            border-bottom: none;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-text h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-family: var(--font-body);
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-icon {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            transition: var(--transition-smooth);
+        }
+
+        .social-icon:hover {
+            color: var(--primary-color);
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-img-container {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 8px solid var(--bg-card);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .badge-simple {
+            position: absolute;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-main);
+            box-shadow: var(--shadow-md);
+        }
+
+        .badge-1 { top: 10%; right: -5%; }
+        .badge-2 { bottom: 10%; left: -5%; }
+
+        /* ==================== PROFIL SECTION ==================== */
+        .profil-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .stat-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .stat-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+        }
+
+        .stat-icon {
+            width: 40px; height: 40px;
+            border-radius: 8px;
+            background: var(--primary-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; color: var(--primary-color);
+        }
+
+        .stat-info h4 { font-size: 1.25rem; margin-bottom: 0; font-family: var(--font-body); }
+        .stat-info p { color: var(--text-muted); font-size: 0.85rem; }
+
+        .about-text {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .about-text p { margin-bottom: 1rem; }
+
+        .blockquote-simple {
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            background: var(--primary-light);
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-item p:first-child {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+        }
+        .info-item p:last-child {
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        /* ==================== PENDIDIKAN ==================== */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 1rem;
+            width: 2px; height: 100%;
+            background: var(--border-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 3.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            top: 5px; left: 0.6rem;
+            width: 14px; height: 14px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--bg-main);
+        }
+
+        .timeline-year {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-family: var(--font-body);
+        }
+
+        .timeline-item h3 { font-size: 1.25rem; margin-bottom: 0.2rem; }
+        .timeline-item h4 { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 400; }
+        .timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
+
+        /* ==================== ARTEFAK / PORTOFOLIO ==================== */
+        /* ==================== ARTEFAK / PORTOFOLIO ==================== */
+        .filter-container-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.25rem;
+            margin-bottom: 3.5rem;
+            width: 100%;
+        }
+
+        .filter-group-main {
+            display: inline-flex;
+            background-color: var(--primary-light);
+            padding: 0.35rem;
+            border-radius: 30px;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-main-btn {
+            background: transparent;
+            border: none;
+            padding: 0.6rem 1.75rem;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-body);
+        }
+
+        .filter-main-btn.active {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            box-shadow: 0 4px 12px rgba(30, 58, 138, 0.25);
+        }
+
+        .filter-group-sub {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .filter-sub-btn {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            font-family: var(--font-body);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .filter-sub-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .filter-sub-btn.active {
+            border-color: #ef4444;
+            color: var(--primary-color);
+            background-color: var(--primary-light);
+            box-shadow: 0 0 12px rgba(239, 68, 68, 0.15);
+            font-weight: 600;
+        }
+
+        .filter-empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px dashed var(--border-color);
+            color: var(--text-muted);
+            display: none;
+            font-family: var(--font-body);
+        }
+
+        .filter-empty-state i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .filter-empty-state h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-card {
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-12px) scale(1.04) !important;
+            box-shadow: 0 20px 35px rgba(30, 58, 138, 0.2) !important;
+        }
+
+        @keyframes filterReveal {
+            from {
+                opacity: 0;
+                transform: scale(0.96) translateY(8px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .reveal-active {
+            animation: filterReveal 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .portfolio-img-wrapper {
+            position: relative;
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            overflow: hidden;
+            background: #e2e8f0;
+        }
+
+        .portfolio-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.04); /* Zoom awal untuk menghilangkan garis hitam di samping */
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .portfolio-img-wrapper:hover .portfolio-img {
+            transform: scale(1.12); /* Zoom sedikit lebih besar saat hover */
+        }
+
+        .portfolio-badge {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: var(--bg-card);
+            color: var(--primary-color);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border: 1px solid var(--border-color);
+            z-index: 10;
+        }
+
+        .portfolio-img-wrapper:hover .pdf-overlay {
+            opacity: 1;
+        }
+
+        .pdf-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30, 58, 138, 0.35); /* Slight bluish tint */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            text-decoration: none;
+            z-index: 5;
+        }
+
+        .glass-btn {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 0.6rem 1.25rem;
+            border-radius: 30px;
+            color: #1e3a8a;
+            font-weight: 700;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transform: translateY(10px);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .portfolio-img-wrapper:hover .glass-btn {
+            transform: translateY(0);
+        }
+
+        .portfolio-info { padding: 1.2rem; }
+        .portfolio-info h3 {
+            font-family: var(--font-body);
+            font-weight: 700;
+            color: #1e3a8a;
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+        }
+        .portfolio-info p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+        .portfolio-action {
+            display: block;
+            text-align: center;
+            width: 100%;
+            padding: 0.5rem;
+            background: var(--primary-light);
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-radius: 4px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .portfolio-action:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* ==================== PENILAIAN ==================== */
+        .penilaian-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .penilaian-col h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .penilaian-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-card);
+        }
+
+        .penilaian-desc h4 { font-size: 1rem; margin-bottom: 0; }
+        .penilaian-desc p { color: var(--text-muted); font-size: 0.8rem; margin-top: 0.2rem;}
+
+        .btn-icon {
+            color: var(--primary-color);
+            font-size: 1.25rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            background: var(--primary-light);
+            transition: var(--transition-smooth);
+        }
+
+        .btn-icon:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        /* ==================== MODEL GURU ==================== */
+        .competency-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .comp-card { text-align: center; padding: 1.5rem; }
+        .comp-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .comp-card h4 { margin-bottom: 0.5rem; font-size: 1.1rem; }
+        .comp-card p { font-size: 0.85rem; color: var(--text-muted); }
+
+        /* ==================== KONTAK ==================== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 3rem;
+        }
+
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-info-icon {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-top: 0.2rem;
+        }
+
+        .contact-info-text h4 { font-size: 1rem; margin-bottom: 0.2rem; }
+        .contact-info-text p { color: var(--text-muted); font-size: 0.9rem; }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-family: var(--font-body);
+            background: var(--bg-main);
+            color: var(--text-main);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px var(--primary-light);
+        }
+
+        textarea.form-control {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* ==================== MODAL ==================== */
+        .modal {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(15, 23, 42, 0.7); /* Slate 900 w/ opacity */
+            backdrop-filter: blur(4px);
+            z-index: 2000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
+            transition: var(--transition-smooth);
+        }
+
+        .modal.active {
+            opacity: 1; pointer-events: auto;
+        }
+
+        .modal-content {
+            background: var(--bg-card);
+            border-radius: 12px;
+            width: 90%; max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px);
+            transition: var(--transition-smooth);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .modal.active .modal-content { transform: translateY(0); }
+
+        .modal-close {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            background: var(--bg-main); border: none;
+            width: 32px; height: 32px; border-radius: 50%;
+            color: var(--text-main); font-size: 1.2rem;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+        }
+
+        .modal-close:hover { background: #e2e8f0; }
+
+        .modal-body { padding: 2rem; }
+        .modal-img { width: 100%; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid var(--border-color);}
+        .modal-title { font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .modal-desc { color: var(--text-muted); margin-bottom: 1.5rem; font-size: 0.9rem;}
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 992px) {
+            .hero-grid, .profil-grid, .penilaian-grid, .contact-grid, .analisis-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-visual { order: -1; margin-bottom: 2rem; }
+            .competency-grid { grid-template-columns: 1fr 1fr; }
+            
+            /* Penyesuaian agar navbar tetap horizontal saat diminiatur */
+            .nav-links {
+                gap: 0.75rem;
+                overflow-x: auto;
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+            .nav-link {
+                font-size: 0.8rem;
+                padding: 0.5rem 0.15rem;
+                white-space: nowrap;
+            }
+            .nav-util-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-text h1 { font-size: 2.5rem; }
+            .section { padding: 4rem 0; }
+            .competency-grid { grid-template-columns: 1fr; }
+            .timeline::before { left: 1rem; }
+        }
+
+        /* ==================== GLASSMORPHISM PDF OVERLAY ==================== */
+        .portfolio-img-wrapper.rpp-wrapper {
+            position: relative;
+        }
+
+        .pdf-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; align-items: center; justify-content: center;
+            background: rgba(15, 23, 42, 0); /* completely transparent */
+            transition: var(--transition-smooth);
+            z-index: 5;
+            cursor: pointer;
+            opacity: 0; /* hidden by default */
+            pointer-events: none; /* bypass clicks */
+        }
+
+        .portfolio-img-wrapper:hover .pdf-overlay {
+            background: rgba(15, 23, 42, 0.22); /* dim bg */
+            opacity: 1;
+            pointer-events: auto; /* enable clicks */
+        }
+
+        .glass-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: rgba(255, 255, 255, 0.24);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            padding: 0.75rem 1.4rem;
+            border-radius: 12px;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.95rem;
+            font-family: var(--font-body);
+            box-shadow: 0 8px 32px 0 rgba(15, 23, 42, 0.2);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.3s, border-color 0.3s, box-shadow 0.3s;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+            transform: scale(0.92); /* slightly smaller */
+        }
+
+        .portfolio-img-wrapper:hover .glass-btn {
+            transform: scale(1.06);
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 12px 40px 0 rgba(15, 23, 42, 0.3);
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* ==================== BUTTON ANALISIS KHUSUS ==================== */
+        .btn-analisis-khusus {
+            background-color: #f0f2f8; 
+            color: #1e3a8a !important; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            border: none; 
+            padding: 0.6rem 1.2rem; 
+            display: inline-flex; 
+            align-items: center; 
+            justify-content: center; 
+            gap: 0.5rem; 
+            cursor: pointer; 
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .btn-analisis-khusus i {
+            color: #8b5cf6;
+            font-size: 1.15rem;
+            transition: color 0.3s ease;
+        }
+        .btn-analisis-khusus:hover {
+            background-color: #1d4ed8 !important;
+            color: #ffffff !important;
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(29, 78, 216, 0.3);
+        }
+        .btn-analisis-khusus:hover i {
+            color: #ffffff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar" class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="logo-container">
+                <img src="logo.png" alt="Logo PPG" style="height: 46px; width: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.03)); transition: var(--transition-smooth);">
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-link active">Beranda</a></li>
+                <li><a href="#profil" class="nav-link">Profil</a></li>
+                <li><a href="#pendidikan" class="nav-link">Pendidikan</a></li>
+                <li><a href="#artefak" class="nav-link">Artefak</a></li>
+                <li><a href="#analisis" class="nav-link">Analisis</a></li>
+                <li><a href="#penilaian" class="nav-link">Penilaian</a></li>
+                <li><a href="#model-guru" class="nav-link">Model Guru</a></li>
+                <li><a href="#galeri" class="nav-link">Galeri</a></li>
+                <li><a href="#kontak" class="nav-link">Kontak</a></li>
+            </ul>
+
+            <div class="nav-utilities">
+                <button class="nav-util-btn" id="theme-toggle" title="Mode Terang/Gelap" style="color: #f59e0b;">
+                    <i class="ph-fill ph-moon"></i>
+                </button>
+                <a href="#hero" class="nav-util-btn" title="Beranda" style="color: #06b6d4; text-decoration: none;">
+                    <i class="ph-fill ph-house"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="hero section">
+        <div class="container hero-grid">
+            <div class="hero-text reveal">
+                <h3>PPG CALON GURU 2026</h3>
+                <h1>Hendra Mahardhika</h1>
+                <p class="hero-tagline" style="font-size: 1.15rem; font-weight: 600; color: var(--primary-color); margin-bottom: 1rem; font-style: italic; line-height: 1.4;">
+                    "Membangun generasi terampil melalui pembelajaran teknik yang kreatif, adaptif, dan bermakna."
+                </p>
+                <p class="hero-desc" style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); margin-bottom: 2rem; max-width: 550px; text-align: justify;">
+                    Portfolio ini menjadi bagian dari perjalanan saya sebagai calon guru profesional dalam mengintegrasikan keterampilan teknik pemesinan dengan inovasi pembelajaran digital. Saya percaya bahwa pendidikan bukan hanya tentang mengajar keterampilan, tetapi juga membentuk karakter, kreativitas, dan kesiapan siswa menghadapi tantangan industri masa depan.
+                </p>
+                <div class="hero-btns">
+                    <a href="#artefak" class="btn btn-primary"><i class="ph ph-folder-open"></i> Lihat Portofolio</a>
+                    <a href="#kontak" class="btn btn-outline"><i class="ph ph-envelope-simple"></i> Kontak</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/hendra-mahadhika" target="_blank" class="social-icon"><i class="ph-fill ph-linkedin-logo"></i></a>
+                    <a href="https://www.instagram.com/hendradhika_/" target="_blank" class="social-icon"><i class="ph-fill ph-instagram-logo"></i></a>
+                    <a href="mailto:hendradhika46@gmail.com" class="social-icon"><i class="ph-fill ph-envelope"></i></a>
+                </div>
+            </div>
+            <div class="hero-visual reveal">
+                <div class="profile-img-container">
+                    <img src="https://picsum.photos/400/400?random=1" alt="Foto Profil" class="profile-img">
+                </div>
+                <div class="badge-simple badge-1">🎓 PPG Prajab 2026</div>
+                <div class="badge-simple badge-2">📐 Teknik Pemesinan</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PROFIL SECTION -->
+    <section id="profil" class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>About Me</span>
+                <h2>Profil Mahasiswa</h2>
+            </div>
+            
+            <div class="profil-grid">
+                <div class="stat-cards reveal">
+                    <div class="card stat-card">
+                        <div class="stat-icon"><i class="ph-fill ph-briefcase"></i></div>
+                        <div class="stat-info">
+                            <h4>1+ Tahun</h4>
+                            <p>Pengalaman PPL</p>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon"><i class="ph-fill ph-users"></i></div>
+                        <div class="stat-info">
+                            <h4>150+ Siswa</h4>
+                            <p>Terbimbing</p>
+                        </div>
+                    </div>
+                    <div class="card stat-card">
+                        <div class="stat-icon"><i class="ph-fill ph-certificate"></i></div>
+                        <div class="stat-info">
+                            <h4>3 Siklus</h4>
+                            <p>Praktik Mengajar</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="about-content reveal">
+                    <div class="blockquote-simple" style="margin-bottom: 2.5rem;">
+                        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-style: normal; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem;">Mengenal Saya Lebih Dekat</h3>
+                        <span style="font-size: 0.95rem; font-weight: 400; color: var(--text-muted); font-style: italic;">Narasi perjalanan hidup dan inspirasi menjadi guru profesional</span>
+                    </div>
+                    
+                    <div class="about-text" style="display: flex; flex-direction: column; gap: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
+                        <div class="about-section">
+                            <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span>📍</span> Asal & Latar Belakang
+                            </h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
+                                Perkenalkan, nama saya <strong>Hendra Mahardhika</strong>. Saya berasal dari <strong>Daerah Istimewa Yogyakarta</strong>, daerah yang dikenal sebagai <strong>Kota Pelajar</strong> dengan budaya yang kaya, lingkungan akademik yang kuat, serta masyarakat yang menjunjung tinggi nilai pendidikan dan etika. Suasana tersebut membentuk karakter saya menjadi pribadi yang disiplin, terbuka terhadap perkembangan ilmu pengetahuan, dan memiliki semangat untuk terus belajar. Ketertarikan saya pada dunia teknik dan pendidikan mendorong saya untuk menempuh bidang <strong>Teknik Pemesinan</strong> sekaligus mempersiapkan diri menjadi pendidik profesional yang mampu memberikan kontribusi nyata dalam dunia pendidikan vokasi.
+                            </p>
+                        </div>
+
+                        <div class="about-section">
+                            <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span>💡</span> Inspirasi Menjadi Guru
+                            </h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
+                                Inspirasi saya untuk menjadi seorang <strong>Guru Profesional</strong> berawal dari pengalaman menjalani <strong>Praktik Pengalaman Lapangan (PPL)</strong> pada masa studi S1 di <strong>Universitas Negeri Yogyakarta</strong>. Melalui kegiatan tersebut, saya berkesempatan untuk terlibat langsung dalam proses pembelajaran di kelas, berinteraksi dengan peserta didik, serta memahami peran guru dalam membimbing dan memotivasi siswa. Pengalaman itu memberikan pandangan bahwa guru tidak hanya berperan sebagai penyampai materi, tetapi juga sebagai pembentuk karakter dan pengarah potensi peserta didik. Dari pengalaman tersebut, saya semakin yakin untuk mengabdikan diri sebagai pendidik yang mampu menciptakan pembelajaran yang inovatif, bermakna, dan relevan dengan kebutuhan dunia pendidikan maupun industri.
+                            </p>
+                        </div>
+
+                        <div class="about-section">
+                            <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
+                                <span>🎯</span> Tujuan Profesional
+                            </h4>
+                            <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
+                                Melalui program <strong>PPG Calon Guru 2026</strong>, saya berkomitmen untuk mengembangkan kompetensi pedagogik, profesional, sosial, dan kepribadian sebagai calon pendidik di bidang <strong>Teknik Pemesinan</strong>. Saya ingin menjadi guru yang mampu menghadirkan pembelajaran yang aktif, kreatif, dan aplikatif sehingga peserta didik tidak hanya memahami teori, tetapi juga mampu menerapkannya dalam kehidupan dan dunia industri. Selain itu, saya berharap dapat berkontribusi dalam menciptakan lulusan yang kompeten, berkarakter, adaptif terhadap perkembangan teknologi, serta siap menghadapi tantangan dunia kerja di masa depan.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <p>Domisili</p>
+                            <p>D.I. Yogyakarta</p>
+                        </div>
+                        <div class="info-item">
+                            <p>Program</p>
+                            <p>PPG Calon Guru 2026</p>
+                        </div>
+                        <div class="info-item">
+                            <p>Sekolah PPL</p>
+                            <p>SMK Muhammadiyah 3 Yogyakarta</p>
+                        </div>
+                        <div class="info-item">
+                            <p>Bidang Studi</p>
+                            <p>Teknik Pemesinan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENDIDIKAN SECTION -->
+    <section id="pendidikan" class="section">
+        <div class="container">
+            <div class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">
+                <span style="display: block; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-body);">Perjalanan Akademik</span>
+                <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 0.75rem;">Riwayat Pendidikan</h2>
+                <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Proses pembelajaran dan pengalaman akademik yang membentuk kompetensi serta profesionalisme saya sebagai calon pendidik.
+                </p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2025 - Sekarang</span>
+                    <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600; margin-left: 0.5rem; vertical-align: middle;">
+                        🔄 Sedang Berlangsung
+                    </span>
+                    <h3>Universitas Sarjanawiyata Tamansiswa</h3>
+                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">PPG Prajabatan</h4>
+                    <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        Menempuh program <strong>PPG Prajabatan</strong> sebagai langkah untuk mengembangkan kompetensi pedagogik, profesional, sosial, dan kepribadian sebagai calon guru vokasi. Melalui program ini, saya mempelajari perencanaan pembelajaran, pengelolaan kelas, asesmen pembelajaran, serta pengembangan media ajar yang inovatif guna menciptakan pembelajaran yang bermakna dan relevan dengan kebutuhan peserta didik di era modern.
+                    </p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2017 - 2022</span>
+                    <h3>Universitas Negeri Yogyakarta</h3>
+                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">S1 Pendidikan Teknik Mesin <span style="font-weight: 400; color: var(--text-muted);">— IPK: 3.63/4.00</span></h4>
+                    <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        Menempuh pendidikan pada bidang <strong>Pendidikan Teknik Mesin</strong> dengan fokus pada kompetensi teknik dan pedagogik sebagai calon pendidik vokasi. Selama perkuliahan, saya aktif mengembangkan kemampuan akademik dan profesional hingga berhasil memperoleh <strong>2 Sertifikasi BNSP</strong> sebagai bukti kompetensi keahlian serta menjadi penerima <strong>Beasiswa PPA (Peningkatan Prestasi Akademik)</strong> atas capaian dan konsistensi dalam bidang akademik maupun pengembangan diri.
+                    </p>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-year">2014 - 2017</span>
+                    <h3>SMA Negeri 1 Pajangan</h3>
+                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Jurusan Ilmu Pengetahuan Alam</h4>
+                    <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                        Menempuh pendidikan menengah yang membentuk karakter disiplin, tanggung jawab, dan semangat berprestasi. Selama masa sekolah, saya aktif mengikuti kompetisi keilmuan seperti <strong>Olimpiade Sains Nasional (OSN)</strong> serta berhasil lulus dengan capaian <strong>Peringkat 2 Nilai Ujian Nasional Tingkat Sekolah</strong>, yang menjadi motivasi untuk terus berkembang dalam bidang pendidikan dan teknologi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ARTEFAK SECTION -->
+    <section id="artefak" class="section">
+        <div class="container">
+            <div class="section-title reveal" style="text-align: center; margin-bottom: 2.5rem;">
+                <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; border: 1px solid var(--border-color);">
+                    📁 PORTOFOLIO
+                </span>
+                <h2 style="font-size: 2.2rem; color: var(--primary-color); font-weight: 800; margin-bottom: 0.5rem;">Karya & Dokumentasi</h2>
+                <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.5;">
+                    Koleksi perangkat pembelajaran, media, dan dokumentasi kegiatan profesional
+                </p>
+            </div>
+
+            <div class="filter-container-wrapper">
+                <!-- Level 1 Filter: Siklus -->
+                <div class="filter-group-main">
+                    <button class="filter-main-btn active" data-siklus="all">Semua</button>
+                    <button class="filter-main-btn" data-siklus="1">Siklus 1</button>
+                    <button class="filter-main-btn" data-siklus="2">Siklus 2</button>
+                    <button class="filter-main-btn" data-siklus="3">Siklus 3</button>
+                </div>
+
+                <!-- Level 2 Filter: Sub-Kategori -->
+                <div class="filter-group-sub">
+                    <button class="filter-sub-btn active" data-type="all">Semua</button>
+                    <button class="filter-sub-btn" data-type="rpp">RPP</button>
+                    <button class="filter-sub-btn" data-type="materi">Materi</button>
+                    <button class="filter-sub-btn" data-type="lkm">LKM</button>
+                    <button class="filter-sub-btn" data-type="media">Media</button>
+                    <button class="filter-sub-btn" data-type="asesmen">Asesmen</button>
+                    <button class="filter-sub-btn" data-type="lainnya">Lainnya</button>
+                </div>
+            </div>
+
+            <div class="portfolio-grid">
+                <!-- ================= SIKLUS 1 ARTEFAKS ================= -->
+                <!-- Item 1: Siklus 1 - RPP -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="rpp">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">RPP</span>
+                        
+                        <!-- Authentic Cover Image (Directly displays the actual first page of rpp-siklus-1.pdf) -->
+                        <img src="rpp-cover.png" alt="Cover RPP Siklus 1" class="portfolio-img" style="object-fit: cover; object-position: top; background: #ffffff; width: 100%; height: 100%;">
+                        <a href="https://drive.google.com/file/d/1A_9CSSqxP7Kki3TlNKeogASYnjoLTc4j/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.25rem; margin-bottom: 0.75rem;">RPP Siklus 1</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem;">Modul ajar berbasis Deep Learning mata pelajaran Dasar Teknik Mesin (Proses Industri Manufaktur) materi Teknik Dasar Proses Produksi.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="portfolio-action open-modal btn-analisis-khusus" data-id="1">
+                                Lihat Analisis <i class="ph ph-chart-bar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 2: Siklus 1 - Materi -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="materi">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <img src="materi-cover.png" alt="Bahan Ajar Siklus 1" class="portfolio-img" style="object-fit: cover; object-position: top; background: #ffffff; width: 100%; height: 100%;">
+                        <a href="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Bahan Ajar Gambar Manufaktur 2D</h3>
+                        <p>Bahan bacaan siswa terstruktur mengenai proyeksi ortogonal dan detail standar ISO.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="2">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 19: Siklus 1 - Media Pertemuan 2 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="materi">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <img src="https://picsum.photos/400/300?random=119" alt="Media Pertemuan 2" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Media Pembelajaran Pertemuan 2</h3>
+                        <p>Bahan tayang presentasi interaktif untuk pertemuan kedua pada Siklus 1 yang memuat materi pengenalan alat potong.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="19">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 20: Siklus 1 - Media Pertemuan 3 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="materi">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <img src="https://picsum.photos/400/300?random=120" alt="Media Pertemuan 3" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Media Pembelajaran Pertemuan 3</h3>
+                        <p>Bahan tayang presentasi interaktif untuk pertemuan ketiga pada Siklus 1 yang memuat materi lanjutan proses manufaktur.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="20">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+                <!-- Item 3: Siklus 1 - LKM -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lkm">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=107" alt="LKM Siklus 1" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1iounm_y65BqiyldOfqTp2NsdLFhrdapI/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Lembar Kerja Siswa (LKM)</h3>
+                        <p>Panduan praktik gambar perakitan Tool Post dengan perangkat Autodesk Inventor.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="3">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 21: Siklus 1 - LKM Pertemuan 2 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lkm">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=121" alt="LKM Pertemuan 2" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1hUTzqHYH6iemPJw6XCkKH8p8kmAJHUHu/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Lembar Kerja Siswa (LKM) Pertemuan 2</h3>
+                        <p>Panduan praktik lanjutan untuk mengasah kemampuan pemecahan masalah dan keterampilan perakitan komponen.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="21">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+                <!-- Item 4: Siklus 1 - Media -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="media">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #06b6d4; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        
+                        <!-- Authentic Cover Image -->
+                        <img src="media-cover.png" alt="Cover Media Siklus 1" class="portfolio-img" style="object-fit: cover; object-position: top; background: #ffffff; width: 100%; height: 100%;">
+                        <a href="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.25rem; margin-bottom: 0.75rem;">Media Siklus 1</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem;">Slide presentasi modular ajar interaktif PPT dengan kuis gamifikasi mandiri terintegrasi guna menstimulasi kesenangan pembacaan detail gambar kerja teknik.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="portfolio-action open-modal btn-analisis-khusus" data-id="4">
+                                Lihat Analisis <i class="ph ph-chart-bar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 5: Siklus 1 - Asesmen -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="asesmen">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
+                        <img src="https://picsum.photos/400/300?random=113" alt="Asesmen Siklus 1" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Instrumen Penilaian Terpadu</h3>
+                        <p>Rubrik penilaian lengkap meliputi lembar uji kognitif, lembar penilaian produk, & sikap.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="5">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 6: Siklus 1 - Lainnya -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lainnya">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Lainnya</span>
+                        <img src="https://picsum.photos/400/300?random=116" alt="Refleksi Siklus 1" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Jurnal Refleksi Harian</h3>
+                        <p>Evaluasi proses mengajar mandiri setelah pelaksanaan tindakan pembelajaran Siklus 1.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="6">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- ================= SIKLUS 2 ARTEFAKS ================= -->
+                <!-- Item 7: Siklus 2 - RPP -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="rpp">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">RPP</span>
+                        <img src="https://picsum.photos/400/300?random=102" alt="Modul Ajar Siklus 2" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Modul Ajar Siklus 2</h3>
+                        <p>Perangkat ajar Project Based Learning (PjBL) untuk praktik pembuatan Poros Bertingkat.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="7">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 8: Siklus 2 - Materi -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="materi">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <img src="https://picsum.photos/400/300?random=105" alt="Bahan Ajar Siklus 2" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Bahan Ajar Kecepatan Bubut</h3>
+                        <p>Panduan kalkulasi parameter pemotongan, kecepatan putaran spindle, & pemakanan bubut.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="8">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 9: Siklus 2 - LKM -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lkm">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=108" alt="LKM Siklus 2" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Lembar Kerja Siswa Bubut</h3>
+                        <p>Jobsheet pengerjaan bubut manual poros bertingkat langkah demi langkah presisi.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="9">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 10: Siklus 2 - Media -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="media">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        <img src="https://picsum.photos/400/300?random=111" alt="Media Siklus 2" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Media Simulasi Bubut 3D</h3>
+                        <p>Aplikasi simulasi CAD/CAM 3D interaktif agar siswa mengenali alur pencekaman pahat bubut.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="10">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 11: Siklus 2 - Asesmen -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="asesmen">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
+                        <img src="https://picsum.photos/400/300?random=114" alt="Asesmen Siklus 2" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Rubrik Evaluasi Kinerja K3</h3>
+                        <p>Skema penilaian kepatuhan penggunaan alat pelindung diri (APD) & ketelitian produk jadi.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="11">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 12: Siklus 2 - Lainnya -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lainnya">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Lainnya</span>
+                        <img src="https://picsum.photos/400/300?random=117" alt="Refleksi Siklus 2" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Refleksi Pembimbing Siklus 2</h3>
+                        <p>Catatan lembar observasi umpan balik dari DPL dan Guru Pamong terhadap Siklus 2.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="12">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- ================= SIKLUS 3 ARTEFAKS ================= -->
+                <!-- Item 13: Siklus 3 - RPP -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="rpp">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">RPP</span>
+                        <img src="https://picsum.photos/400/300?random=103" alt="Modul Ajar Siklus 3" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Modul Ajar Siklus 3</h3>
+                        <p>Modul ajar dengan pendekatan Problem Based Learning topik dasar pemesinan Frais CNC.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="13">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 14: Siklus 3 - Materi -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="materi">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <img src="https://picsum.photos/400/300?random=106" alt="Bahan Ajar Siklus 3" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Modul Pemrograman G-Code CNC</h3>
+                        <p>Bahan ajar struktur penulisan baris kode pemesinan CNC milling untuk kontur kompleks.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="14">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 15: Siklus 3 - LKM -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="lkm">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=109" alt="LKM Siklus 3" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>LKM Pengoperasian Simulator CNC</h3>
+                        <p>Lembar kerja praktikum penulisan blok program dan simulasi gerakan pahat cutter CNC.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="15">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 16: Siklus 3 - Media -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="media">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        <img src="https://picsum.photos/400/300?random=112" alt="Media Siklus 3" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Video Tutorial Setting Z-Axis</h3>
+                        <p>Video instruksional tata cara menetapkan koordinat nol sumbu Z benda kerja pada mesin CNC.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="16">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 17: Siklus 3 - Asesmen -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="asesmen">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
+                        <img src="https://picsum.photos/400/300?random=115" alt="Asesmen Siklus 3" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Uji Kompetensi Kognitif CNC</h3>
+                        <p>Kumpulan soal asesmen sumatif teori pemprograman dan pengenalan tombol controller CNC.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="17">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 18: Siklus 3 - Lainnya -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="lainnya">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Lainnya</span>
+                        <img src="https://picsum.photos/400/300?random=118" alt="Laporan Hasil PPL" class="portfolio-img">
+                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Laporan Studi Kasus Akhir PPL</h3>
+                        <p>Laporan analisis komprehensif penanganan kesulitan belajar siswa dalam pemesinan CNC.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="18">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Empty State -->
+                <div class="filter-empty-state" id="portfolio-empty">
+                    <i class="ph ph-folder-open"></i>
+                    <h3>Artefak Tidak Ditemukan</h3>
+                    <p>Maaf, belum ada dokumen artefak yang diunggah untuk kombinasi filter ini.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ANALISIS SECTION -->
+    <section id="analisis" class="section" style="background-color: var(--primary-light);">
+        <div class="container">
+            <div class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">
+                <span style="display: block; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-body);">Refleksi & Data Hasil Belajar</span>
+                <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 0.75rem;">Analisis Pembelajaran</h2>
+                <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Evaluasi berbasis data untuk mengukur efektivitas tindakan siklus pembelajaran berbasis inovasi teknik pemesinan.
+                </p>
+            </div>
+
+            <div class="analisis-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: start;">
+                <!-- Left Column: Metrics & Charts -->
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="card" style="padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; border-radius: 16px; background-color: var(--card-bg); border: 1px solid var(--border-color); box-shadow: var(--shadow-sm);">
+                        <h3 style="font-size: 1.25rem; font-family: var(--font-heading); color: var(--primary-color); display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; font-weight: 700;">
+                            <i class="ph ph-chart-bar-horizontal" style="font-size: 1.5rem;"></i> Keterampilan Siswa (Bubut Manual)
+                        </h3>
+                        <div class="progress-block" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; color: var(--text-main);">
+                                <span>Pra-Siklus (Metode Konvensional)</span>
+                                <span>64% Ketuntasan</span>
+                            </div>
+                            <div class="progress-bar-bg" style="height: 10px; background-color: var(--border-color); border-radius: 5px; overflow: hidden;">
+                                <div class="progress-bar-fill" style="width: 64%; height: 100%; background-color: #ef4444; border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; color: var(--text-main);">
+                                <span>Siklus 1 (Problem Based Learning)</span>
+                                <span>78% Ketuntasan</span>
+                            </div>
+                            <div class="progress-bar-bg" style="height: 10px; background-color: var(--border-color); border-radius: 5px; overflow: hidden;">
+                                <div class="progress-bar-fill" style="width: 78%; height: 100%; background-color: #f59e0b; border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                        <div class="progress-block" style="display: flex; flex-direction: column; gap: 0.5rem;">
+                            <div style="display: flex; justify-content: space-between; font-size: 0.9rem; font-weight: 600; color: var(--text-main);">
+                                <span>Siklus 2 (PBL + Media Interaktif 3D)</span>
+                                <span>92% Ketuntasan</span>
+                            </div>
+                            <div class="progress-bar-bg" style="height: 10px; background-color: var(--border-color); border-radius: 5px; overflow: hidden;">
+                                <div class="progress-bar-fill" style="width: 92%; height: 100%; background-color: var(--primary-color); border-radius: 5px;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat-summary" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem;">
+                        <div class="card" style="padding: 1.5rem; text-align: center; border-radius: 12px; background-color: var(--card-bg); border: 1px solid var(--border-color);">
+                            <h2 style="font-size: 2.2rem; color: var(--primary-color); font-weight: 800; margin-bottom: 0.25rem;">+28%</h2>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Peningkatan Rata-Rata Kelas</p>
+                        </div>
+                        <div class="card" style="padding: 1.5rem; text-align: center; border-radius: 12px; background-color: var(--card-bg); border: 1px solid var(--border-color);">
+                            <h2 style="font-size: 2.2rem; color: #10b981; font-weight: 800; margin-bottom: 0.25rem;">100%</h2>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); font-weight: 500;">Siswa Aktif & Aman K3</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Narrative Reflections -->
+                <div class="reveal" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="card" style="padding: 1.75rem; border-left: 4px solid var(--primary-color); border-radius: 0 12px 12px 0; background-color: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-right: 1px solid var(--border-color);">
+                        <h4 style="font-size: 1.1rem; color: var(--primary-color); font-weight: 700; margin-bottom: 0.5rem;">Tantangan Pembelajaran Vokasi</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); text-align: justify; margin: 0;">
+                            Pada awal PPL di SMK Muhammadiyah 3 Yogyakarta, beberapa peserta didik mengalami kesulitan dalam membaca gambar teknik pemesinan secara presisi. Hal ini berakibat pada kekhawatiran dan kesalahan penyetelan dimensi saat melakukan pemotongan benda kerja nyata pada mesin bubut manual.
+                        </p>
+                    </div>
+
+                    <div class="card" style="padding: 1.75rem; border-left: 4px solid #10b981; border-radius: 0 12px 12px 0; background-color: var(--card-bg); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); border-right: 1px solid var(--border-color);">
+                        <h4 style="font-size: 1.1rem; color: #10b981; font-weight: 700; margin-bottom: 0.5rem;">Solusi & Inovasi Digital</h4>
+                        <p style="font-size: 0.95rem; line-height: 1.6; color: var(--text-muted); text-align: justify; margin: 0;">
+                            Saya mengintegrasikan modul ajar berbasis <strong>Problem Based Learning (PBL)</strong> dikombinasikan dengan <strong>simulasi interaktif CAD/CAM 3D</strong>. Melalui visualisasi 3D yang dapat diakses di gawai masing-masing siswa sebelum masuk bengkel, tingkat pemahaman geometri meningkat secara drastis serta mengurangi kerusakan benda kerja hingga seminimal mungkin.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PENILAIAN SECTION -->
+    <section id="penilaian" class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>Evaluations</span>
+                <h2>Penilaian DPL & Guru Pamong</h2>
+            </div>
+
+            <div class="penilaian-grid">
+                <div class="penilaian-col reveal">
+                    <h3>Penyusunan Perangkat (Lamp. 7)</h3>
+                    <div class="penilaian-item">
+                        <div class="penilaian-desc">
+                            <h4>Siklus 1</h4>
+                            <p>Penilaian Modul Ajar</p>
+                        </div>
+                        <a href="#" class="btn-icon"><i class="ph ph-download-simple"></i></a>
+                    </div>
+                    <div class="penilaian-item">
+                        <div class="penilaian-desc">
+                            <h4>Siklus 2</h4>
+                            <p>Penilaian Modul Ajar</p>
+                        </div>
+                        <a href="#" class="btn-icon"><i class="ph ph-download-simple"></i></a>
+                    </div>
+                </div>
+
+                <div class="penilaian-col reveal">
+                    <h3>Praktik Mengajar (Lamp. 8)</h3>
+                    <div class="penilaian-item">
+                        <div class="penilaian-desc">
+                            <h4>Siklus 1</h4>
+                            <p>Observasi Praktik Kelas</p>
+                        </div>
+                        <a href="#" class="btn-icon"><i class="ph ph-download-simple"></i></a>
+                    </div>
+                    <div class="penilaian-item">
+                        <div class="penilaian-desc">
+                            <h4>Siklus 2</h4>
+                            <p>Observasi Praktik Kelas</p>
+                        </div>
+                        <a href="#" class="btn-icon"><i class="ph ph-download-simple"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODEL GURU SECTION -->
+    <section id="model-guru" class="section">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>The Future Teacher</span>
+                <h2>Model Guru yang Dituju</h2>
+            </div>
+
+            <div class="competency-grid">
+                <div class="card comp-card reveal">
+                    <i class="ph-fill ph-book-open comp-icon"></i>
+                    <h4>Pedagogik</h4>
+                    <p>Merancang pembelajaran yang memerdekakan siswa sesuai perkembangannya.</p>
+                </div>
+                <div class="card comp-card reveal">
+                    <i class="ph-fill ph-brain comp-icon"></i>
+                    <h4>Profesional</h4>
+                    <p>Penguasaan materi esensial secara mendalam dan kontekstual.</p>
+                </div>
+                <div class="card comp-card reveal">
+                    <i class="ph-fill ph-users-three comp-icon"></i>
+                    <h4>Sosial</h4>
+                    <p>Membangun kolaborasi harmonis dengan warga sekolah dan masyarakat.</p>
+                </div>
+                <div class="card comp-card reveal">
+                    <i class="ph-fill ph-star comp-icon"></i>
+                    <h4>Kepribadian</h4>
+                    <p>Menjadi teladan integritas dan empati bagi peserta didik.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALERI SECTION -->
+    <section id="galeri" class="section" style="background-color: var(--primary-light);">
+        <div class="container">
+            <div class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">
+                <span style="display: block; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-body);">Aktivitas & Dokumentasi PPL</span>
+                <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 0.75rem;">Galeri Kegiatan</h2>
+                <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Potret nyata pembelajaran, bimbingan praktikum, dan kolaborasi profesional selama pelaksanaan PPL di SMK Muhammadiyah 3 Yogyakarta.
+                </p>
+            </div>
+
+            <div class="galeri-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Gallery Item 1 -->
+                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=11', 'Praktik Bubut Presisi', 'Membimbing siswa melakukan pembubutan bertingkat secara presisi di Bengkel Pemesinan.')">
+                    <img src="https://picsum.photos/400/300?random=11" alt="Bubut Manual" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Praktikum Bengkel</span>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Praktik Bubut Presisi</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 2 -->
+                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=12', 'Pengajaran Gambar Teknik CAD', 'Menjelaskan konsep pembuatan gambar detail 2D proyeksi orthogonal menggunakan perangkat lunak CAD.')">
+                    <img src="https://picsum.photos/400/300?random=12" alt="Gambar Teknik" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Teori & Desain</span>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Gambar Teknik CAD</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 3 -->
+                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=13', 'Bimbingan Asesmen Formatif', 'Melakukan bimbingan individu kepada siswa yang memerlukan bantuan penyelesaian gambar bentangan.')">
+                    <img src="https://picsum.photos/400/300?random=13" alt="Bimbingan Siswa" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Konsultasi Belajar</span>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Bimbingan Asesmen</h4>
+                    </div>
+                </div>
+
+                <!-- Gallery Item 4 -->
+                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=14', 'Evaluasi Bersama Mentor', 'Menerima arahan masukan konstruktif dari Guru Pamong mengenai manajemen kelas dan teknik instruksional.')">
+                    <img src="https://picsum.photos/400/300?random=14" alt="Mentor Diskusi" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
+                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
+                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Kolaborasi</span>
+                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Diskusi & Evaluasi PPL</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- KONTAK SECTION -->
+    <section id="kontak" class="section" style="border-bottom: none;">
+        <div class="container">
+            <div class="section-title reveal">
+                <span>Get In Touch</span>
+                <h2>Hubungi Saya</h2>
+            </div>
+
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="ph-fill ph-envelope"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Email</h4>
+                            <p>[EMAIL]</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="ph-fill ph-phone"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Telepon / WhatsApp</h4>
+                            <p>[NO_HP]</p>
+                        </div>
+                    </div>
+                    <div class="contact-info-item">
+                        <div class="contact-info-icon"><i class="ph-fill ph-map-pin"></i></div>
+                        <div class="contact-info-text">
+                            <h4>Lokasi</h4>
+                            <p>[KOTA], Indonesia</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reveal">
+                    <form class="contact-form" onsubmit="event.preventDefault(); alert('Form tersimulasi!');">
+                        <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                        <input type="email" class="form-control" placeholder="Alamat Email" required>
+                        <textarea class="form-control" placeholder="Tuliskan pesan..." required></textarea>
+                        <button type="submit" class="btn btn-primary" style="justify-content: center;">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Hendra Mahardhika. Dibuat untuk PPG Prajabatan.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP -->
+    <div class="modal" id="portfolio-modal">
+        <div class="modal-content" style="max-width: 800px; width: 95%;">
+            <button class="modal-close"><i class="ph ph-x"></i></button>
+            <div class="modal-body">
+                <div id="modal-standard-content">
+                    <div id="modal-media-container" style="margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); background: #f1f5f9; display: flex; justify-content: center; align-items: center; min-height: 250px;">
+                        <img src="" alt="Modal Image" class="modal-img" id="modal-img" style="width: 100%; height: auto; display: block; border: none; margin-bottom: 0;">
+                        <iframe id="modal-pdf" src="" style="width: 100%; height: 500px; display: none; border: none;"></iframe>
+                    </div>
+                    <h3 class="modal-title" id="modal-title">Judul Artefak</h3>
+                    <p class="modal-desc" id="modal-desc">Deskripsi portofolio ditampilkan di sini.</p>
+                    <a href="#" class="btn btn-primary" id="modal-btn"><i class="ph ph-download-simple"></i> Unduh Dokumen</a>
+                </div>
+                <div id="modal-custom-content" style="display: none;"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== JAVASCRIPT ==================== -->
+    <script>
+        const init = () => {
+            
+            // 1. Navbar & Scroll Spy
+            const navbar = document.getElementById('navbar');
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Theme Toggle Logic
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            const themeIcon = themeToggleBtn.querySelector('i');
+            
+            // Check for saved theme preference
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-theme');
+                themeIcon.className = 'ph ph-sun';
+                themeToggleBtn.style.color = '#ef4444';
+            }
+            
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-theme');
+                const isDark = document.body.classList.contains('dark-theme');
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+                
+                if (isDark) {
+                    themeIcon.className = 'ph ph-sun';
+                    themeToggleBtn.style.color = '#ef4444';
+                } else {
+                    themeIcon.className = 'ph ph-moon';
+                    themeToggleBtn.style.color = '#f59e0b';
+                }
+            });
+
+            window.addEventListener('scroll', () => {
+                // Shadow on scroll
+                if (window.scrollY > 10) { navbar.style.boxShadow = '0 1px 3px rgba(0,0,0,0.1)'; } 
+                else { navbar.style.boxShadow = 'none'; }
+
+                // Scroll Spy
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 150) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // 2. Mobile Menu
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-links');
+            
+            if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu) navMenu.classList.remove('active');
+                });
+            });
+
+            // 3. Scroll Reveal
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        revealObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // 4. Portfolio Filter (Double-layered cross-filtering)
+            const mainBtns = document.querySelectorAll('.filter-main-btn');
+            const subBtns = document.querySelectorAll('.filter-sub-btn');
+            const portfolioCards = document.querySelectorAll('.portfolio-card');
+            const emptyState = document.getElementById('portfolio-empty');
+
+            let activeSiklus = 'all';
+            let activeType = 'all';
+
+            function filterArtefak() {
+                let visibleCount = 0;
+                
+                portfolioCards.forEach(card => {
+                    const cardSiklus = card.getAttribute('data-siklus');
+                    const cardType = card.getAttribute('data-type');
+                    
+                    const matchesSiklus = (activeSiklus === 'all' || cardSiklus === activeSiklus);
+                    const matchesType = (activeType === 'all' || cardType === activeType);
+                    
+                    if (matchesSiklus && matchesType) {
+                        card.style.display = 'flex';
+                        card.classList.remove('reveal-active');
+                        void card.offsetWidth; // Trigger reflow to restart CSS animation
+                        card.classList.add('reveal-active');
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                        card.classList.remove('reveal-active');
+                    }
+                });
+                
+                if (visibleCount === 0) {
+                    if (emptyState) emptyState.style.display = 'block';
+                } else {
+                    if (emptyState) emptyState.style.display = 'none';
+                }
+            }
+
+            // Event Listeners for Level 1 (Siklus)
+            mainBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    mainBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeSiklus = btn.getAttribute('data-siklus');
+                    filterArtefak();
+                });
+            });
+
+            // Event Listeners for Level 2 (Sub-Kategori)
+            subBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    subBtns.forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    activeType = btn.getAttribute('data-type');
+                    filterArtefak();
+                });
+            });
+
+            // 5. Modal Logic
+            const modal = document.getElementById('portfolio-modal');
+            const openModalBtns = document.querySelectorAll('.open-modal');
+            const closeModalBtn = document.querySelector('.modal-close');
+            const modalImg = document.getElementById('modal-img');
+            const modalPdf = document.getElementById('modal-pdf');
+            const modalTitle = document.getElementById('modal-title');
+            
+            // Dummy data for all 18 machining PPL artifacts
+            const portfolioData = {
+                "1": { 
+                    title: "RPP Siklus 1", 
+                    img: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='400' height='300' viewBox='0 0 400 300'><rect width='400' height='300' fill='%23f0f4f8'/><text x='200' y='150' fill='%231e3a8a' font-family='sans-serif' font-size='18' text-anchor='middle'>PDF Cover</text></svg>", 
+                    desc: "Modul ajar berbasis Deep Learning mata pelajaran Dasar Teknik Mesin (Proses Industri Manufaktur) materi Teknik Dasar Proses Produksi.",
+                    link: "https://drive.google.com/file/d/1A_9CSSqxP7Kki3TlNKeogASYnjoLTc4j/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">RPP Siklus 1 Deep Learning - Dasar Teknik Mesin</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Rencana Pelaksanaan Pembelajaran (RPP)</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">RPP ini saya buat untuk kelas <strong>X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta</strong> pada mata pelajaran <strong>Dasar Teknik Mesin (Proses Industri Manufaktur)</strong>. Pembelajaran dirancang selama <strong>3 pertemuan</strong> menggunakan model <strong>Project Based Learning (PBL)</strong> agar peserta didik dapat memahami penggunaan alat ukur, proses cutting dan noncutting, serta teknologi manufaktur melalui kegiatan analisis dan pengerjaan LKM yang berkaitan dengan dunia industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">Tujuan penyusunan RPP ini bukan hanya untuk memenuhi administrasi pembelajaran, tetapi menjadi panduan agar proses belajar lebih terarah dan bermakna. Melalui pembelajaran berbasis proyek, peserta didik diharapkan mampu memahami konsep dasar proses produksi dan menghubungkannya dengan penerapan pada bidang teknik mesin di dunia industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Pendekatan Deep Learning, PBL, dan Sistem Among disusun dalam alur pembelajaran yang saling terhubung dan berpusat pada peserta didik.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Penggunaan media PPT, video pembelajaran, dan LKM membuat pembelajaran lebih menarik serta membantu peserta didik memahami materi dengan lebih mudah.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Adanya asesmen diagnostik, formatif, dan sumatif membuat proses penilaian lebih terstruktur dan objektif.</span></li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Alokasi waktu pembelajaran masih terasa terbatas, terutama saat kegiatan analisis dan pengerjaan LKM.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Sebagian peserta didik masih mengalami kesulitan memahami istilah dan konsep proses manufaktur.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Belum terdapat skenario cadangan apabila terjadi kendala teknis pada alat praktik atau media digital.</span></li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color);">RPP ini disusun berdasarkan pendekatan Understanding by Design yang berfokus pada ketercapaian tujuan pembelajaran, dipadukan dengan pendekatan Deep Learning agar pembelajaran berlangsung secara mindful, meaningful, dan joyful. Selain itu, filosofi Sistem Among Ki Hadjar Dewantara diterapkan agar pembelajaran lebih aktif dan berpusat pada peserta didik.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1A_9CSSqxP7Kki3TlNKeogASYnjoLTc4j/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1A_9CSSqxP7Kki3TlNKeogASYnjoLTc4j/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "2": { title: "Bahan Ajar Gambar Manufaktur 2D", img: "materi-cover.png", desc: "Buku panduan ajar terstruktur materi gambar proyeksi ortogonal, toleransi ukuran geometris standar ISO, dan simbol kekasaran permukaan untuk kelas XI Teknik Mesin.", link: "https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" },
+                "3": { title: "Lembar Kerja Siswa (LKM) Autodesk Inventor", img: "https://picsum.photos/800/500?random=107", desc: "Jobsheet penuntun praktik siswa dalam pemodelan solid part 3D, koordinasi penyusunan perakitan (assembly 2D), serta pembentukan bill of materials (BOM) Tool Post.", link: "https://drive.google.com/file/d/1iounm_y65BqiyldOfqTp2NsdLFhrdapI/view?usp=sharing" },
+                "21": {
+                    title: "Lembar Kerja Siswa (LKM) Pertemuan 2",
+                    img: "https://picsum.photos/400/300?random=121",
+                    desc: "Panduan praktik lanjutan untuk mengasah kemampuan pemecahan masalah dan keterampilan perakitan komponen.",
+                    link: "https://drive.google.com/file/d/1hUTzqHYH6iemPJw6XCkKH8p8kmAJHUHu/view?usp=sharing"
+                },
+                "4": {
+                    title: "Media Pembelajaran Interaktif", 
+                    img: "media-cover.png", 
+                    desc: "Slide presentasi modular ajar interaktif PPT dengan kuis gamifikasi mandiri terintegrasi guna menstimulasi kesenangan pembacaan detail gambar kerja teknik.",
+                    link: "https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Media Pembelajaran Interaktif - Membaca Gambar Teknik Mesin</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Media Presentasi Interaktif (Siklus 1)</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">Media pembelajaran interaktif ini dikembangkan untuk kelas <strong>X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta</strong> pada materi <strong>Membaca Gambar Kerja / Gambar Teknik Mesin</strong>. Media ini disusun dalam bentuk presentasi modular yang interaktif dan dikonversikan ke format PDF agar dapat diakses dengan mudah oleh peserta didik lewat gawai masing-masing, sebagai jembatan pemahaman visual sebelum memulai praktik langsung di bengkel.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">Tujuan pengembangan media ini adalah untuk memudahkan peserta didik dalam menerjemahkan proyeksi 2D standar ISO ke dalam visualisasi 3D secara mandiri. Melalui media interaktif ini, diharapkan pemahaman spasial siswa meningkat, ketertarikan belajar gambar teknik terstimulasi melalui kuis gamifikasi, dan risiko kesalahan pengerjaan produk di mesin bubut berkurang.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Penyajian materi terstruktur secara bertahap (chunking) dengan visualisasi 3D berwarna yang memikat.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Dilengkapi kuis interaktif evaluatif mandiri di bagian akhir guna menguji pemahaman peserta didik secara langsung.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Ukuran file yang terkompresi dengan baik sehingga ramah kuota dan lancar diakses melalui berbagai jenis smartphone siswa.</span></li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Elemen interaktivitas tertentu (seperti animasi transisi) menjadi terbatas ketika dikonversi penuh ke PDF.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Beberapa visualisasi detail memerlukan resolusi layar tinggi untuk keterbacaan toleransi ukuran yang sangat kecil.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Belum terintegrasi otomatis dengan sistem database LMS untuk merekam skor kuis mandiri siswa secara terpusat.</span></li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color);">Pengembangan media ini didasarkan pada <strong>Cognitive Load Theory</strong> (mengurangi extraneous load melalui visualisasi yang jelas) dan prinsip <strong>Visual Literacy</strong>. Pemaparan informasi visual secara interaktif terbukti mampu meningkatkan kemampuan spasial kognitif peserta didik dalam menerjemahkan gambar 2D menjadi bentuk komponen fisik nyata.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #06b6d4; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "19": {
+                    title: "Media Pembelajaran Pertemuan 2",
+                    img: "https://picsum.photos/400/300?random=119",
+                    desc: "Bahan tayang presentasi interaktif untuk pertemuan kedua pada Siklus 1 yang memuat materi pengenalan alat potong.",
+                    link: "https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/view?usp=sharing"
+                },
+                "20": {
+                    title: "Media Pembelajaran Pertemuan 3",
+                    img: "https://picsum.photos/400/300?random=120",
+                    desc: "Bahan tayang presentasi interaktif untuk pertemuan ketiga pada Siklus 1 yang memuat materi lanjutan proses manufaktur.",
+                    link: "https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/view?usp=sharing"
+                },
+                "5": { title: "Instrumen Penilaian Terpadu Siklus 1", img: "https://picsum.photos/800/500?random=113", desc: "Kisi-kisi soal evaluasi, rubrik lengkap penilaian asesmen sumatif formatif kognitif teori, lembar penilaian produk fisik nyata, serta instrumen penilaian afektif sikap." },
+                "6": { title: "Jurnal Refleksi Harian Siklus 1", img: "https://picsum.photos/800/500?random=116", desc: "Catatan harian evaluasi diri mandiri setelah mengajar (self-reflection) Siklus 1, mencatat keaktifan siswa, kendala teknis bengkel, serta perbaikan manajemen kelas." },
+                "7": { title: "Modul Ajar Siklus 2 (PjBL - Poros Bertingkat)", img: "https://picsum.photos/800/500?random=102", desc: "Perangkat modul ajar berorientasi Project Based Learning (PjBL) untuk membimbing kelompok siswa memecahkan masalah manufaktur poros transmisi bertingkat." },
+                "8": { title: "Bahan Ajar Kecepatan Bubut", img: "https://picsum.photos/800/500?random=105", desc: "Modul perhitungan teoretis parameter pemotongan bubut manual meliputi penetapan rumus kecepatan potong (Vc), putaran poros (n), dan feeding bubut." },
+                "9": { title: "Lembar Kerja Siswa Praktikum Bubut", img: "https://picsum.photos/800/500?random=108", desc: "LKM lembar kerja jobsheet pengerjaan bubut manual bertingkat, pembubutan alur poros, ulir segitiga luar, serta proses kartel genggaman tangan presisi." },
+                "10": { title: "Media Simulasi Bubut 3D", img: "https://picsum.photos/800/500?random=111", desc: "Media ajar berbasis software simulasi 3D proses penyayatan pahat bubut guna memperlihatkan visual pemotongan logam aman tanpa risiko cidera nyata." },
+                "11": { title: "Rubrik Evaluasi Kinerja K3 & Produk", img: "https://picsum.photos/800/500?random=114", desc: "Skema rubrik penilaian detail kepatuhan standar K3 laboratorium mesin, pemakaian APD kacamata pelindung, pembersihan sisa tatal besi, serta kepresisian ukuran produk." },
+                "12": { title: "Refleksi Pembimbing Siklus 2", img: "https://picsum.photos/800/500?random=117", desc: "Dokumen kompilasi umpan balik konstruktif dan catatan masukan berharga hasil observasi mengajar di kelas dari Dosen Pembimbing Lapangan dan Guru Pamong." },
+                "13": { title: "Modul Ajar Siklus 3 (PBL - Frais CNC)", img: "https://picsum.photos/800/500?random=103", desc: "Modul ajar kurikulum merdeka pengantar teknik pemesinan CNC Frais (Milling CNC) dengan pendekatan pembelajaran berbasis pemecahan masalah nyata (PBL)." },
+                "14": { title: "Modul Pemrograman G-Code CNC", img: "https://picsum.photos/800/500?random=106", desc: "Materi ajar pemrograman penulisan blok kode pengendali mesin CNC mencakup interpolasi linier, gerakan melingkar, penetapan titik referensi benda kerja, dan kode M." },
+                "15": { title: "LKM Pengoperasian Simulator CNC", img: "https://picsum.photos/800/500?random=109", desc: "Jobsheet latihan siswa memasukkan koordinat numerik G-code dan pengujian simulasi grafis pergerakan arah pahat cutter milling secara virtual." },
+                "16": { title: "Video Tutorial Setting Z-Axis CNC", img: "https://picsum.photos/800/500?random=112", desc: "Video instruksional panduan tata cara menetapkan koordinat sumbu nol Z benda kerja pada permukaan logam menggunakan alat bantu touch probe dan dial test." },
+                "17": { title: "Uji Kompetensi Kognitif CNC", img: "https://picsum.photos/800/500?random=115", desc: "Paket kuesioner evaluasi teori pemrograman CNC milling, pemahaman koordinat absolut inkremental, pemecahan masalah kesalahan eksekusi alarm baris kode." },
+                "18": { title: "Laporan Studi Kasus Akhir PPL", img: "https://picsum.photos/800/500?random=118", desc: "Laporan komprehensif ilmiah hasil studi kasus penanganan kesulitan belajar siswa dalam menguasai keterampilan memprogram mesin bubut/frais CNC." }
+            };
+
+            const downloadBtn = document.getElementById('modal-btn');
+            const standardContent = document.getElementById('modal-standard-content');
+            const customContent = document.getElementById('modal-custom-content');
+
+            openModalBtns.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const id = btn.getAttribute('data-id');
+                    if(portfolioData[id]) {
+                        
+                        let htmlToRender = portfolioData[id].customHtml;
+                        if (!htmlToRender) {
+                            const data = portfolioData[id];
+                            const linkHref = data.link ? data.link : "#";
+                            const linkTarget = data.link ? 'target="_blank"' : 'onclick="event.preventDefault();"';
+                            const iframeSrc = data.link ? data.link.replace('/view?usp=sharing', '/preview') : "about:blank";
+                            
+                            htmlToRender = `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">${data.title}</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Artefak Portofolio</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan & Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">${data.desc}</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>[Isi kelebihan artefak ini akan diperbarui kemudian]</span></li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>[Isi kekurangan artefak ini akan diperbarui kemudian]</span></li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color);">[Kajian teori yang mendasari pembuatan artefak ini akan diperbarui kemudian]</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="${linkHref}" ${linkTarget} style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem; display: flex; align-items: center; justify-content: center; min-height: 200px;">
+                                ${data.link ? 
+                                    `<iframe src="${iframeSrc}" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>` : 
+                                    `<p style="color: #94a3b8; font-size: 0.95rem; font-style: italic;">Pratinjau dokumen PDF belum tersedia untuk artefak ini.</p>`
+                                }
+                            </div>
+                        </div>
+                            `;
+                        }
+
+                        standardContent.style.display = 'none';
+                        customContent.style.display = 'block';
+                        customContent.innerHTML = htmlToRender;
+                        
+                        modal.classList.add('active');
+                    }
+                });
+            });
+            // Auto-generate PDF thumbnail from Google Drive link for all cards
+            portfolioCards.forEach(card => {
+                const btn = card.querySelector('.open-modal');
+                if (btn) {
+                    const id = btn.getAttribute('data-id');
+                    if (portfolioData[id] && portfolioData[id].link) {
+                        const link = portfolioData[id].link;
+                        const gdriveMatch = link.match(/\/d\/([a-zA-Z0-9_-]+)/);
+                        if (gdriveMatch && gdriveMatch[1]) {
+                            const fileId = gdriveMatch[1];
+                            const thumbUrl = `https://drive.google.com/thumbnail?id=${fileId}&sz=w800`;
+                            
+                            const imgElement = card.querySelector('.portfolio-img');
+                            if (imgElement) {
+                                imgElement.src = thumbUrl;
+                                imgElement.style.objectFit = 'cover';
+                                imgElement.style.objectPosition = 'top';
+                                imgElement.style.background = '#ffffff';
+                                imgElement.style.width = '100%';
+                                imgElement.style.height = '100%';
+                            }
+                            
+                            const overlayLink = card.querySelector('.pdf-overlay');
+                            if (overlayLink) {
+                                overlayLink.href = link;
+                                overlayLink.target = '_blank';
+                                overlayLink.removeAttribute('onclick');
+                            }
+                        }
+                    }
+                }
+            });
+
+            // 6. Gallery Modal Handler
+            window.openGalleryModal = (img, title, desc) => {
+                modalImg.src = img;
+                modalTitle.textContent = title;
+                document.getElementById('modal-desc').textContent = desc;
+                if (downloadBtn) { downloadBtn.style.display = 'none'; }
+                modal.classList.add('active');
+            };
+
+
+            const closeModal = () => {
+                modal.classList.remove('active');
+                modalPdf.src = '';
+            };
+            closeModalBtn.addEventListener('click', closeModal);
+            window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+        };
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', init);
+        } else {
+            init();
+        }
+    </script>
+</body>
+</html>
+
+
