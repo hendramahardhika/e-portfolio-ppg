@@ -710,7 +710,15 @@
             transform: translateY(0);
         }
 
-        .portfolio-info { padding: 1.2rem; }
+        .portfolio-info { 
+            padding: 1.2rem; 
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .portfolio-info > :last-child {
+            margin-top: auto !important;
+        }
         .portfolio-info h3 {
             font-family: var(--font-body);
             font-weight: 700;
@@ -723,6 +731,7 @@
             font-size: 0.9rem;
             line-height: 1.6;
             margin-bottom: 1.25rem;
+            text-align: justify;
         }
         .portfolio-action {
             display: block;
@@ -1092,8 +1101,8 @@
                 <div class="profile-img-container">
                     <img src="https://picsum.photos/400/400?random=1" alt="Foto Profil" class="profile-img">
                 </div>
-                <div class="badge-simple badge-1">🎓 PPG Prajab 2026</div>
-                <div class="badge-simple badge-2">📐 Teknik Pemesinan</div>
+                <div class="badge-simple badge-1">ðŸŽ“ PPG Prajab 2026</div>
+                <div class="badge-simple badge-2">ðŸ“ Teknik Pemesinan</div>
             </div>
         </div>
     </header>
@@ -1140,7 +1149,7 @@
                     <div class="about-text" style="display: flex; flex-direction: column; gap: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
                         <div class="about-section">
                             <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>📍</span> Asal & Latar Belakang
+                                <span>ðŸ“</span> Asal & Latar Belakang
                             </h4>
                             <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
                                 Perkenalkan, nama saya <strong>Hendra Mahardhika</strong>. Saya berasal dari <strong>Daerah Istimewa Yogyakarta</strong>, daerah yang dikenal sebagai <strong>Kota Pelajar</strong> dengan budaya yang kaya, lingkungan akademik yang kuat, serta masyarakat yang menjunjung tinggi nilai pendidikan dan etika. Suasana tersebut membentuk karakter saya menjadi pribadi yang disiplin, terbuka terhadap perkembangan ilmu pengetahuan, dan memiliki semangat untuk terus belajar. Ketertarikan saya pada dunia teknik dan pendidikan mendorong saya untuk menempuh bidang <strong>Teknik Pemesinan</strong> sekaligus mempersiapkan diri menjadi pendidik profesional yang mampu memberikan kontribusi nyata dalam dunia pendidikan vokasi.
@@ -1149,7 +1158,7 @@
 
                         <div class="about-section">
                             <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>💡</span> Inspirasi Menjadi Guru
+                                <span>ðŸ’¡</span> Inspirasi Menjadi Guru
                             </h4>
                             <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
                                 Inspirasi saya untuk menjadi seorang <strong>Guru Profesional</strong> berawal dari pengalaman menjalani <strong>Praktik Pengalaman Lapangan (PPL)</strong> pada masa studi S1 di <strong>Universitas Negeri Yogyakarta</strong>. Melalui kegiatan tersebut, saya berkesempatan untuk terlibat langsung dalam proses pembelajaran di kelas, berinteraksi dengan peserta didik, serta memahami peran guru dalam membimbing dan memotivasi siswa. Pengalaman itu memberikan pandangan bahwa guru tidak hanya berperan sebagai penyampai materi, tetapi juga sebagai pembentuk karakter dan pengarah potensi peserta didik. Dari pengalaman tersebut, saya semakin yakin untuk mengabdikan diri sebagai pendidik yang mampu menciptakan pembelajaran yang inovatif, bermakna, dan relevan dengan kebutuhan dunia pendidikan maupun industri.
@@ -1158,7 +1167,7 @@
 
                         <div class="about-section">
                             <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>🎯</span> Tujuan Profesional
+                                <span>ðŸŽ¯</span> Tujuan Profesional
                             </h4>
                             <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
                                 Melalui program <strong>PPG Calon Guru 2026</strong>, saya berkomitmen untuk mengembangkan kompetensi pedagogik, profesional, sosial, dan kepribadian sebagai calon pendidik di bidang <strong>Teknik Pemesinan</strong>. Saya ingin menjadi guru yang mampu menghadirkan pembelajaran yang aktif, kreatif, dan aplikatif sehingga peserta didik tidak hanya memahami teori, tetapi juga mampu menerapkannya dalam kehidupan dan dunia industri. Selain itu, saya berharap dapat berkontribusi dalam menciptakan lulusan yang kompeten, berkarakter, adaptif terhadap perkembangan teknologi, serta siap menghadapi tantangan dunia kerja di masa depan.
@@ -1205,7 +1214,7 @@
                     <div class="timeline-dot"></div>
                     <span class="timeline-year">2025 - Sekarang</span>
                     <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600; margin-left: 0.5rem; vertical-align: middle;">
-                        🔄 Sedang Berlangsung
+                        ðŸ”„ Sedang Berlangsung
                     </span>
                     <h3>Universitas Sarjanawiyata Tamansiswa</h3>
                     <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">PPG Prajabatan</h4>
@@ -1217,7 +1226,7 @@
                     <div class="timeline-dot"></div>
                     <span class="timeline-year">2017 - 2022</span>
                     <h3>Universitas Negeri Yogyakarta</h3>
-                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">S1 Pendidikan Teknik Mesin <span style="font-weight: 400; color: var(--text-muted);">— IPK: 3.63/4.00</span></h4>
+                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">S1 Pendidikan Teknik Mesin <span style="font-weight: 400; color: var(--text-muted);">â€” IPK: 3.63/4.00</span></h4>
                     <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
                         Menempuh pendidikan pada bidang <strong>Pendidikan Teknik Mesin</strong> dengan fokus pada kompetensi teknik dan pedagogik sebagai calon pendidik vokasi. Selama perkuliahan, saya aktif mengembangkan kemampuan akademik dan profesional hingga berhasil memperoleh <strong>2 Sertifikasi BNSP</strong> sebagai bukti kompetensi keahlian serta menjadi penerima <strong>Beasiswa PPA (Peningkatan Prestasi Akademik)</strong> atas capaian dan konsistensi dalam bidang akademik maupun pengembangan diri.
                     </p>
@@ -1240,7 +1249,7 @@
         <div class="container">
             <div class="section-title reveal" style="text-align: center; margin-bottom: 2.5rem;">
                 <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; border: 1px solid var(--border-color);">
-                    📁 PORTOFOLIO
+                    ðŸ“ PORTOFOLIO
                 </span>
                 <h2 style="font-size: 2.2rem; color: var(--primary-color); font-weight: 800; margin-bottom: 0.5rem;">Karya & Dokumentasi</h2>
                 <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.5;">
@@ -1262,8 +1271,8 @@
                     <button class="filter-sub-btn active" data-type="all">Semua</button>
                     <button class="filter-sub-btn" data-type="rpp">RPP</button>
                     <button class="filter-sub-btn" data-type="materi">Materi</button>
-                    <button class="filter-sub-btn" data-type="lkm">LKM</button>
                     <button class="filter-sub-btn" data-type="media">Media</button>
+                    <button class="filter-sub-btn" data-type="lkm">LKM</button>
                     <button class="filter-sub-btn" data-type="asesmen">Asesmen</button>
                     <button class="filter-sub-btn" data-type="lainnya">Lainnya</button>
                 </div>
@@ -1304,9 +1313,9 @@
                 <!-- Item 2: Siklus 1 - Materi -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="materi">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <span class="portfolio-badge" style="background-color: #8b5cf6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
                         <img src="materi-cover.png" alt="Bahan Ajar Siklus 1" class="portfolio-img" style="object-fit: cover; object-position: top; background: #ffffff; width: 100%; height: 100%;">
-                        <a href="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" target="_blank" class="pdf-overlay">
+                        <a href="https://drive.google.com/file/d/1MoZixdED-Hb1Nm_Yu6E6zMWy-NcSVFuy/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1319,16 +1328,46 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Bahan Ajar Gambar Manufaktur 2D</h3>
-                        <p>Bahan bacaan siswa terstruktur mengenai proyeksi ortogonal dan detail standar ISO.</p>
+                        <h3>Materi Siklus 1</h3>
+                        <p>Modul bahan ajar Teknik Dasar Proses Produksi meliputi alat ukur, proses cutting dan noncutting, serta teknologi manufaktur dasar.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="2">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
-                <!-- Item 19: Siklus 1 - Media Pertemuan 2 -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="materi">
+                <!-- Item 4: Siklus 1 - Media Pertemuan 1 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="media">
                     <div class="portfolio-img-wrapper rpp-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <span class="portfolio-badge" style="background-color: #3b82f6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        
+                        <!-- Authentic Cover Image -->
+                        <img src="media-cover.png" alt="Cover Media Siklus 1" class="portfolio-img" style="object-fit: cover; object-position: top; background: #ffffff; width: 100%; height: 100%;">
+                        <a href="https://drive.google.com/file/d/1KQG45YsFyMGmTGSPh629CZesmuC4gOEr/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3 style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.25rem; margin-bottom: 0.75rem;">Media Siklus 1 – Pertemuan 1</h3>
+                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem;">Media ajar tentang pengenalan alat ukur teknik mesin, fungsi alat ukur, serta penggunaan dasar alat ukur pada proses produksi.</p>
+                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                            <button class="portfolio-action open-modal btn-analisis-khusus" data-id="4">
+                                Lihat Analisis <i class="ph ph-chart-bar"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Item 19: Siklus 1 - Media Pertemuan 2 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="media">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #3b82f6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
                         <img src="https://picsum.photos/400/300?random=119" alt="Media Pertemuan 2" class="portfolio-img">
                         <a href="https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
@@ -1343,16 +1382,16 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Media Pembelajaran Pertemuan 2</h3>
-                        <p>Bahan tayang presentasi interaktif untuk pertemuan kedua pada Siklus 1 yang memuat materi pengenalan alat potong.</p>
+                        <h3>Media Siklus 1 – Pertemuan 2</h3>
+                        <p>Media ajar tentang proses cutting dan noncutting, jenis proses produksi, serta penerapannya pada bidang teknik mesin.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="19">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 20: Siklus 1 - Media Pertemuan 3 -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="materi">
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="media">
                     <div class="portfolio-img-wrapper rpp-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <span class="portfolio-badge" style="background-color: #3b82f6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
                         <img src="https://picsum.photos/400/300?random=120" alt="Media Pertemuan 3" class="portfolio-img">
                         <a href="https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
@@ -1367,15 +1406,15 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Media Pembelajaran Pertemuan 3</h3>
-                        <p>Bahan tayang presentasi interaktif untuk pertemuan ketiga pada Siklus 1 yang memuat materi lanjutan proses manufaktur.</p>
+                        <h3>Media Siklus 1 – Pertemuan 3</h3>
+                        <p>Media ajar tentang penggunaan perkakas, alat pemindah bahan, dan teknologi manufaktur modern pada proses produksi teknik mesin.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="20">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
                 <!-- Item 3: Siklus 1 - LKM -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lkm">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
                         <img src="https://picsum.photos/400/300?random=107" alt="LKM Siklus 1" class="portfolio-img">
                         <a href="https://drive.google.com/file/d/1iounm_y65BqiyldOfqTp2NsdLFhrdapI/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
@@ -1390,8 +1429,8 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Lembar Kerja Siswa (LKM)</h3>
-                        <p>Panduan praktik gambar perakitan Tool Post dengan perangkat Autodesk Inventor.</p>
+                        <h3>LKM Siklus 1 â€“ Pertemuan 1</h3>
+                        <p>Lembar kerja memandu peserta didik mengidentifikasi jenis dan penggunaan alat ukur teknik mesin melalui kegiatan analisis sederhana.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="3">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
@@ -1399,7 +1438,7 @@
                 <!-- Item 21: Siklus 1 - LKM Pertemuan 2 -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lkm">
                     <div class="portfolio-img-wrapper rpp-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
                         <img src="https://picsum.photos/400/300?random=121" alt="LKM Pertemuan 2" class="portfolio-img">
                         <a href="https://drive.google.com/file/d/1hUTzqHYH6iemPJw6XCkKH8p8kmAJHUHu/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
@@ -1414,19 +1453,18 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Lembar Kerja Siswa (LKM) Pertemuan 2</h3>
-                        <p>Panduan praktik lanjutan untuk mengasah kemampuan pemecahan masalah dan keterampilan perakitan komponen.</p>
+                        <h3>LKM Siklus 1 â€“ Pertemuan 2</h3>
+                        <p>Lembar kerja memandu peserta didik menganalisis proses cutting dan noncutting pada proses produksi teknik mesin.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="21">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
-                <!-- Item 4: Siklus 1 - Media -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="media">
+                
+                <!-- Item 22: Siklus 1 - LKM Pertemuan 3 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lkm">
                     <div class="portfolio-img-wrapper rpp-wrapper">
-                        <span class="portfolio-badge" style="background-color: #06b6d4; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
-                        
-                        <!-- Authentic Cover Image -->
-                        <img src="media-cover.png" alt="Cover Media Siklus 1" class="portfolio-img" style="object-fit: cover; object-position: top; background: #ffffff; width: 100%; height: 100%;">
-                        <a href="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" target="_blank" class="pdf-overlay">
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=122" alt="LKM Pertemuan 3" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/16d01FLvpKU14wDqWKXuioEwLe52JZHnY/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1439,22 +1477,18 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3 style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.25rem; margin-bottom: 0.75rem;">Media Siklus 1</h3>
-                        <p style="color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.25rem;">Slide presentasi modular ajar interaktif PPT dengan kuis gamifikasi mandiri terintegrasi guna menstimulasi kesenangan pembacaan detail gambar kerja teknik.</p>
-                        <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
-                            <button class="portfolio-action open-modal btn-analisis-khusus" data-id="4">
-                                Lihat Analisis <i class="ph ph-chart-bar"></i>
-                            </button>
-                        </div>
+                        <h3>LKM Siklus 1 â€“ Pertemuan 3</h3>
+                        <p>Lembar kerja memandu peserta didik mengidentifikasi penggunaan perkakas dan teknologi manufaktur pada proses produksi teknik mesin.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="22">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 5: Siklus 1 - Asesmen -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="asesmen">
-                    <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #f59e0b; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
                         <img src="https://picsum.photos/400/300?random=113" alt="Asesmen Siklus 1" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1u0C0zPgCm5lUmQb9N1NekHbINe8YoehO/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1467,43 +1501,21 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Instrumen Penilaian Terpadu</h3>
-                        <p>Rubrik penilaian lengkap meliputi lembar uji kognitif, lembar penilaian produk, & sikap.</p>
+                        <h3>Instrumen Asesmen Siklus 1</h3>
+                        <p>Instrumen asesmen diagnostik, formatif, dan sumatif meliputi penilaian pemahaman konsep, keaktifan diskusi, serta hasil analisis peserta didik</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="5">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
-                <!-- Item 6: Siklus 1 - Lainnya -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="1" data-type="lainnya">
-                    <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Lainnya</span>
-                        <img src="https://picsum.photos/400/300?random=116" alt="Refleksi Siklus 1" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
-                            <span class="glass-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
-                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
-                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
-                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
-                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
-                                </svg>
-                                Buka PDF di Drive
-                            </span>
-                        </a>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Jurnal Refleksi Harian</h3>
-                        <p>Evaluasi proses mengajar mandiri setelah pelaksanaan tindakan pembelajaran Siklus 1.</p>
-                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="6">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
-                    </div>
-                </div>
+
 
                 <!-- ================= SIKLUS 2 ARTEFAKS ================= -->
                 <!-- Item 7: Siklus 2 - RPP -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="rpp">
-                    <div class="portfolio-img-wrapper">
+                    <div class="portfolio-img-wrapper rpp-wrapper">
                         <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">RPP</span>
                         <img src="https://picsum.photos/400/300?random=102" alt="Modul Ajar Siklus 2" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1xNjqGO_B1dK5IQVnXhPlJvL220Pxlwgf/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1516,18 +1528,18 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Modul Ajar Siklus 2</h3>
-                        <p>Perangkat ajar Project Based Learning (PjBL) untuk praktik pembuatan Poros Bertingkat.</p>
+                        <h3>RPP Siklus 2</h3>
+                        <p>Modul ajar berbasis Deep Learning mata pelajaran Gambar Teknik dengan materi Gambar Potongan.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="7">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 8: Siklus 2 - Materi -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="materi">
-                    <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                    <div class="portfolio-img-wrapper rpp-wrapper">
+                        <span class="portfolio-badge" style="background-color: #8b5cf6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
                         <img src="https://picsum.photos/400/300?random=105" alt="Bahan Ajar Siklus 2" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1IHB8kD29r7xnQz3uxi0tqCK_nReYpB38/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1540,42 +1552,18 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Bahan Ajar Kecepatan Bubut</h3>
-                        <p>Panduan kalkulasi parameter pemotongan, kecepatan putaran spindle, & pemakanan bubut.</p>
+                        <h3>Materi Siklus 2</h3>
+                        <p>Modul bahan ajar Gambar Potongan meliputi fungsi, jenis, aturan arsiran, dan praktik gambar potongan sederhana.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="8">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
-                    </div>
-                </div>
-
-                <!-- Item 9: Siklus 2 - LKM -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lkm">
-                    <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
-                        <img src="https://picsum.photos/400/300?random=108" alt="LKM Siklus 2" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
-                            <span class="glass-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
-                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
-                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
-                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
-                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
-                                </svg>
-                                Buka PDF di Drive
-                            </span>
-                        </a>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Lembar Kerja Siswa Bubut</h3>
-                        <p>Jobsheet pengerjaan bubut manual poros bertingkat langkah demi langkah presisi.</p>
-                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="9">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 10: Siklus 2 - Media -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="media">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        <span class="portfolio-badge" style="background-color: #3b82f6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
                         <img src="https://picsum.photos/400/300?random=111" alt="Media Siklus 2" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1Eh1xwFQO7pJeQWW3ch_tiqdEYK5Fd5dQ/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1588,18 +1576,90 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Media Simulasi Bubut 3D</h3>
-                        <p>Aplikasi simulasi CAD/CAM 3D interaktif agar siswa mengenali alur pencekaman pahat bubut.</p>
+                        <h3>Media Siklus 2</h3>
+                        <p>Media ajar tentang konsep, jenis, aturan arsiran, dan praktik gambar potongan pada gambar teknik.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="10">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 9: Siklus 2 - LKM -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lkm">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=108" alt="LKM Siklus 2" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1yg6dkUI95JvZNTjA4E7If52EFq9dAGxT/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>LKM Siklus 2 â€“ Pertemuan 1</h3>
+                        <p>Lembar kerja memandu peserta didik mengidentifikasi fungsi dan aturan dasar gambar potongan pada gambar teknik.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="9">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 23: Siklus 2 - LKM Pertemuan 2 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lkm">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=123" alt="LKM Pertemuan 2" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1iFhw-RutDedAYpY3MvToDTdeNO7AslcW/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>LKM Siklus 2 â€“ Pertemuan 2</h3>
+                        <p>Lembar kerja memandu peserta didik mengidentifikasi jenis-jenis gambar potongan pada gambar teknik.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="23">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 24: Siklus 2 - LKM Pertemuan 3 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lkm">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=124" alt="LKM Pertemuan 3" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/13z4NXxYkDs3JVjKizAjiF1NnWrEsNh7S/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka PDF di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>LKM Siklus 2 â€“ Pertemuan 3</h3>
+                        <p>Lembar kerja memandu peserta didik membuat gambar potongan sederhana sesuai aturan dasar gambar teknik.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="24">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 11: Siklus 2 - Asesmen -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="asesmen">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
+                        <span class="portfolio-badge" style="background-color: #f59e0b; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
                         <img src="https://picsum.photos/400/300?random=114" alt="Asesmen Siklus 2" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1rw1k4U4rZ8vx-s5K6rcA3wasZ17GLvxo/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1612,35 +1672,13 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Rubrik Evaluasi Kinerja K3</h3>
-                        <p>Skema penilaian kepatuhan penggunaan alat pelindung diri (APD) & ketelitian produk jadi.</p>
+                        <h3>Instrumen Asesmen Siklus 2</h3>
+                        <p>Instrumen asesmen diagnostik, formatif, dan sumatif meliputi penilaian pemahaman konsep, keaktifan diskusi, serta hasil analisis peserta didik</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="11">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
-                <!-- Item 12: Siklus 2 - Lainnya -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="2" data-type="lainnya">
-                    <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Lainnya</span>
-                        <img src="https://picsum.photos/400/300?random=117" alt="Refleksi Siklus 2" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
-                            <span class="glass-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
-                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
-                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
-                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
-                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
-                                </svg>
-                                Buka PDF di Drive
-                            </span>
-                        </a>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Refleksi Pembimbing Siklus 2</h3>
-                        <p>Catatan lembar observasi umpan balik dari DPL dan Guru Pamong terhadap Siklus 2.</p>
-                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="12">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
-                    </div>
-                </div>
+
 
                 <!-- ================= SIKLUS 3 ARTEFAKS ================= -->
                 <!-- Item 13: Siklus 3 - RPP -->
@@ -1648,7 +1686,7 @@
                     <div class="portfolio-img-wrapper">
                         <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">RPP</span>
                         <img src="https://picsum.photos/400/300?random=103" alt="Modul Ajar Siklus 3" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1wCJPVbgx8MRq7igZnszMtWnRN7wo-vY1/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1661,8 +1699,8 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Modul Ajar Siklus 3</h3>
-                        <p>Modul ajar dengan pendekatan Problem Based Learning topik dasar pemesinan Frais CNC.</p>
+                        <h3>RPP Siklus 3</h3>
+                        <p>Modul ajar berbasis Deep Learning mata pelajaran Dasar Perencanaan Teknik Mesin (Mekanika Teknik) materi Puli dan Sabuk Pemindah.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="13">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
@@ -1670,9 +1708,9 @@
                 <!-- Item 14: Siklus 3 - Materi -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="materi">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
+                        <span class="portfolio-badge" style="background-color: #8b5cf6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Materi</span>
                         <img src="https://picsum.photos/400/300?random=106" alt="Bahan Ajar Siklus 3" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1XkuJ7boQUJAWrBkFPWnxEpBrF0UKMZa3/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1685,18 +1723,66 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Modul Pemrograman G-Code CNC</h3>
-                        <p>Bahan ajar struktur penulisan baris kode pemesinan CNC milling untuk kontur kompleks.</p>
+                        <h3>Materi Siklus 3</h3>
+                        <p>Modul bahan ajar Puli dan Sabuk Pemindah meliputi jenis, fungsi, prinsip kerja, serta hubungan putaran dan ukuran puli pada sistem transmisi.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="14">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 16: Siklus 3 - Media Pertemuan 1 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="media">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #3b82f6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        <img src="https://picsum.photos/400/300?random=112" alt="Media Pertemuan 1" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1KQG45YsFyMGmTGSPh629CZesmuC4gOEr/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka Media di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Media Siklus 3 – Pertemuan 1</h3>
+                        <p>Media ajar tentang jenis, fungsi, dan prinsip kerja puli pada sistem transmisi mesin.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="16">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                    </div>
+                </div>
+
+                <!-- Item 26: Siklus 3 - Media Pertemuan 2 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="media">
+                    <div class="portfolio-img-wrapper">
+                        <span class="portfolio-badge" style="background-color: #3b82f6; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
+                        <img src="https://picsum.photos/400/300?random=126" alt="Media Pertemuan 2" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1BrazN7o6ypo1qig-MDtGuw6cwFG3ZdMU/view?usp=sharing" target="_blank" class="pdf-overlay">
+                            <span class="glass-btn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                                </svg>
+                                Buka Media di Drive
+                            </span>
+                        </a>
+                    </div>
+                    <div class="portfolio-info">
+                        <h3>Media Siklus 3 – Pertemuan 2</h3>
+                        <p>Media ajar tentang jenis, fungsi, dan penggunaan sabuk pemindah pada sistem transmisi mesin.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="26">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 15: Siklus 3 - LKM -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="lkm">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
                         <img src="https://picsum.photos/400/300?random=109" alt="LKM Siklus 3" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1UaISKajBV8i0cFbHZFZwD_rFwHpu5Ajm/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1709,18 +1795,18 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>LKM Pengoperasian Simulator CNC</h3>
-                        <p>Lembar kerja praktikum penulisan blok program dan simulasi gerakan pahat cutter CNC.</p>
+                        <h3>LKM Siklus 3 – Pertemuan 1</h3>
+                        <p>Lembar kerja memandu peserta didik mengidentifikasi jenis, fungsi, dan prinsip kerja puli pada sistem transmisi mesin.</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="15">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
-                <!-- Item 16: Siklus 3 - Media -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="media">
+                <!-- Item 25: Siklus 3 - LKM Pertemuan 2 -->
+                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="lkm">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Media</span>
-                        <img src="https://picsum.photos/400/300?random=112" alt="Media Siklus 3" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <span class="portfolio-badge" style="background-color: #10b981; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">LKM</span>
+                        <img src="https://picsum.photos/400/300?random=125" alt="LKM Pertemuan 2" class="portfolio-img">
+                        <a href="https://drive.google.com/file/d/1afbsQM_Oupt2pRRcauna9PwcFQv7iZul/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1733,18 +1819,18 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Video Tutorial Setting Z-Axis</h3>
-                        <p>Video instruksional tata cara menetapkan koordinat nol sumbu Z benda kerja pada mesin CNC.</p>
-                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="16">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
+                        <h3>LKM Siklus 3 – Pertemuan 2</h3>
+                        <p>Lembar kerja memandu peserta didik mengidentifikasi jenis, fungsi, dan penggunaan sabuk pemindah pada sistem transmisi mesin.</p>
+                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="25">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Item 17: Siklus 3 - Asesmen -->
                 <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="asesmen">
                     <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
+                        <span class="portfolio-badge" style="background-color: #f59e0b; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Asesmen</span>
                         <img src="https://picsum.photos/400/300?random=115" alt="Asesmen Siklus 3" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
+                        <a href="https://drive.google.com/file/d/1kLhP2rNGwLSLWBBf5l9HorSemTVJrTPT/view?usp=sharing" target="_blank" class="pdf-overlay">
                             <span class="glass-btn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
                                     <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
@@ -1757,41 +1843,17 @@
                         </a>
                     </div>
                     <div class="portfolio-info">
-                        <h3>Uji Kompetensi Kognitif CNC</h3>
-                        <p>Kumpulan soal asesmen sumatif teori pemprograman dan pengenalan tombol controller CNC.</p>
+                        <h3>Instrumen Asesmen Siklus 3</h3>
+                        <p>Instrumen asesmen diagnostik, formatif, dan sumatif meliputi penilaian pemahaman konsep, keaktifan diskusi, serta hasil analisis peserta didik</p>
                         <button class="portfolio-action open-modal btn-analisis-khusus" data-id="17">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
-                    </div>
-                </div>
-
-                <!-- Item 18: Siklus 3 - Lainnya -->
-                <div class="card portfolio-card reveal reveal-active" data-siklus="3" data-type="lainnya">
-                    <div class="portfolio-img-wrapper">
-                        <span class="portfolio-badge" style="background-color: #ef4444; color: white; border-radius: 6px; font-weight: bold; border: none; padding: 0.35rem 0.75rem; z-index: 10;">Lainnya</span>
-                        <img src="https://picsum.photos/400/300?random=118" alt="Laporan Hasil PPL" class="portfolio-img">
-                        <a href="#" class="pdf-overlay" onclick="event.preventDefault();">
-                            <span class="glass-btn">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
-                                    <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
-                                    <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
-                                    <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
-                                    <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
-                                </svg>
-                                Buka PDF di Drive
-                            </span>
-                        </a>
-                    </div>
-                    <div class="portfolio-info">
-                        <h3>Laporan Studi Kasus Akhir PPL</h3>
-                        <p>Laporan analisis komprehensif penanganan kesulitan belajar siswa dalam pemesinan CNC.</p>
-                        <button class="portfolio-action open-modal btn-analisis-khusus" data-id="18">Lihat Analisis <i class="ph ph-chart-bar"></i></button>
                     </div>
                 </div>
 
                 <!-- Empty State -->
                 <div class="filter-empty-state" id="portfolio-empty">
                     <i class="ph ph-folder-open"></i>
-                    <h3>Artefak Tidak Ditemukan</h3>
-                    <p>Maaf, belum ada dokumen artefak yang diunggah untuk kombinasi filter ini.</p>
+                    <h3>Belum ada artefak</h3>
+                    <p>Belum ada artefak untuk kombinasi filter ini.</p>
                 </div>
             </div>
         </div>
@@ -2240,19 +2302,19 @@
                     link: "https://drive.google.com/file/d/1A_9CSSqxP7Kki3TlNKeogASYnjoLTc4j/view?usp=sharing",
                     customHtml: `
                         <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
-                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">RPP Siklus 1 Deep Learning - Dasar Teknik Mesin</h2>
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">RPP Siklus 1 Deep Learning - Proses Industri Manufaktur</h2>
                             <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Rencana Pelaksanaan Pembelajaran (RPP)</p>
                             
                             <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
 
                             <div style="margin-bottom: 1.5rem;">
                                 <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
-                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">RPP ini saya buat untuk kelas <strong>X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta</strong> pada mata pelajaran <strong>Dasar Teknik Mesin (Proses Industri Manufaktur)</strong>. Pembelajaran dirancang selama <strong>3 pertemuan</strong> menggunakan model <strong>Project Based Learning (PBL)</strong> agar peserta didik dapat memahami penggunaan alat ukur, proses cutting dan noncutting, serta teknologi manufaktur melalui kegiatan analisis dan pengerjaan LKM yang berkaitan dengan dunia industri.</p>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">RPP ini saya buat untuk kelas <strong>X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta</strong> pada mata pelajaran <strong>Dasar Teknik Mesin (Proses Industri Manufaktur)</strong>. Pembelajaran dirancang selama <strong>3 pertemuan</strong> menggunakan model <strong>Project Based Learning (PBL)</strong> agar peserta didik dapat memahami penggunaan alat ukur, proses cutting dan noncutting, serta teknologi manufaktur melalui kegiatan analisis dan pengerjaan LKM yang berkaitan dengan dunia industri.</p>
                             </div>
 
                             <div style="margin-bottom: 1.5rem;">
                                 <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
-                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">Tujuan penyusunan RPP ini bukan hanya untuk memenuhi administrasi pembelajaran, tetapi menjadi panduan agar proses belajar lebih terarah dan bermakna. Melalui pembelajaran berbasis proyek, peserta didik diharapkan mampu memahami konsep dasar proses produksi dan menghubungkannya dengan penerapan pada bidang teknik mesin di dunia industri.</p>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan RPP ini bukan hanya untuk memenuhi administrasi pembelajaran, tetapi menjadi panduan agar proses belajar lebih terarah dan bermakna. Melalui pembelajaran berbasis proyek, peserta didik diharapkan mampu memahami konsep dasar proses produksi dan menghubungkannya dengan penerapan pada bidang teknik mesin di dunia industri.</p>
                             </div>
 
                             <div style="margin-bottom: 1.5rem;">
@@ -2262,24 +2324,24 @@
                                     <span>✓</span> Kelebihan
                                 </h5>
                                 <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Pendekatan Deep Learning, PBL, dan Sistem Among disusun dalam alur pembelajaran yang saling terhubung dan berpusat pada peserta didik.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Penggunaan media PPT, video pembelajaran, dan LKM membuat pembelajaran lebih menarik serta membantu peserta didik memahami materi dengan lebih mudah.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Adanya asesmen diagnostik, formatif, dan sumatif membuat proses penilaian lebih terstruktur dan objektif.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981; flex-shrink: 0;">✓</span> <span style="text-align: justify; display: block;">Pendekatan Deep Learning, PBL, dan Sistem Among disusun dalam alur pembelajaran yang saling terhubung dan berpusat pada peserta didik.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981; flex-shrink: 0;">✓</span> <span style="text-align: justify; display: block;">Penggunaan media PPT, video pembelajaran, and LKM membuat pembelajaran lebih menarik serta membantu peserta didik memahami materi dengan lebih mudah.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981; flex-shrink: 0;">✓</span> <span style="text-align: justify; display: block;">Adanya asesmen diagnostik, formatif, dan sumatif membuat proses penilaian lebih terstruktur dan objektif.</span></li>
                                 </ul>
 
                                 <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
                                     <span>⚠</span> Kekurangan
                                 </h5>
                                 <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Alokasi waktu pembelajaran masih terasa terbatas, terutama saat kegiatan analisis dan pengerjaan LKM.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Sebagian peserta didik masih mengalami kesulitan memahami istilah dan konsep proses manufaktur.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Belum terdapat skenario cadangan apabila terjadi kendala teknis pada alat praktik atau media digital.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444; flex-shrink: 0;">⚠</span> <span style="text-align: justify; display: block;">Alokasi waktu pembelajaran masih terasa terbatas, terutama saat kegiatan analisis dan pengerjaan LKM.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444; flex-shrink: 0;">⚠</span> <span style="text-align: justify; display: block;">Sebagian peserta didik masih mengalami kesulitan memahami istilah dan konsep proses manufaktur.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444; flex-shrink: 0;">⚠</span> <span style="text-align: justify; display: block;">Belum terdapat skenario cadangan apabila terjadi kendala teknis pada alat praktik atau media digital.</span></li>
                                 </ul>
                             </div>
 
                             <div style="margin-bottom: 2rem;">
                                 <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
-                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color);">RPP ini disusun berdasarkan pendekatan Understanding by Design yang berfokus pada ketercapaian tujuan pembelajaran, dipadukan dengan pendekatan Deep Learning agar pembelajaran berlangsung secara mindful, meaningful, dan joyful. Selain itu, filosofi Sistem Among Ki Hadjar Dewantara diterapkan agar pembelajaran lebih aktif dan berpusat pada peserta didik.</p>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">RPP ini disusun berdasarkan pendekatan Understanding by Design yang berfokus pada ketercapaian tujuan pembelajaran, dipadukan dengan pendekatan Deep Learning agar pembelajaran berlangsung secara mindful, meaningful, dan joyful. Selain itu, filosofi Sistem Among Ki Hadjar Dewantara diterapkan agar pembelajaran lebih aktif dan berpusat pada peserta didik.</p>
                             </div>
 
                             <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
@@ -2295,7 +2357,86 @@
                         </div>
                     `
                 },
-                "2": { title: "Bahan Ajar Gambar Manufaktur 2D", img: "materi-cover.png", desc: "Buku panduan ajar terstruktur materi gambar proyeksi ortogonal, toleransi ukuran geometris standar ISO, dan simbol kekasaran permukaan untuk kelas XI Teknik Mesin.", link: "https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" },
+                "2": { 
+                    title: "Materi Siklus 1", 
+                    img: "materi-cover.png", 
+                    desc: "Modul bahan ajar Teknik Dasar Proses Produksi meliputi alat ukur, proses cutting dan noncutting, serta teknologi manufaktur dasar.", 
+                    link: "https://drive.google.com/file/d/1MoZixdED-Hb1Nm_Yu6E6zMWy-NcSVFuy/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Materi Pembelajaran Siklus 1 - Teknik Dasar Proses Produksi</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Materi Pembelajaran</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Materi pembelajaran ini saya susun untuk peserta didik kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Dasar Teknik Mesin (Proses Industri Manufaktur). Materi dirancang selama 3 pertemuan menggunakan model Problem Based Learning (PBL) agar peserta didik dapat memahami alat ukur, proses cutting dan noncutting, perkakas, alat pemindah bahan, serta teknologi manufaktur melalui kegiatan analisis dan pengerjaan LKM.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan materi ini adalah membantu peserta didik memahami konsep dasar proses produksi pada bidang teknik mesin secara bertahap dan kontekstual. Melalui pembelajaran berbasis masalah, peserta didik diharapkan mampu menghubungkan materi pembelajaran dengan penerapan proses produksi di dunia industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi disusun bertahap mulai dari alat ukur hingga teknologi manufaktur modern sehingga lebih mudah dipahami peserta didik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan PPT, video pembelajaran, dan LKM membantu peserta didik lebih aktif dalam kegiatan analisis dan diskusi.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi dikaitkan dengan dunia industri sehingga pembelajaran menjadi lebih kontekstual dan bermakna.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Sebagian peserta didik masih kesulitan memahami istilah dan konsep dasar proses manufaktur.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Materi praktik masih terbatas pada pengenalan dasar sehingga membutuhkan pengembangan lanjutan.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kegiatan pembelajaran membutuhkan media visual yang cukup agar peserta didik lebih mudah memahami proses produksi.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">Materi ini disusun berdasarkan pendekatan Deep Learning dan Problem Based Learning (PBL) yang berfokus pada pembelajaran aktif, bermakna, dan berpusat pada peserta didik. Pembelajaran juga dikaitkan dengan penerapan proses produksi di dunia industri agar peserta didik mampu memahami konsep alat ukur, cutting dan noncutting, perkakas, alat pemindah bahan, serta teknologi manufaktur secara lebih kontekstual.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1MoZixdED-Hb1Nm_Yu6E6zMWy-NcSVFuy/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1MoZixdED-Hb1Nm_Yu6E6zMWy-NcSVFuy/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
                 "3": { title: "Lembar Kerja Siswa (LKM) Autodesk Inventor", img: "https://picsum.photos/800/500?random=107", desc: "Jobsheet penuntun praktik siswa dalam pemodelan solid part 3D, koordinasi penyusunan perakitan (assembly 2D), serta pembentukan bill of materials (BOM) Tool Post.", link: "https://drive.google.com/file/d/1iounm_y65BqiyldOfqTp2NsdLFhrdapI/view?usp=sharing" },
                 "21": {
                     title: "Lembar Kerja Siswa (LKM) Pertemuan 2",
@@ -2303,93 +2444,714 @@
                     desc: "Panduan praktik lanjutan untuk mengasah kemampuan pemecahan masalah dan keterampilan perakitan komponen.",
                     link: "https://drive.google.com/file/d/1hUTzqHYH6iemPJw6XCkKH8p8kmAJHUHu/view?usp=sharing"
                 },
+                "22": {
+                    title: "Lembar Kerja Siswa (LKM) Pertemuan 3",
+                    img: "https://picsum.photos/400/300?random=122",
+                    desc: "Panduan praktik tingkat mahir yang menguji kompetensi siswa secara komprehensif pada akhir siklus.",
+                    link: "https://drive.google.com/file/d/16d01FLvpKU14wDqWKXuioEwLe52JZHnY/view?usp=sharing"
+                },
                 "4": {
-                    title: "Media Pembelajaran Interaktif", 
+                    title: "Media Siklus 1 – Pertemuan 1", 
                     img: "media-cover.png", 
-                    desc: "Slide presentasi modular ajar interaktif PPT dengan kuis gamifikasi mandiri terintegrasi guna menstimulasi kesenangan pembacaan detail gambar kerja teknik.",
-                    link: "https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing",
+                    desc: "Media ajar tentang pengenalan alat ukur teknik mesin, fungsi alat ukur, serta penggunaan dasar alat ukur pada proses produksi.",
+                    link: "https://drive.google.com/file/d/1KQG45YsFyMGmTGSPh629CZesmuC4gOEr/view?usp=sharing",
                     customHtml: `
                         <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
-                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Media Pembelajaran Interaktif - Membaca Gambar Teknik Mesin</h2>
-                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Media Presentasi Interaktif (Siklus 1)</p>
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Media Siklus 1 – Pertemuan 1</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Media Pembelajaran</p>
                             
                             <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
 
                             <div style="margin-bottom: 1.5rem;">
-                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
-                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">Media pembelajaran interaktif ini dikembangkan untuk kelas <strong>X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta</strong> pada materi <strong>Membaca Gambar Kerja / Gambar Teknik Mesin</strong>. Media ini disusun dalam bentuk presentasi modular yang interaktif dan dikonversikan ke format PDF agar dapat diakses dengan mudah oleh peserta didik lewat gawai masing-masing, sebagai jembatan pemahaman visual sebelum memulai praktik langsung di bengkel.</p>
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Materi pembelajaran ini saya susun untuk peserta didik kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Mekanika Teknik. Materi dirancang selama 3 pertemuan menggunakan model Problem Based Learning (PBL) agar peserta didik dapat memahami konsep puli dan sabuk pemindah, jenis-jenis puli dan sabuk, prinsip kerja transmisi daya, serta perhitungan dasar putaran dan rasio transmisi melalui kegiatan analisis, diskusi, dan pengerjaan LKM.</p>
                             </div>
 
                             <div style="margin-bottom: 1.5rem;">
-                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
-                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">Tujuan pengembangan media ini adalah untuk memudahkan peserta didik dalam menerjemahkan proyeksi 2D standar ISO ke dalam visualisasi 3D secara mandiri. Melalui media interaktif ini, diharapkan pemahaman spasial siswa meningkat, ketertarikan belajar gambar teknik terstimulasi melalui kuis gamifikasi, dan risiko kesalahan pengerjaan produk di mesin bubut berkurang.</p>
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan materi ini adalah membantu peserta didik memahami sistem transmisi daya menggunakan puli dan sabuk pemindah secara bertahap dan kontekstual. Melalui pembelajaran berbasis masalah, peserta didik diharapkan mampu memahami fungsi, prinsip kerja, jenis komponen, serta penerapan sistem puli dan sabuk pada mesin dan proses industri sederhana.</p>
                             </div>
 
                             <div style="margin-bottom: 1.5rem;">
-                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
                                 
                                 <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
                                     <span>✓</span> Kelebihan
                                 </h5>
                                 <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Penyajian materi terstruktur secara bertahap (chunking) dengan visualisasi 3D berwarna yang memikat.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Dilengkapi kuis interaktif evaluatif mandiri di bagian akhir guna menguji pemahaman peserta didik secara langsung.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>Ukuran file yang terkompresi dengan baik sehingga ramah kuota dan lancar diakses melalui berbagai jenis smartphone siswa.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi disusun bertahap mulai dari konsep dasar, jenis komponen, hingga perhitungan sistem transmisi sehingga lebih mudah dipahami peserta didik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan PPT, ilustrasi gambar, contoh soal, dan LKM membantu peserta didik lebih aktif dalam kegiatan analisis dan diskusi.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi dikaitkan dengan penerapan sistem transmisi pada mesin industri sehingga pembelajaran menjadi lebih kontekstual dan bermakna.</span>
+                                    </li>
                                 </ul>
 
                                 <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
                                     <span>⚠</span> Kekurangan
                                 </h5>
                                 <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Elemen interaktivitas tertentu (seperti animasi transisi) menjadi terbatas ketika dikonversi penuh ke PDF.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Beberapa visualisasi detail memerlukan resolusi layar tinggi untuk keterbacaan toleransi ukuran yang sangat kecil.</span></li>
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>Belum terintegrasi otomatis dengan sistem database LMS untuk merekam skor kuis mandiri siswa secara terpusat.</span></li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Sebagian peserta didik masih kesulitan memahami perhitungan rasio transmisi dan hubungan diameter puli dengan putaran.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Materi praktik masih terbatas pada analisis dan simulasi sederhana sehingga membutuhkan pengembangan praktik lanjutan.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kegiatan pembelajaran membutuhkan media visual dan contoh sistem transmisi yang cukup agar peserta didik lebih mudah memahami prinsip kerja puli dan sabuk.</span>
+                                    </li>
                                 </ul>
                             </div>
 
                             <div style="margin-bottom: 2rem;">
-                                <h4 style="color: #06b6d4; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #06b6d4; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
-                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color);">Pengembangan media ini didasarkan pada <strong>Cognitive Load Theory</strong> (mengurangi extraneous load melalui visualisasi yang jelas) dan prinsip <strong>Visual Literacy</strong>. Pemaparan informasi visual secara interaktif terbukti mampu meningkatkan kemampuan spasial kognitif peserta didik dalam menerjemahkan gambar 2D menjadi bentuk komponen fisik nyata.</p>
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">Materi ini disusun berdasarkan pendekatan Deep Learning dan Problem Based Learning (PBL) yang berfokus pada pembelajaran aktif, bermakna, dan berpusat pada peserta didik. Pembelajaran juga dikaitkan dengan penerapan sistem transmisi daya di dunia industri agar peserta didik mampu memahami konsep puli dan sabuk pemindah, prinsip kerja transmisi, jenis-jenis komponen, serta perhitungan dasar sistem transmisi secara lebih kontekstual.</p>
                             </div>
 
                             <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                                 <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
-                                <a href="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #06b6d4; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                                <a href="https://drive.google.com/file/d/1KQG45YsFyMGmTGSPh629CZesmuC4gOEr/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
                             </div>
 
                             <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
-                                <iframe src="https://drive.google.com/file/d/1ZyAxmuk40oKGg7NmFWZPsRpkpPJO6EcN/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                                <iframe src="https://drive.google.com/file/d/1KQG45YsFyMGmTGSPh629CZesmuC4gOEr/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
                             </div>
                         </div>
                     `
                 },
                 "19": {
-                    title: "Media Pembelajaran Pertemuan 2",
+                    title: "Media Siklus 1 – Pertemuan 2",
                     img: "https://picsum.photos/400/300?random=119",
-                    desc: "Bahan tayang presentasi interaktif untuk pertemuan kedua pada Siklus 1 yang memuat materi pengenalan alat potong.",
-                    link: "https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/view?usp=sharing"
+                    desc: "Media ajar tentang proses cutting dan noncutting, jenis proses produksi, serta penerapannya pada bidang teknik mesin.",
+                    link: "https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Media Siklus 1 – Pertemuan 2</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Media Pembelajaran</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Materi pembelajaran ini saya susun untuk peserta didik kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Mekanika Teknik. Materi dirancang selama 3 pertemuan menggunakan model Problem Based Learning (PBL) agar peserta didik dapat memahami konsep dasar proses cutting dan noncutting, perbedaan karakteristik proses produksi, serta penerapan teknologi manufaktur melalui kegiatan analisis, diskusi, dan pengerjaan LKM.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan materi ini adalah membantu peserta didik memahami konsep dasar teknologi cutting dan noncutting secara bertahap dan kontekstual. Melalui pembelajaran berbasis masalah, peserta didik diharapkan mampu membedakan proses cutting dan noncutting serta menghubungkan penerapannya pada proses manufaktur di bidang teknik mesin.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi disusun bertahap mulai dari pengenalan konsep dasar hingga penerapan proses cutting dan noncutting pada dunia industri.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan PPT, video pembelajaran, ilustrasi proses produksi, dan LKM membantu peserta didik lebih aktif dalam kegiatan analisis dan diskusi.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi dikaitkan dengan proses manufaktur nyata sehingga pembelajaran menjadi lebih kontekstual dan mudah dipahami peserta didik.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Sebagian peserta didik masih kesulitan membedakan karakteristik proses cutting dan noncutting pada penerapannya di industri.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Materi praktik masih terbatas pada pengamatan dan analisis sehingga membutuhkan praktik langsung agar pemahaman lebih mendalam.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kegiatan pembelajaran membutuhkan media visual dan contoh proses produksi yang cukup agar peserta didik lebih mudah memahami konsep manufaktur.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">Materi ini disusun berdasarkan pendekatan Deep Learning dan Problem Based Learning (PBL) yang berfokus pada pembelajaran aktif, bermakna, dan berpusat pada peserta didik. Pembelajaran dikaitkan dengan penerapan teknologi manufaktur di dunia industri agar peserta didik mampu memahami konsep cutting dan noncutting, karakteristik proses produksi, serta penerapan proses manufaktur secara lebih kontekstual.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1RshrXOqjelBpRG8SxD_-LFbYtu4e06cf/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
                 },
                 "20": {
-                    title: "Media Pembelajaran Pertemuan 3",
+                    title: "Media Siklus 1 – Pertemuan 3",
                     img: "https://picsum.photos/400/300?random=120",
-                    desc: "Bahan tayang presentasi interaktif untuk pertemuan ketiga pada Siklus 1 yang memuat materi lanjutan proses manufaktur.",
-                    link: "https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/view?usp=sharing"
+                    desc: "Media ajar tentang penggunaan perkakas, alat pemindah bahan, dan teknologi manufaktur modern pada proses produksi teknik mesin.",
+                    link: "https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Media Siklus 1 – Pertemuan 3</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Media Pembelajaran</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Materi pembelajaran ini saya susun untuk peserta didik kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Mekanika Teknik. Materi dirancang selama 3 pertemuan menggunakan model Problem Based Learning (PBL) agar peserta didik dapat memahami jenis dan fungsi teknologi perkakas, perkembangan teknologi manufaktur modern, serta penerapannya pada proses produksi melalui kegiatan analisis, diskusi, dan pengerjaan LKM.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan materi ini adalah membantu peserta didik memahami konsep dasar teknologi perkakas dan manufaktur modern secara bertahap dan kontekstual. Melalui pembelajaran berbasis masalah, peserta didik diharapkan mampu mengenali perkembangan teknologi manufaktur serta menghubungkan penggunaan perkakas dan teknologi modern dengan proses produksi di dunia industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi disusun bertahap mulai dari pengenalan teknologi perkakas hingga penerapan manufaktur modern di dunia industri.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan PPT, video pembelajaran, ilustrasi teknologi manufaktur, dan LKM membantu peserta didik lebih aktif dalam kegiatan analisis dan diskusi.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi dikaitkan dengan proses manufaktur modern sehingga pembelajaran menjadi lebih kontekstual dan relevan dengan dunia industri.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Sebagian peserta didik masih kesulitan mengidentifikasi perbedaan teknologi perkakas konvensional dan manufaktur modern pada beberapa proses produksi.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Materi praktik masih terbatas pada pengamatan dan simulasi sehingga membutuhkan praktik langsung menggunakan mesin perkakas agar pemahaman lebih mendalam.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kegiatan pembelajaran membutuhkan media visual dan contoh mesin perkakas yang cukup agar peserta didik lebih mudah memahami perkembangan teknologi manufaktur.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">Materi ini disusun berdasarkan pendekatan Deep Learning dan Problem Based Learning (PBL) yang berfokus pada pembelajaran aktif, bermakna, dan berpusat pada peserta didik. Pembelajaran dikaitkan dengan penerapan teknologi manufaktur di dunia industri agar peserta didik mampu memahami konsep teknologi perkakas, manufaktur modern, serta penerapan proses produksi secara lebih kontekstual.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1wojsY3xohNVWEMebHuJNr-GenPcYEsZN/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
                 },
-                "5": { title: "Instrumen Penilaian Terpadu Siklus 1", img: "https://picsum.photos/800/500?random=113", desc: "Kisi-kisi soal evaluasi, rubrik lengkap penilaian asesmen sumatif formatif kognitif teori, lembar penilaian produk fisik nyata, serta instrumen penilaian afektif sikap." },
+                "5": { 
+                    title: "Instrumen Asesmen Siklus 1", 
+                    img: "https://picsum.photos/800/500?random=113", 
+                    desc: "Instrumen asesmen diagnostik, formatif, dan sumatif meliputi penilaian pemahaman konsep, keaktifan diskusi, serta hasil analisis peserta didik",
+                    link: "https://drive.google.com/file/d/1u0C0zPgCm5lUmQb9N1NekHbINe8YoehO/view?usp=sharing"
+                },
                 "6": { title: "Jurnal Refleksi Harian Siklus 1", img: "https://picsum.photos/800/500?random=116", desc: "Catatan harian evaluasi diri mandiri setelah mengajar (self-reflection) Siklus 1, mencatat keaktifan siswa, kendala teknis bengkel, serta perbaikan manajemen kelas." },
-                "7": { title: "Modul Ajar Siklus 2 (PjBL - Poros Bertingkat)", img: "https://picsum.photos/800/500?random=102", desc: "Perangkat modul ajar berorientasi Project Based Learning (PjBL) untuk membimbing kelompok siswa memecahkan masalah manufaktur poros transmisi bertingkat." },
-                "8": { title: "Bahan Ajar Kecepatan Bubut", img: "https://picsum.photos/800/500?random=105", desc: "Modul perhitungan teoretis parameter pemotongan bubut manual meliputi penetapan rumus kecepatan potong (Vc), putaran poros (n), dan feeding bubut." },
-                "9": { title: "Lembar Kerja Siswa Praktikum Bubut", img: "https://picsum.photos/800/500?random=108", desc: "LKM lembar kerja jobsheet pengerjaan bubut manual bertingkat, pembubutan alur poros, ulir segitiga luar, serta proses kartel genggaman tangan presisi." },
-                "10": { title: "Media Simulasi Bubut 3D", img: "https://picsum.photos/800/500?random=111", desc: "Media ajar berbasis software simulasi 3D proses penyayatan pahat bubut guna memperlihatkan visual pemotongan logam aman tanpa risiko cidera nyata." },
-                "11": { title: "Rubrik Evaluasi Kinerja K3 & Produk", img: "https://picsum.photos/800/500?random=114", desc: "Skema rubrik penilaian detail kepatuhan standar K3 laboratorium mesin, pemakaian APD kacamata pelindung, pembersihan sisa tatal besi, serta kepresisian ukuran produk." },
+                "7": { 
+                    title: "RPP Siklus 2", 
+                    img: "https://picsum.photos/800/500?random=102", 
+                    desc: "Modul ajar berbasis Deep Learning mata pelajaran Gambar Teknik dengan materi Gambar Potongan.",
+                    link: "https://drive.google.com/file/d/1xNjqGO_B1dK5IQVnXhPlJvL220Pxlwgf/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">RPP Siklus 2 Deep Learning - Gambar Potongan</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Rencana Pelaksanaan Pembelajaran (RPP)</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">RPP ini saya buat untuk kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Gambar Teknik Mesin dengan materi Gambar Potongan (Section Drawing). Pembelajaran dirancang selama 3 pertemuan menggunakan model Project Based Learning (PjBL) agar peserta didik mampu memahami konsep gambar potongan, aturan arsiran, bidang potong, serta mampu membuat gambar potongan sederhana hingga lanjutan sesuai standar gambar teknik.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan RPP ini bukan hanya untuk memenuhi administrasi pembelajaran, tetapi menjadi panduan agar proses pembelajaran lebih terarah, aktif, dan bermakna. Melalui pembelajaran berbasis proyek, peserta didik diharapkan mampu memahami konsep gambar potongan serta menerapkan aturan gambar teknik dalam pembuatan gambar potongan secara tepat, rapi, dan sesuai standar industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Pendekatan Deep Learning, PjBL, dan Sistem Among disusun dalam alur pembelajaran yang saling terhubung dan berpusat pada peserta didik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan media PPT, video pembelajaran, LKM, dan demonstrasi membantu peserta didik memahami konsep gambar potongan dengan lebih jelas dan menarik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Adanya asesmen diagnostik, formatif, dan sumatif membuat proses penilaian lebih terstruktur serta membantu guru memantau perkembangan keterampilan peserta didik.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Alokasi waktu praktik menggambar masih terasa terbatas karena beberapa peserta didik membutuhkan waktu lebih lama untuk menyelesaikan jobsheet.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kemampuan peserta didik dalam menggunakan alat gambar teknik masih berbeda-beda sehingga guru perlu memberikan pendampingan lebih intensif.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Belum terdapat skenario cadangan apabila terjadi kendala teknis seperti keterbatasan alat gambar atau media pembelajaran digital.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">RPP ini disusun berdasarkan pendekatan Understanding by Design yang berfokus pada ketercapaian tujuan pembelajaran, dipadukan dengan pendekatan Deep Learning agar pembelajaran berlangsung secara mindful, meaningful, dan joyful. Selain itu, filosofi Sistem Among Ki Hadjar Dewantara diterapkan agar pembelajaran lebih aktif, berpusat pada peserta didik, dan mampu mengembangkan keterampilan berpikir serta praktik gambar teknik secara mandiri.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1xNjqGO_B1dK5IQVnXhPlJvL220Pxlwgf/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1xNjqGO_B1dK5IQVnXhPlJvL220Pxlwgf/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "8": { 
+                    title: "Materi Siklus 2", 
+                    img: "https://picsum.photos/800/500?random=105", 
+                    desc: "Modul bahan ajar Gambar Potongan meliputi fungsi, jenis, aturan arsiran, dan praktik gambar potongan sederhana.",
+                    link: "https://drive.google.com/file/d/1IHB8kD29r7xnQz3uxi0tqCK_nReYpB38/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Materi Pembelajaran Siklus 2 - Gambar Potongan</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Materi Pembelajaran</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">RPP ini saya buat untuk kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Dasar Teknik Mesin dengan materi Puli dan Sabuk Pemindah pada sistem transmisi mesin. Pembelajaran dirancang selama 2 pertemuan menggunakan model Project Based Learning (PjBL) agar peserta didik mampu memahami fungsi, prinsip kerja, hubungan putaran puli, serta penggunaan sabuk penggerak melalui kegiatan analisis dan pengerjaan LKM yang berkaitan dengan dunia industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan RPP ini bukan hanya untuk memenuhi administrasi pembelajaran, tetapi menjadi panduan agar pembelajaran lebih terarah, aktif, dan bermakna. Melalui pembelajaran berbasis proyek dan pemecahan masalah, peserta didik diharapkan mampu memahami jenis, fungsi, prinsip kerja puli dan sabuk pemindah, serta menganalisis hubungan putaran pada sistem transmisi mesin sederhana.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Pendekatan Deep Learning, PjBL, dan Sistem Among disusun dalam alur pembelajaran yang saling terhubung dan berpusat pada peserta didik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan media PPT, video pembelajaran, dan LKM membantu peserta didik memahami konsep puli dan sabuk penggerak dengan lebih jelas dan menarik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Adanya asesmen diagnostik, formatif, dan sumatif membuat proses penilaian lebih terstruktur dan membantu guru memantau perkembangan peserta didik.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Alokasi waktu pembelajaran masih terasa terbatas karena beberapa peserta didik membutuhkan waktu lebih lama untuk menganalisis LKM dan memahami hubungan putaran puli.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kemampuan peserta didik dalam memahami konsep sistem transmisi mesin masih berbeda-beda sehingga guru perlu memberikan pendampingan lebih intensif.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Belum terdapat skenario cadangan apabila terjadi kendala teknis seperti media pembelajaran digital atau alat praktik yang bermasalah.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">RPP ini disusun berdasarkan pendekatan Understanding by Design yang berfokus pada ketercapaian tujuan pembelajaran, dipadukan dengan pendekatan Deep Learning agar pembelajaran berlangsung secara mindful, meaningful, dan joyful. Selain itu, filosofi Sistem Among Ki Hadjar Dewantara diterapkan agar pembelajaran lebih aktif, berpusat pada peserta didik, serta mampu mengembangkan kemampuan analisis dan pemecahan masalah pada sistem transmisi mesin.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1IHB8kD29r7xnQz3uxi0tqCK_nReYpB38/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1IHB8kD29r7xnQz3uxi0tqCK_nReYpB38/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "9": { 
+                    title: "LKM Siklus 2 â€“ Pertemuan 1", 
+                    img: "https://picsum.photos/800/500?random=108", 
+                    desc: "Lembar kerja memandu peserta didik mengidentifikasi fungsi dan aturan dasar gambar potongan pada gambar teknik.",
+                    link: "https://drive.google.com/file/d/1yg6dkUI95JvZNTjA4E7If52EFq9dAGxT/view?usp=sharing"
+                },
+                "23": { 
+                    title: "LKM Siklus 2 â€“ Pertemuan 2", 
+                    img: "https://picsum.photos/800/500?random=123", 
+                    desc: "Lembar kerja memandu peserta didik mengidentifikasi jenis-jenis gambar potongan pada gambar teknik.",
+                    link: "https://drive.google.com/file/d/1iFhw-RutDedAYpY3MvToDTdeNO7AslcW/view?usp=sharing"
+                },
+                "24": { 
+                    title: "LKM Siklus 2 â€“ Pertemuan 3", 
+                    img: "https://picsum.photos/800/500?random=124", 
+                    desc: "Lembar kerja memandu peserta didik membuat gambar potongan sederhana sesuai aturan dasar gambar teknik.",
+                    link: "https://drive.google.com/file/d/13z4NXxYkDs3JVjKizAjiF1NnWrEsNh7S/view?usp=sharing"
+                },
+                "10": { 
+                    title: "Media Siklus 2", 
+                    img: "https://picsum.photos/800/500?random=111", 
+                    desc: "Media ajar tentang konsep, jenis, aturan arsiran, dan praktik gambar potongan pada gambar teknik.",
+                    link: "https://drive.google.com/file/d/1Eh1xwFQO7pJeQWW3ch_tiqdEYK5Fd5dQ/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Media Siklus 2</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Media Pembelajaran</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Media pembelajaran ini saya susun untuk peserta didik kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Gambar Teknik materi gambar potongan. Media berupa 1 PPT pembelajaran yang digunakan untuk 3 pertemuan dan dirancang untuk membantu peserta didik memahami konsep dasar gambar potongan, jenis-jenis gambar potongan, serta praktik gambar potongan sederhana melalui kegiatan analisis, diskusi, dan pengerjaan LKM.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan media pembelajaran ini adalah membantu peserta didik memahami materi gambar potongan secara lebih visual, interaktif, dan kontekstual. Media pembelajaran diharapkan dapat membantu peserta didik mengenali fungsi gambar potongan, memahami jenis-jenis potongan, serta menerapkan aturan arsiran dan gambar potongan sederhana pada praktik gambar teknik manual.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Media pembelajaran disusun secara bertahap dalam 1 PPT sehingga memudahkan peserta didik memahami materi dari konsep dasar hingga praktik gambar potongan sederhana.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan ilustrasi gambar teknik, contoh potongan, dan LKM membantu peserta didik lebih aktif dalam kegiatan analisis, diskusi, dan praktik menggambar.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Media pembelajaran dikaitkan dengan praktik gambar teknik sehingga pembelajaran menjadi lebih kontekstual dan bermakna.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Sebagian peserta didik masih mengalami kesulitan memahami perbedaan jenis-jenis gambar potongan pada gambar teknik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Media pembelajaran praktik menggambar membutuhkan waktu cukup lama agar hasil gambar lebih rapi dan sesuai aturan.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Pembelajaran membutuhkan media visual dan contoh gambar yang cukup agar peserta didik lebih mudah memahami konsep gambar potongan.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">Media pembelajaran ini disusun berdasarkan pendekatan Deep Learning dan Problem Based Learning (PBL) yang berfokus pada pembelajaran aktif, bermakna, dan berpusat pada peserta didik. Penggunaan media visual berupa 1 PPT pembelajaran, ilustrasi gambar teknik, and LKM membantu peserta didik memahami konsep gambar potongan, bidang potong, jenis-jenis potongan, serta aturan arsiran secara lebih kontekstual melalui kegiatan analisis dan praktik sederhana.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1Eh1xwFQO7pJeQWW3ch_tiqdEYK5Fd5dQ/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1Eh1xwFQO7pJeQWW3ch_tiqdEYK5Fd5dQ/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "11": { 
+                    title: "Instrumen Asesmen Siklus 2", 
+                    img: "https://picsum.photos/800/500?random=114", 
+                    desc: "Instrumen asesmen diagnostik, formatif, dan sumatif meliputi penilaian pemahaman konsep, keaktifan diskusi, serta hasil analisis peserta didik",
+                    link: "https://drive.google.com/file/d/1rw1k4U4rZ8vx-s5K6rcA3wasZ17GLvxo/view?usp=sharing"
+                },
                 "12": { title: "Refleksi Pembimbing Siklus 2", img: "https://picsum.photos/800/500?random=117", desc: "Dokumen kompilasi umpan balik konstruktif dan catatan masukan berharga hasil observasi mengajar di kelas dari Dosen Pembimbing Lapangan dan Guru Pamong." },
-                "13": { title: "Modul Ajar Siklus 3 (PBL - Frais CNC)", img: "https://picsum.photos/800/500?random=103", desc: "Modul ajar kurikulum merdeka pengantar teknik pemesinan CNC Frais (Milling CNC) dengan pendekatan pembelajaran berbasis pemecahan masalah nyata (PBL)." },
-                "14": { title: "Modul Pemrograman G-Code CNC", img: "https://picsum.photos/800/500?random=106", desc: "Materi ajar pemrograman penulisan blok kode pengendali mesin CNC mencakup interpolasi linier, gerakan melingkar, penetapan titik referensi benda kerja, dan kode M." },
-                "15": { title: "LKM Pengoperasian Simulator CNC", img: "https://picsum.photos/800/500?random=109", desc: "Jobsheet latihan siswa memasukkan koordinat numerik G-code dan pengujian simulasi grafis pergerakan arah pahat cutter milling secara virtual." },
-                "16": { title: "Video Tutorial Setting Z-Axis CNC", img: "https://picsum.photos/800/500?random=112", desc: "Video instruksional panduan tata cara menetapkan koordinat sumbu nol Z benda kerja pada permukaan logam menggunakan alat bantu touch probe dan dial test." },
-                "17": { title: "Uji Kompetensi Kognitif CNC", img: "https://picsum.photos/800/500?random=115", desc: "Paket kuesioner evaluasi teori pemrograman CNC milling, pemahaman koordinat absolut inkremental, pemecahan masalah kesalahan eksekusi alarm baris kode." },
+                "13": { 
+                    title: "RPP Siklus 3", 
+                    img: "https://picsum.photos/800/500?random=103", 
+                    desc: "Modul ajar berbasis Deep Learning mata pelajaran Dasar Perencanaan Teknik Mesin (Mekanika Teknik) materi Puli dan Sabuk Pemindah.",
+                    link: "https://drive.google.com/file/d/1wCJPVbgx8MRq7igZnszMtWnRN7wo-vY1/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">RPP Siklus 3 Deep Learning - Puli dan Sabuk Pemindah</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Rencana Pelaksanaan Pembelajaran (RPP)</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">RPP ini saya buat untuk kelas X Teknik Pemesinan SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Dasar Perancangan Teknik Mesin dengan materi Puli dan Sabuk Pemindah pada sistem transmisi mesin. Pembelajaran dirancang selama 2 pertemuan menggunakan model Project Based Learning (PjBL) agar peserta didik mampu memahami fungsi, prinsip kerja, hubungan putaran puli, serta penggunaan sabuk penggerak melalui kegiatan analisis dan pengerjaan LKM yang berkaitan dengan dunia industri.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan RPP ini bukan hanya untuk memenuhi administrasi pembelajaran, tetapi menjadi panduan agar pembelajaran lebih terarah, aktif, dan bermakna. Melalui pembelajaran berbasis proyek dan pemecahan masalah, peserta didik diharapkan mampu memahami jenis, fungsi, prinsip kerja puli dan sabuk pemindah, serta menganalisis hubungan putaran pada sistem transmisi mesin sederhana.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Pendekatan Deep Learning, PjBL, dan Sistem Among disusun dalam alur pembelajaran yang saling terhubung dan berpusat pada peserta didik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan media PPT, video pembelajaran, dan LKM membantu peserta didik memahami konsep puli dan sabuk penggerak dengan lebih jelas dan menarik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Adanya asesmen diagnostik, formatif, dan sumatif membuat proses penilaian lebih terstruktur dan membantu guru memantau perkembangan peserta didik.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Alokasi waktu pembelajaran masih terasa terbatas karena beberapa peserta didik membutuhkan waktu lebih lama untuk menganalisis LKM dan memahami hubungan putaran puli.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Kemampuan peserta didik dalam memahami konsep sistem transmisi mesin masih berbeda-beda sehingga guru perlu memberikan pendampingan lebih intensif.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Belum terdapat skenario cadangan apabila terjadi kendala teknis seperti media pembelajaran digital atau alat praktik yang bermasalah.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">RPP ini disusun berdasarkan pendekatan Understanding by Design yang berfokus pada ketercapaian tujuan pembelajaran, dipadukan dengan pendekatan Deep Learning agar pembelajaran berlangsung secara mindful, meaningful, dan joyful. Selain itu, filosofi Sistem Among Ki Hadjar Dewantara diterapkan agar pembelajaran lebih aktif, berpusat pada peserta didik, serta mampu mengembangkan kemampuan analisis dan pemecahan masalah pada sistem transmisi mesin.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1wCJPVbgx8MRq7igZnszMtWnRN7wo-vY1/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1wCJPVbgx8MRq7igZnszMtWnRN7wo-vY1/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "14": { 
+                    title: "Materi Siklus 3", 
+                    img: "https://picsum.photos/800/500?random=106", 
+                    desc: "Modul bahan ajar Puli dan Sabuk Pemindah meliputi jenis, fungsi, prinsip kerja, serta hubungan putaran dan ukuran puli pada sistem transmisi.",
+                    link: "https://drive.google.com/file/d/1XkuJ7boQUJAWrBkFPWnxEpBrF0UKMZa3/view?usp=sharing",
+                    customHtml: `
+                        <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
+                            <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">Materi Pembelajaran Siklus 3 - Puli dan Sabuk Pemindah</h2>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Materi Pembelajaran</p>
+                            
+                            <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Materi pembelajaran ini saya susun untuk peserta didik kelas X Teknik Mesin SMK Muhammadiyah 3 Yogyakarta pada mata pelajaran Mekanika Teknik. Materi dirancang untuk membantu peserta didik memahami konsep sistem transmisi puli dan sabuk pemindah, jenis-jenis puli dan sabuk, prinsip kerja, perhitungan putaran, serta penerapannya pada mesin dan peralatan industri melalui kegiatan pembelajaran berbasis analisis dan pemecahan masalah sederhana.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">Tujuan penyusunan materi ini adalah membantu peserta didik memahami fungsi dan prinsip kerja sistem puli dan sabuk pemindah sebagai komponen transmisi daya pada mesin. Selain itu, peserta didik diharapkan mampu mengenali jenis-jenis puli dan sabuk, memahami hubungan diameter dan putaran puli, serta melakukan perhitungan dasar sistem transmisi secara sederhana sesuai penerapan di bidang teknik mesin.</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
+                                
+                                <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>✓</span> Kelebihan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi disusun secara bertahap mulai dari konsep dasar, jenis komponen, prinsip kerja, hingga perhitungan transmisi puli dan sabuk.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Penggunaan ilustrasi, tabel, and contoh soal membantu peserta didik lebih mudah memahami sistem transmisi daya pada mesin.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #10b981; flex-shrink: 0;">✓</span>
+                                        <span style="text-align: justify; display: block;">Materi dikaitkan dengan penerapan di dunia industri dan peralatan teknik sehingga pembelajaran lebih kontekstual dan relevan.</span>
+                                    </li>
+                                </ul>
+
+                                <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
+                                    <span>⚠</span> Kekurangan
+                                </h5>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Sebagian peserta didik masih mengalami kesulitan dalam memahami hubungan rasio transmisi dan perhitungan putaran puli.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Materi perhitungan membutuhkan latihan soal yang cukup agar peserta didik lebih terbiasa dalam menyelesaikan permasalahan teknik.</span>
+                                    </li>
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;">
+                                        <span style="color: #ef4444; flex-shrink: 0;">⚠</span>
+                                        <span style="text-align: justify; display: block;">Pembelajaran memerlukan media visual dan simulasi sistem transmisi agar peserta didik lebih mudah memahami prinsip kerja puli dan sabuk.</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div style="margin-bottom: 2rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">Materi ini disusun berdasarkan pendekatan Deep Learning dan Problem Based Learning (PBL) yang berpusat pada peserta didik melalui kegiatan analisis konsep dan penyelesaian masalah sederhana. Materi membahas pengertian puli dan sabuk pemindah, jenis-jenis puli dan sabuk, prinsip kerja sistem transmisi daya, hubungan diameter dan putaran puli, serta perhitungan dasar transmisi yang banyak diterapkan pada mesin industri, otomotif, dan peralatan teknik mesin.</p>
+                            </div>
+
+                            <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
+
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                                <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
+                                <a href="https://drive.google.com/file/d/1XkuJ7boQUJAWrBkFPWnxEpBrF0UKMZa3/view?usp=sharing" target="_blank" style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                            </div>
+
+                            <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem;">
+                                <iframe src="https://drive.google.com/file/d/1XkuJ7boQUJAWrBkFPWnxEpBrF0UKMZa3/preview" style="width: 100%; height: 500px; border: none; background: white; border-radius: 4px;"></iframe>
+                            </div>
+                        </div>
+                    `
+                },
+                "15": { 
+                    title: "LKM Siklus 3 – Pertemuan 1", 
+                    img: "https://picsum.photos/800/500?random=109", 
+                    desc: "Lembar kerja memandu peserta didik mengidentifikasi jenis, fungsi, dan prinsip kerja puli pada sistem transmisi mesin.",
+                    link: "https://drive.google.com/file/d/1UaISKajBV8i0cFbHZFZwD_rFwHpu5Ajm/view?usp=sharing"
+                },
+                "25": { 
+                    title: "LKM Siklus 3 – Pertemuan 2", 
+                    img: "https://picsum.photos/800/500?random=125", 
+                    desc: "Lembar kerja memandu peserta didik mengidentifikasi jenis, fungsi, dan penggunaan sabuk pemindah pada sistem transmisi mesin.",
+                    link: "https://drive.google.com/file/d/1afbsQM_Oupt2pRRcauna9PwcFQv7iZul/view?usp=sharing"
+                },
+                "16": { 
+                    title: "Media Siklus 3 – Pertemuan 1", 
+                    img: "https://picsum.photos/800/500?random=112", 
+                    desc: "Media ajar tentang jenis, fungsi, dan prinsip kerja puli pada sistem transmisi mesin.",
+                    link: "https://drive.google.com/file/d/1KQG45YsFyMGmTGSPh629CZesmuC4gOEr/view?usp=sharing"
+                },
+                "26": { 
+                    title: "Media Siklus 3 – Pertemuan 2", 
+                    img: "https://picsum.photos/800/500?random=126", 
+                    desc: "Media ajar tentang jenis, fungsi, dan penggunaan sabuk pemindah pada sistem transmisi mesin.",
+                    link: "https://drive.google.com/file/d/1BrazN7o6ypo1qig-MDtGuw6cwFG3ZdMU/view?usp=sharing"
+                },
+                "17": { 
+                    title: "Instrumen Asesmen Siklus 3", 
+                    img: "https://picsum.photos/800/500?random=115", 
+                    desc: "Instrumen asesmen diagnostik, formatif, dan sumatif meliputi penilaian pemahaman konsep, keaktifan diskusi, serta hasil analisis peserta didik",
+                    link: "https://drive.google.com/file/d/1kLhP2rNGwLSLWBBf5l9HorSemTVJrTPT/view?usp=sharing"
+                },
                 "18": { title: "Laporan Studi Kasus Akhir PPL", img: "https://picsum.photos/800/500?random=118", desc: "Laporan komprehensif ilmiah hasil studi kasus penanganan kesulitan belajar siswa dalam menguasai keterampilan memprogram mesin bubut/frais CNC." }
             };
 
@@ -2410,46 +3172,59 @@
                             const linkTarget = data.link ? 'target="_blank"' : 'onclick="event.preventDefault();"';
                             const iframeSrc = data.link ? data.link.replace('/view?usp=sharing', '/preview') : "about:blank";
                             
+                            let subtitle = "Artefak Portofolio";
+                            let lowerTitle = data.title.toLowerCase();
+                            if (lowerTitle.includes("rpp")) subtitle = "Rencana Pelaksanaan Pembelajaran (RPP)";
+                            else if (lowerTitle.includes("materi") || lowerTitle.includes("bahan ajar")) subtitle = "Materi Pembelajaran";
+                            else if (lowerTitle.includes("lkm") || lowerTitle.includes("lembar kerja")) subtitle = "Lembar Kerja Siswa (LKM)";
+                            else if (lowerTitle.includes("media")) subtitle = "Media Pembelajaran";
+                            else if (lowerTitle.includes("asesmen") || lowerTitle.includes("penilaian")) subtitle = "Instrumen Asesmen";
+
                             htmlToRender = `
                         <div class="custom-modal-layout" style="text-align: left; padding-top: 0.5rem;">
                             <h2 style="color: var(--primary-color); font-size: 1.6rem; font-weight: 800; margin-bottom: 0.2rem; font-family: var(--font-body);">${data.title}</h2>
-                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">Artefak Portofolio</p>
+                            <p style="color: var(--text-muted); font-style: italic; font-size: 0.95rem; margin-bottom: 1.5rem;">${subtitle}</p>
                             
                             <hr style="border: none; border-top: 1px solid var(--border-color); margin-bottom: 1.5rem;">
 
                             <div style="margin-bottom: 1.5rem;">
-                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan & Tujuan</h4>
-                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">${data.desc}</p>
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Konteks Pembuatan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">................................................................................................</p>
+                            </div>
+
+                            <div style="margin-bottom: 1.5rem;">
+                                <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Tujuan</h4>
+                                <p style="color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">................................................................................................</p>
                             </div>
 
                             <div style="margin-bottom: 1.5rem;">
                                 <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 1rem;">Kelebihan & Kekurangan</h4>
                                 
                                 <h5 style="color: #10b981; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
-                                    <span>✓</span> Kelebihan
+                                    <span>âœ“</span> Kelebihan
                                 </h5>
-                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem;">
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">✓</span> <span>[Isi kelebihan artefak ini akan diperbarui kemudian]</span></li>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; margin-bottom: 1rem; text-align: justify;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #10b981;">âœ“</span> <span>................................................................................................</span></li>
                                 </ul>
 
                                 <h5 style="color: #ef4444; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.35rem;">
-                                    <span>⚠</span> Kekurangan
+                                    <span>âš </span> Kekurangan
                                 </h5>
-                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7;">
-                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">⚠</span> <span>[Isi kekurangan artefak ini akan diperbarui kemudian]</span></li>
+                                <ul style="list-style: none; padding-left: 0; color: var(--text-main); opacity: 0.85; font-size: 0.95rem; line-height: 1.7; text-align: justify;">
+                                    <li style="margin-bottom: 0.5rem; display: flex; gap: 0.5rem;"><span style="color: #ef4444;">âš </span> <span>................................................................................................</span></li>
                                 </ul>
                             </div>
 
                             <div style="margin-bottom: 2rem;">
                                 <h4 style="color: #0ea5e9; font-size: 1.1rem; font-weight: 700; border-left: 3px solid #0ea5e9; padding-left: 0.75rem; margin-bottom: 0.75rem;">Kajian Teori</h4>
-                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color);">[Kajian teori yang mendasari pembuatan artefak ini akan diperbarui kemudian]</p>
+                                <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; font-style: italic; padding-left: 1rem; border-left: 2px solid var(--border-color); text-align: justify;">................................................................................................</p>
                             </div>
 
                             <hr style="border: none; border-top: 1px dashed #cbd5e1; margin-bottom: 1.5rem;">
 
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                                 <h4 style="color: #0f172a; font-size: 1.05rem; font-weight: 700; margin: 0;">Preview Dokumen Full</h4>
-                                <a href="${linkHref}" ${linkTarget} style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru ↗</a>
+                                <a href="${linkHref}" ${linkTarget} style="background: #f1f5f9; color: #0ea5e9; padding: 0.5rem 1rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem; transition: background 0.2s;">Buka di Tab Baru â†—</a>
                             </div>
 
                             <div style="border-radius: 8px; overflow: hidden; border: 1px solid #1e293b; background: #0f172a; padding: 1rem; display: flex; align-items: center; justify-content: center; min-height: 200px;">
@@ -2486,7 +3261,15 @@
                             if (imgElement) {
                                 imgElement.src = thumbUrl;
                                 imgElement.style.objectFit = 'cover';
-                                imgElement.style.objectPosition = 'top';
+                                
+                                // Sesuaikan posisi crop khusus untuk LKM agar judul utamanya terbaca penuh
+                                const type = card.getAttribute('data-type');
+                                if (type === 'lkm') {
+                                    imgElement.style.objectPosition = 'center 20%';
+                                } else {
+                                    imgElement.style.objectPosition = 'top';
+                                }
+                                
                                 imgElement.style.background = '#ffffff';
                                 imgElement.style.width = '100%';
                                 imgElement.style.height = '100%';
