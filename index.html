@@ -463,7 +463,7 @@
         /* ==================== PENDIDIKAN ==================== */
         .timeline {
             position: relative;
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
         }
 
@@ -472,39 +472,65 @@
             position: absolute;
             top: 0; left: 1rem;
             width: 2px; height: 100%;
-            background: var(--border-color);
+            background: linear-gradient(to bottom, var(--primary-color), var(--border-color));
         }
 
         .timeline-item {
             position: relative;
             padding-left: 3.5rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 3rem;
         }
 
         .timeline-dot {
             position: absolute;
-            top: 5px; left: 0.6rem;
-            width: 14px; height: 14px;
+            top: 15px; left: 0.55rem;
+            width: 16px; height: 16px;
             background: var(--primary-color);
             border-radius: 50%;
-            border: 3px solid var(--bg-main);
+            border: 4px solid var(--bg-main);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-item:hover .timeline-dot {
+            background: white;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 6px rgba(14, 165, 233, 0.4);
+            transform: scale(1.1);
         }
 
         .timeline-year {
             display: inline-block;
             background: var(--primary-light);
             color: var(--primary-color);
-            padding: 0.2rem 0.8rem;
+            padding: 0.3rem 1rem;
             border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             margin-bottom: 0.5rem;
             font-family: var(--font-body);
+            border: 1px solid rgba(14, 165, 233, 0.2);
+        }
+        
+        .timeline-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .timeline-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            border-color: var(--primary-color);
         }
 
-        .timeline-item h3 { font-size: 1.25rem; margin-bottom: 0.2rem; }
-        .timeline-item h4 { font-size: 0.95rem; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 400; }
-        .timeline-item p { color: var(--text-muted); font-size: 0.95rem; }
+        .timeline-item h3 { font-size: 1.3rem; margin-bottom: 0.2rem; color: var(--text-main); }
+        .timeline-item h4 { font-size: 0.95rem; color: var(--primary-color); margin-bottom: 0.75rem; font-weight: 600; }
+        .timeline-item p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin: 0; }
 
         /* ==================== ARTEFAK / PORTOFOLIO ==================== */
         /* ==================== ARTEFAK / PORTOFOLIO ==================== */
@@ -1110,87 +1136,83 @@
     <!-- PROFIL SECTION -->
     <section id="profil" class="section">
         <div class="container">
-            <div class="section-title reveal">
-                <span>About Me</span>
-                <h2>Profil Mahasiswa</h2>
+            <div class="section-title reveal" style="text-align: center; margin-bottom: 3.5rem;">
+                <span style="display: block; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-body);">About Me</span>
+                <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 0.75rem;">Profil Mahasiswa</h2>
+                <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 650px; margin: 0 auto; line-height: 1.6;">
+                    Mengenal lebih dekat perjalanan, inspirasi, dan visi saya dalam mendedikasikan diri sebagai guru profesional vokasi di bidang Teknik Pemesinan.
+                </p>
             </div>
             
-            <div class="profil-grid">
-                <div class="stat-cards reveal">
-                    <div class="card stat-card">
-                        <div class="stat-icon"><i class="ph-fill ph-briefcase"></i></div>
-                        <div class="stat-info">
-                            <h4>1+ Tahun</h4>
-                            <p>Pengalaman PPL</p>
+            <div class="reveal">
+                <!-- 3 Cards Content -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; margin-bottom: 3.5rem;">
+                    
+                    <!-- Card 1 -->
+                    <div class="card" style="padding: 2.5rem 2rem; border-radius: 24px; transition: all 0.4s ease; display: flex; flex-direction: column; height: 100%; border-top: 4px solid var(--primary-color); position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)';">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 10rem; opacity: 0.03; color: var(--text-main); pointer-events: none;">
+                            <i class="ph-fill ph-map-pin"></i>
                         </div>
+                        <div style="width: 60px; height: 60px; background: var(--primary-light); color: var(--primary-color); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; z-index: 1;">
+                            <i class="ph-fill ph-map-pin"></i>
+                        </div>
+                        <h4 style="font-size: 1.35rem; color: var(--text-main); margin-bottom: 1rem; font-weight: 800; z-index: 1;">Asal & Latar Belakang</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin: 0; text-align: justify; flex-grow: 1; z-index: 1;">
+                            Saya berasal dari <strong>Daerah Istimewa Yogyakarta</strong>, wilayah yang kaya budaya dan menjunjung tinggi nilai pendidikan. Suasana Kota Pelajar ini membentuk karakter saya menjadi pribadi disiplin yang haus akan ilmu pengetahuan. Ketertarikan mendalam pada teknologi mendorong saya mendalami <strong>Teknik Pemesinan</strong> untuk berkontribusi secara nyata.
+                        </p>
                     </div>
-                    <div class="card stat-card">
-                        <div class="stat-icon"><i class="ph-fill ph-users"></i></div>
-                        <div class="stat-info">
-                            <h4>150+ Siswa</h4>
-                            <p>Terbimbing</p>
+
+                    <!-- Card 2 -->
+                    <div class="card" style="padding: 2.5rem 2rem; border-radius: 24px; transition: all 0.4s ease; display: flex; flex-direction: column; height: 100%; border-top: 4px solid #10b981; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)';">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 10rem; opacity: 0.03; color: var(--text-main); pointer-events: none;">
+                            <i class="ph-fill ph-lightbulb"></i>
                         </div>
+                        <div style="width: 60px; height: 60px; background: rgba(16, 185, 129, 0.1); color: #10b981; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; z-index: 1;">
+                            <i class="ph-fill ph-lightbulb"></i>
+                        </div>
+                        <h4 style="font-size: 1.35rem; color: var(--text-main); margin-bottom: 1rem; font-weight: 800; z-index: 1;">Inspirasi Mengajar</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin: 0; text-align: justify; flex-grow: 1; z-index: 1;">
+                            Pengalaman <strong>Praktik Pengalaman Lapangan (PPL)</strong> membuka mata saya tentang esensi seorang pendidik. Saya menyadari bahwa guru bukan sekadar penyampai materi, melainkan fasilitator potensi. Interaksi bermakna di kelas inilah yang memantapkan tekad saya untuk mengabdikan diri membentuk karakter generasi masa depan.
+                        </p>
                     </div>
-                    <div class="card stat-card">
-                        <div class="stat-icon"><i class="ph-fill ph-certificate"></i></div>
-                        <div class="stat-info">
-                            <h4>3 Siklus</h4>
-                            <p>Praktik Mengajar</p>
+
+                    <!-- Card 3 -->
+                    <div class="card" style="padding: 2.5rem 2rem; border-radius: 24px; transition: all 0.4s ease; display: flex; flex-direction: column; height: 100%; border-top: 4px solid #f59e0b; position: relative; overflow: hidden;" onmouseover="this.style.transform='translateY(-10px)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.12)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='var(--shadow-sm)';">
+                        <div style="position: absolute; top: -20px; right: -20px; font-size: 10rem; opacity: 0.03; color: var(--text-main); pointer-events: none;">
+                            <i class="ph-fill ph-target"></i>
                         </div>
+                        <div style="width: 60px; height: 60px; background: rgba(245, 158, 11, 0.1); color: #f59e0b; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; margin-bottom: 1.5rem; z-index: 1;">
+                            <i class="ph-fill ph-target"></i>
+                        </div>
+                        <h4 style="font-size: 1.35rem; color: var(--text-main); margin-bottom: 1rem; font-weight: 800; z-index: 1;">Visi Profesional</h4>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7; margin: 0; text-align: justify; flex-grow: 1; z-index: 1;">
+                            Melalui <strong>PPG Calon Guru 2026</strong>, saya bertekad menjadi pendidik vokasi yang adaptif dan inovatif. Saya berfokus pada pembelajaran yang menanamkan kesiapan kerja dan penalaran analitis, agar siswa benar-benar relevan dengan kemajuan industri serta mampu bersaing di panggung profesional nyata.
+                        </p>
                     </div>
                 </div>
-                
-                <div class="about-content reveal">
-                    <div class="blockquote-simple" style="margin-bottom: 2.5rem;">
-                        <h3 style="font-family: var(--font-heading); font-size: 1.4rem; font-style: normal; font-weight: 600; color: var(--primary-color); margin-bottom: 0.25rem;">Mengenal Saya Lebih Dekat</h3>
-                        <span style="font-size: 0.95rem; font-weight: 400; color: var(--text-muted); font-style: italic;">Narasi perjalanan hidup dan inspirasi menjadi guru profesional</span>
-                    </div>
-                    
-                    <div class="about-text" style="display: flex; flex-direction: column; gap: 1.5rem; line-height: 1.7; margin-bottom: 2rem;">
-                        <div class="about-section">
-                            <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>📍</span> Asal & Latar Belakang
-                            </h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
-                                Perkenalkan, nama saya <strong>Hendra Mahardhika</strong>. Saya berasal dari <strong>Daerah Istimewa Yogyakarta</strong>, daerah yang dikenal sebagai <strong>Kota Pelajar</strong> dengan budaya yang kaya, lingkungan akademik yang kuat, serta masyarakat yang menjunjung tinggi nilai pendidikan dan etika. Suasana tersebut membentuk karakter saya menjadi pribadi yang disiplin, terbuka terhadap perkembangan ilmu pengetahuan, dan memiliki semangat untuk terus belajar. Ketertarikan saya pada dunia teknik dan pendidikan mendorong saya untuk menempuh bidang <strong>Teknik Pemesinan</strong> sekaligus mempersiapkan diri menjadi pendidik profesional yang mampu memberikan kontribusi nyata dalam dunia pendidikan vokasi.
-                            </p>
-                        </div>
 
-                        <div class="about-section">
-                            <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>💡</span> Inspirasi Menjadi Guru
-                            </h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
-                                Inspirasi saya untuk menjadi seorang <strong>Guru Profesional</strong> berawal dari pengalaman menjalani <strong>Praktik Pengalaman Lapangan (PPL)</strong> pada masa studi S1 di <strong>Universitas Negeri Yogyakarta</strong>. Melalui kegiatan tersebut, saya berkesempatan untuk terlibat langsung dalam proses pembelajaran di kelas, berinteraksi dengan peserta didik, serta memahami peran guru dalam membimbing dan memotivasi siswa. Pengalaman itu memberikan pandangan bahwa guru tidak hanya berperan sebagai penyampai materi, tetapi juga sebagai pembentuk karakter dan pengarah potensi peserta didik. Dari pengalaman tersebut, saya semakin yakin untuk mengabdikan diri sebagai pendidik yang mampu menciptakan pembelajaran yang inovatif, bermakna, dan relevan dengan kebutuhan dunia pendidikan maupun industri.
-                            </p>
+                <!-- Info Grid -->
+                <div class="card" style="border-radius: 24px; padding: 2.5rem 2rem; background: linear-gradient(135deg, var(--bg-card) 0%, var(--primary-light) 100%);">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; text-align: center;">
+                        <div style="padding: 1.5rem 1rem; background: var(--bg-main); border-radius: 20px; border: 1px solid var(--border-color); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                            <i class="ph-fill ph-map-pin-line" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-weight: 600;">Domisili</p>
+                            <p style="font-weight: 800; color: var(--text-main); margin: 0; font-size: 1.15rem;">D.I. Yogyakarta</p>
                         </div>
-
-                        <div class="about-section">
-                            <h4 style="font-family: var(--font-body); font-size: 1.1rem; color: var(--text-main); margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
-                                <span>🎯</span> Tujuan Profesional
-                            </h4>
-                            <p style="color: var(--text-muted); font-size: 0.95rem; text-align: justify;">
-                                Melalui program <strong>PPG Calon Guru 2026</strong>, saya berkomitmen untuk mengembangkan kompetensi pedagogik, profesional, sosial, dan kepribadian sebagai calon pendidik di bidang <strong>Teknik Pemesinan</strong>. Saya ingin menjadi guru yang mampu menghadirkan pembelajaran yang aktif, kreatif, dan aplikatif sehingga peserta didik tidak hanya memahami teori, tetapi juga mampu menerapkannya dalam kehidupan dan dunia industri. Selain itu, saya berharap dapat berkontribusi dalam menciptakan lulusan yang kompeten, berkarakter, adaptif terhadap perkembangan teknologi, serta siap menghadapi tantangan dunia kerja di masa depan.
-                            </p>
+                        <div style="padding: 1.5rem 1rem; background: var(--bg-main); border-radius: 20px; border: 1px solid var(--border-color); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                            <i class="ph-fill ph-graduation-cap" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-weight: 600;">Program</p>
+                            <p style="font-weight: 800; color: var(--text-main); margin: 0; font-size: 1.15rem;">PPG Calon Guru</p>
                         </div>
-                    </div>
-                    
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <p>Domisili</p>
-                            <p>D.I. Yogyakarta</p>
+                        <div style="padding: 1.5rem 1rem; background: var(--bg-main); border-radius: 20px; border: 1px solid var(--border-color); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                            <i class="ph-fill ph-buildings" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-weight: 600;">Sekolah PPL</p>
+                            <p style="font-weight: 800; color: var(--text-main); margin: 0; font-size: 1.15rem;">SMK Muh 3 YK</p>
                         </div>
-                        <div class="info-item">
-                            <p>Program</p>
-                            <p>PPG Calon Guru 2026</p>
-                        </div>
-                        <div class="info-item">
-                            <p>Sekolah PPL</p>
-                            <p>SMK Muhammadiyah 3 Yogyakarta</p>
-                        </div>
-                        <div class="info-item">
-                            <p>Bidang Studi</p>
-                            <p>Teknik Pemesinan</p>
+                        <div style="padding: 1.5rem 1rem; background: var(--bg-main); border-radius: 20px; border: 1px solid var(--border-color); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 10px 20px rgba(0,0,0,0.05)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+                            <i class="ph-fill ph-wrench" style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;"></i>
+                            <p style="color: var(--text-muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 0.5rem; font-weight: 600;">Bidang Studi</p>
+                            <p style="font-weight: 800; color: var(--text-main); margin: 0; font-size: 1.15rem;">Teknik Pemesinan</p>
                         </div>
                     </div>
                 </div>
@@ -1212,33 +1234,66 @@
             <div class="timeline">
                 <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
-                    <span class="timeline-year">2025 - Sekarang</span>
-                    <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.15rem 0.5rem; border-radius: 12px; font-weight: 600; margin-left: 0.5rem; vertical-align: middle;">
-                        ðŸ”„ Sedang Berlangsung
-                    </span>
-                    <h3>Universitas Sarjanawiyata Tamansiswa</h3>
-                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">PPG Prajabatan</h4>
-                    <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        Menempuh program <strong>PPG Prajabatan</strong> sebagai langkah untuk mengembangkan kompetensi pedagogik, profesional, sosial, dan kepribadian sebagai calon guru vokasi. Melalui program ini, saya mempelajari perencanaan pembelajaran, pengelolaan kelas, asesmen pembelajaran, serta pengembangan media ajar yang inovatif guna menciptakan pembelajaran yang bermakna dan relevan dengan kebutuhan peserta didik di era modern.
-                    </p>
+                    <div class="timeline-card">
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                            <div style="flex-shrink: 0; width: 80px; height: 80px; background: white; border-radius: 12px; padding: 0.5rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: center;">
+                                <img src="assets/ust-logo.png" alt="Logo UST" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            </div>
+                            <div style="flex: 1; overflow-wrap: break-word; min-width: 0;">
+                                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 0.5rem;">
+                                    <span class="timeline-year" style="margin-bottom: 0;">2025 - Sekarang</span>
+                                    <span style="display: inline-flex; align-items: center; gap: 0.25rem; font-size: 0.75rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.25rem 0.6rem; border-radius: 12px; font-weight: 600; border: 1px solid rgba(14, 165, 233, 0.2);">
+                                        <i class="ph-fill ph-arrows-clockwise"></i> Sedang Berlangsung
+                                    </span>
+                                </div>
+                                <h3>Universitas Sarjanawiyata Tamansiswa</h3>
+                                <h4>PPG Prajabatan</h4>
+                                <p>
+                                    Menempuh program <strong>PPG Prajabatan</strong> sebagai langkah untuk mengembangkan kompetensi pedagogik, profesional, sosial, dan kepribadian sebagai calon guru vokasi. Melalui program ini, saya mempelajari perencanaan pembelajaran, pengelolaan kelas, asesmen pembelajaran, serta pengembangan media ajar yang inovatif guna menciptakan pembelajaran yang bermakna dan relevan dengan kebutuhan peserta didik di era modern.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
-                    <span class="timeline-year">2017 - 2022</span>
-                    <h3>Universitas Negeri Yogyakarta</h3>
-                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">S1 Pendidikan Teknik Mesin <span style="font-weight: 400; color: var(--text-muted);">— IPK: 3.74/4.00</span></h4>
-                    <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        Menempuh pendidikan pada bidang <strong>Pendidikan Teknik Mesin</strong> dengan fokus pada kompetensi teknik dan pedagogik sebagai calon pendidik vokasi. Selama perkuliahan, saya aktif mengembangkan kemampuan akademik dan profesional hingga berhasil memperoleh <strong>2 Sertifikasi BNSP</strong> sebagai bukti kompetensi keahlian serta menjadi penerima <strong>Beasiswa PPA (Peningkatan Prestasi Akademik)</strong> atas capaian dan konsistensi dalam bidang akademik maupun pengembangan diri.
-                    </p>
+                    <div class="timeline-card">
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                            <div style="flex-shrink: 0; width: 80px; height: 80px; background: white; border-radius: 12px; padding: 0.5rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: center;">
+                                <img src="assets/uny-logo.png" alt="Logo UNY" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            </div>
+                            <div style="flex: 1; overflow-wrap: break-word; min-width: 0;">
+                                <div style="margin-bottom: 0.5rem;">
+                                    <span class="timeline-year" style="margin-bottom: 0;">2017 - 2022</span>
+                                </div>
+                                <h3>Universitas Negeri Yogyakarta</h3>
+                                <h4>S1 Pendidikan Teknik Mesin <span style="font-weight: 400; color: var(--text-muted);">— IPK: 3.74/4.00</span></h4>
+                                <p>
+                                    Menempuh pendidikan pada bidang <strong>Pendidikan Teknik Mesin</strong> dengan fokus pada kompetensi teknik dan pedagogik sebagai calon pendidik vokasi. Selama perkuliahan, saya aktif mengembangkan kemampuan akademik dan profesional hingga berhasil memperoleh <strong>2 Sertifikasi BNSP</strong> sebagai bukti kompetensi keahlian serta menjadi penerima <strong>Beasiswa PPA (Peningkatan Prestasi Akademik)</strong> atas capaian dan konsistensi dalam bidang akademik maupun pengembangan diri.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="timeline-item reveal">
                     <div class="timeline-dot"></div>
-                    <span class="timeline-year">2014 - 2017</span>
-                    <h3>SMA Negeri 1 Pajangan</h3>
-                    <h4 style="color: var(--primary-color); font-weight: 600; margin-bottom: 0.5rem;">Jurusan Ilmu Pengetahuan Alam</h4>
-                    <p style="text-align: justify; color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
-                        Menempuh pendidikan menengah yang membentuk karakter disiplin, tanggung jawab, dan semangat berprestasi. Selama masa sekolah, saya aktif mengikuti kompetisi keilmuan seperti <strong>Olimpiade Sains Nasional (OSN)</strong> serta berhasil lulus dengan capaian <strong>Peringkat 2 Nilai Ujian Nasional Tingkat Sekolah</strong>, yang menjadi motivasi untuk terus berkembang dalam bidang pendidikan dan teknologi.
-                    </p>
+                    <div class="timeline-card">
+                        <div style="display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap;">
+                            <div style="flex-shrink: 0; width: 80px; height: 80px; background: white; border-radius: 12px; padding: 0.5rem; border: 1px solid var(--border-color); box-shadow: var(--shadow-sm); display: flex; align-items: center; justify-content: center;">
+                                <img src="assets/sman1-pajangan-logo.png" alt="Logo SMAN 1 Pajangan" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+                            </div>
+                            <div style="flex: 1; overflow-wrap: break-word; min-width: 0;">
+                                <div style="margin-bottom: 0.5rem;">
+                                    <span class="timeline-year" style="margin-bottom: 0;">2014 - 2017</span>
+                                </div>
+                                <h3>SMA Negeri 1 Pajangan</h3>
+                                <h4>Jurusan Ilmu Pengetahuan Alam</h4>
+                                <p>
+                                    Menempuh pendidikan menengah yang membentuk karakter disiplin, tanggung jawab, dan semangat berprestasi. Selama masa sekolah, saya aktif mengikuti kompetisi keilmuan seperti <strong>Olimpiade Sains Nasional (OSN)</strong> serta berhasil lulus dengan capaian <strong>Peringkat 2 Nilai Ujian Nasional Tingkat Sekolah</strong>, yang menjadi motivasi untuk terus berkembang dalam bidang pendidikan dan teknologi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1874,16 +1929,16 @@
 
             <!-- TAB FILTERS -->
             <div class="filter-container-wrapper reveal" style="margin-bottom: 2rem;">
-                <div class="filter-group-sub" style="justify-content: center; gap: 1rem;">
-                    <button class="filter-sub-btn analisis-tab-btn active" data-target="kendala"><i class="ph-fill ph-warning-circle" style="margin-right:0.3rem;"></i> Kendala Penyusunan</button>
-                    <button class="filter-sub-btn analisis-tab-btn" data-target="pedagogi"><i class="ph-fill ph-book-open" style="margin-right:0.3rem;"></i> Konsep Pedagogi</button>
-                    <button class="filter-sub-btn analisis-tab-btn" data-target="keberhasilan"><i class="ph-fill ph-check-circle" style="margin-right:0.3rem;"></i> Faktor Keberhasilan</button>
-                    <button class="filter-sub-btn analisis-tab-btn" data-target="adaptasi"><i class="ph-fill ph-arrows-merge" style="margin-right:0.3rem;"></i> Adaptasi Kelas</button>
+                <div class="filter-group-sub" style="display: flex; gap: 1rem; width: 100%; max-width: 100%; justify-content: space-between;">
+                    <button class="filter-sub-btn analisis-tab-btn active" data-target="kendala" style="flex: 1; font-size: 1.05rem; padding: 0.8rem 1rem; display: flex; justify-content: center; align-items: center;"><i class="ph-fill ph-warning-circle" style="margin-right:0.4rem; font-size: 1.2rem;"></i> Kendala Penyusunan</button>
+                    <button class="filter-sub-btn analisis-tab-btn" data-target="pedagogi" style="flex: 1; font-size: 1.05rem; padding: 0.8rem 1rem; display: flex; justify-content: center; align-items: center;"><i class="ph-fill ph-book-open" style="margin-right:0.4rem; font-size: 1.2rem;"></i> Konsep Pedagogi</button>
+                    <button class="filter-sub-btn analisis-tab-btn" data-target="keberhasilan" style="flex: 1; font-size: 1.05rem; padding: 0.8rem 1rem; display: flex; justify-content: center; align-items: center;"><i class="ph-fill ph-check-circle" style="margin-right:0.4rem; font-size: 1.2rem;"></i> Faktor Keberhasilan</button>
+                    <button class="filter-sub-btn analisis-tab-btn" data-target="adaptasi" style="flex: 1; font-size: 1.05rem; padding: 0.8rem 1rem; display: flex; justify-content: center; align-items: center;"><i class="ph-fill ph-arrows-merge" style="margin-right:0.4rem; font-size: 1.2rem;"></i> Adaptasi Kelas</button>
                 </div>
             </div>
 
             <!-- TAB CONTENT -->
-            <div class="analisis-content-wrapper reveal" style="max-width: 800px; margin: 0 auto; background: var(--bg-card); border-radius: 16px; border: 1px solid var(--border-color); padding: 2.5rem; box-shadow: var(--shadow-sm);">
+            <div class="analisis-content-wrapper reveal" style="width: 100%; margin: 0 auto; background: var(--bg-card); border-radius: 20px; border: 1px solid rgba(0,0,0,0.05); padding: 3rem 4rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='scale(1.015)'; this.style.boxShadow='0 20px 40px rgba(0,0,0,0.08)';" onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.03)';">
                 
                 <!-- Kendala Penyusunan -->
                 <div class="analisis-tab-content active" id="content-kendala">
@@ -1995,8 +2050,8 @@
                     </div>
                     
                     <div style="display: flex; gap: 1rem; position: relative; z-index: 1;">
-                        <a href="https://drive.google.com/file/d/1S3PbP-PJpTfjjrXH2a4I7uoelFQwFLf3/preview" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600;"><i class="ph ph-eye" style="font-size: 1.2rem;"></i> Preview PDF</a>
-                        <a href="https://drive.google.com/file/d/1S3PbP-PJpTfjjrXH2a4I7uoelFQwFLf3/view?usp=sharing" target="_blank" class="btn btn-outline" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600; background: var(--bg-main); border-color: var(--border-color); color: var(--text-main);"><i class="ph ph-folder-open" style="font-size: 1.2rem;"></i> Buka Drive</a>
+                        <a href="https://drive.google.com/file/d/1tyePzKByHbwZLGvpsjOJjV4Jjf5Enh8H/preview" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600;"><i class="ph ph-eye" style="font-size: 1.2rem;"></i> Preview PDF</a>
+                        <a href="https://drive.google.com/file/d/1tyePzKByHbwZLGvpsjOJjV4Jjf5Enh8H/view?usp=sharing" target="_blank" class="btn btn-outline" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600; background: var(--bg-main); border-color: var(--border-color); color: var(--text-main);"><i class="ph ph-folder-open" style="font-size: 1.2rem;"></i> Buka Drive</a>
                     </div>
                 </div>
 
@@ -2032,8 +2087,8 @@
                     </div>
                     
                     <div style="display: flex; gap: 1rem; position: relative; z-index: 1;">
-                        <a href="https://drive.google.com/file/d/1kXhIghojf7hBrhH1LxyBhIi1Y6oQVVmm/preview" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600; background-color: #f59e0b; color: white;"><i class="ph ph-eye" style="font-size: 1.2rem;"></i> Preview PDF</a>
-                        <a href="https://drive.google.com/file/d/1kXhIghojf7hBrhH1LxyBhIi1Y6oQVVmm/view?usp=sharing" target="_blank" class="btn btn-outline" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600; background: var(--bg-main); border-color: var(--border-color); color: var(--text-main);"><i class="ph ph-folder-open" style="font-size: 1.2rem;"></i> Buka Drive</a>
+                        <a href="https://drive.google.com/file/d/1VRFpS2EvVUV4TwdrtBMTPDpW0Ua7xHp8/preview" target="_blank" class="btn btn-primary" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600; background-color: #f59e0b; color: white;"><i class="ph ph-eye" style="font-size: 1.2rem;"></i> Preview PDF</a>
+                        <a href="https://drive.google.com/file/d/1VRFpS2EvVUV4TwdrtBMTPDpW0Ua7xHp8/view?usp=sharing" target="_blank" class="btn btn-outline" style="flex: 1; justify-content: center; border-radius: 8px; padding: 0.8rem; font-weight: 600; background: var(--bg-main); border-color: var(--border-color); color: var(--text-main);"><i class="ph ph-folder-open" style="font-size: 1.2rem;"></i> Buka Drive</a>
                     </div>
                 </div>
             </div>
@@ -2095,7 +2150,7 @@
                     <div class="card comp-card reveal" style="padding: 2rem 1.5rem; border-radius: 16px;">
                         <i class="ph-fill ph-gear comp-icon" style="color: #10b981;"></i>
                         <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem;">Profesional</h4>
-                        <p style="text-align: justify;">Mengembangkan dan memperbarui kompetensi teknis di bidang Teknik Pemesinan, gambar teknik, CAD/CAM, proses manufaktur, dan teknologi industri agar pembelajaran tetap relevan dengan perkembangan dunia kerja.</p>
+                        <p style="text-align: justify;">Mengembangkan dan memperbarui kompetensi teknis di bidang Gambar Teknik, Proses Industri Manufaktur, dan Mekanika Teknik agar pembelajaran tetap relevan dengan perkembangan teknologi dan kebutuhan dunia industri.</p>
                     </div>
 
                     <div class="card comp-card reveal" style="padding: 2rem 1.5rem; border-radius: 16px;">
@@ -2119,7 +2174,7 @@
                     <span style="display: block; width: 50px; height: 3px; background: var(--primary-color); margin: 0.5rem auto 0; border-radius: 2px;"></span>
                 </h3>
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
                     
                     <div class="card reveal" style="display: flex; gap: 1.25rem; padding: 1.75rem; border-radius: 16px; border: 1px solid var(--border-color); background: var(--bg-card); align-items: flex-start;">
                         <div style="flex-shrink: 0; width: 50px; height: 50px; background: rgba(14, 165, 233, 0.15); color: #0ea5e9; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
@@ -2170,50 +2225,169 @@
     <section id="galeri" class="section" style="background-color: var(--primary-light);">
         <div class="container">
             <div class="section-title reveal" style="text-align: center; margin-bottom: 3rem;">
-                <span style="display: block; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.5rem; font-family: var(--font-body);">Aktivitas & Dokumentasi PPL</span>
-                <h2 style="font-size: 2.2rem; color: var(--primary-color); margin-bottom: 0.75rem;">Galeri Kegiatan</h2>
-                <p style="font-size: 0.95rem; color: var(--text-muted); font-style: italic; max-width: 700px; margin: 0 auto; line-height: 1.6;">
-                    Potret nyata pembelajaran, bimbingan praktikum, dan kolaborasi profesional selama pelaksanaan PPL di SMK Muhammadiyah 3 Yogyakarta.
+                <span style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--bg-main); color: var(--primary-color); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; box-shadow: var(--shadow-sm);"><i class="ph-fill ph-image"></i> GALERI</span>
+                <h2 style="font-size: 2.5rem; color: var(--text-main); font-weight: 800; margin-bottom: 0.75rem;">Dokumentasi Kegiatan</h2>
+                <p style="font-size: 1rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6;">
+                    Kumpulan momen bermakna selama proses belajar mengajar dan pelaksanaan PPL di SMK Muhammadiyah 3 Yogyakarta.
                 </p>
             </div>
 
-            <div class="galeri-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
-                <!-- Gallery Item 1 -->
-                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=11', 'Praktik Bubut Presisi', 'Membimbing siswa melakukan pembubutan bertingkat secara presisi di Bengkel Pemesinan.')">
-                    <img src="https://picsum.photos/400/300?random=11" alt="Bubut Manual" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Praktikum Bengkel</span>
-                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Praktik Bubut Presisi</h4>
-                    </div>
-                </div>
+            <style>
+                .gallery-img-hover { transition: transform 0.6s ease; }
+                .card:hover .gallery-img-hover { transform: scale(1.05); }
+                .play-btn-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+                .card:hover .play-btn-hover { transform: scale(1.1); box-shadow: 0 15px 30px rgba(0,0,0,0.4); }
+                
+                /* Accordion Photo Gallery Style */
+                .galeri-foto {
+                    display: flex;
+                    flex-direction: row;
+                    height: 420px;
+                    gap: 1rem;
+                    width: 100%;
+                }
+                
+                .galeri-foto .card {
+                    flex: 1;
+                    height: 100%;
+                    border-radius: 24px;
+                    transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1), filter 0.6s ease;
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                    border: 1px solid var(--border-color);
+                    box-shadow: var(--shadow-sm);
+                    padding: 0;
+                }
+                
+                .galeri-foto .card img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    transition: transform 0.6s ease, filter 0.6s ease;
+                }
+                
+                /* Efek saat satu foto di-hover (zoom/expand) */
+                .galeri-foto .card:hover {
+                    flex: 4;
+                }
+                
+                /* Menggelapkan foto lain yang tidak di-hover */
+                .galeri-foto:hover .card:not(:hover) img {
+                    filter: brightness(0.6) grayscale(30%);
+                }
+                
+                /* Teks Caption tersembunyi secara default */
+                .galeri-foto .card .gallery-caption {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    right: 0;
+                    background: linear-gradient(to top, rgba(0,0,0,0.95), transparent);
+                    padding: 2.5rem 1.5rem 1.5rem 1.5rem;
+                    color: white;
+                    opacity: 0;
+                    transform: translateY(20px);
+                    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+                    pointer-events: none;
+                }
+                
+                /* Teks Caption muncul saat di-hover */
+                .galeri-foto .card:hover .gallery-caption {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
 
-                <!-- Gallery Item 2 -->
-                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=12', 'Pengajaran Gambar Teknik CAD', 'Menjelaskan konsep pembuatan gambar detail 2D proyeksi orthogonal menggunakan perangkat lunak CAD.')">
-                    <img src="https://picsum.photos/400/300?random=12" alt="Gambar Teknik" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Teori & Desain</span>
-                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Gambar Teknik CAD</h4>
-                    </div>
-                </div>
+                @media (max-width: 768px) {
+                    .galeri-foto {
+                        flex-direction: column;
+                        height: 700px;
+                    }
+                }
+            </style>
 
-                <!-- Gallery Item 3 -->
-                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=13', 'Bimbingan Asesmen Formatif', 'Melakukan bimbingan individu kepada siswa yang memerlukan bantuan penyelesaian gambar bentangan.')">
-                    <img src="https://picsum.photos/400/300?random=13" alt="Bimbingan Siswa" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Konsultasi Belajar</span>
-                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Bimbingan Asesmen</h4>
-                    </div>
+            <!-- Header Video Utama -->
+            <div class="reveal" style="margin-bottom: 1.5rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <div style="width: 8px; height: 32px; background: var(--primary-color); border-radius: 4px;"></div>
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0;">Video Dokumentasi</h3>
                 </div>
+                <p style="font-size: 1rem; color: var(--text-muted); margin: 0; max-width: 700px; padding-left: 1.25rem;">Saksikan rekaman langsung proses pembelajaran interaktif dan penyampaian materi secara komprehensif.</p>
+            </div>
 
-                <!-- Gallery Item 4 -->
-                <div class="card reveal" style="padding: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--border-color); cursor: pointer; transition: var(--transition-smooth); background-color: var(--card-bg); height: 280px; position: relative;" onclick="openGalleryModal('https://picsum.photos/800/600?random=14', 'Evaluasi Bersama Mentor', 'Menerima arahan masukan konstruktif dari Guru Pamong mengenai manajemen kelas dan teknik instruksional.')">
-                    <img src="https://picsum.photos/400/300?random=14" alt="Mentor Diskusi" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;">
-                    <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0, 0, 0, 0.85)); padding: 1.5rem 1.25rem; color: #fff; display: flex; flex-direction: column; gap: 0.25rem;">
-                        <span style="font-size: 0.75rem; font-weight: 700; color: #3b82f6; text-transform: uppercase; letter-spacing: 1px;">Kolaborasi</span>
-                        <h4 style="font-size: 1.05rem; font-weight: 700; color: #ffffff; margin: 0;">Diskusi & Evaluasi PPL</h4>
+            <!-- Video Utama -->
+            <div class="reveal" id="video-section" style="margin-bottom: 3.5rem;">
+                <div style="background: #183D3D; padding: 1.25rem; border-radius: 24px; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                    <div style="position: relative; width: 100%; padding-bottom: 56.25%; border-radius: 16px; overflow: hidden; background: #000; margin-bottom: 1.25rem;">
+                        <a href="https://youtu.be/ufwUJf3y5so" target="_blank" style="display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)';" onmouseout="this.style.transform='scale(1)';">
+                            <img src="https://img.youtube.com/vi/ufwUJf3y5so/maxresdefault.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Video Thumbnail">
+                            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 72px; height: 72px; background: rgba(220, 38, 38, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);">
+                                <i class="ph-fill ph-play" style="font-size: 2.5rem; margin-left: 6px;"></i>
+                            </div>
+                        </a>
+                    </div>
+                    
+                    <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.5rem; padding: 0 0.5rem;">
+                        <div style="flex: 1; min-width: 300px;">
+                            <span style="display: inline-block; font-size: 0.75rem; font-weight: 800; letter-spacing: 2px; color: #a7f3d0; margin-bottom: 0.5rem; text-transform: uppercase;">Tonton Video Lengkap</span>
+                            <p style="color: #e2e8f0; font-size: 0.95rem; margin: 0; font-weight: 500; line-height: 1.5;">Klik thumbnail di atas atau gunakan tombol di samping untuk menonton video dokumentasi selengkapnya di YouTube.</p>
+                        </div>
+                        <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+                            <a href="https://youtu.be/ufwUJf3y5so" target="_blank" style="background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid rgba(16, 185, 129, 0.4); padding: 0.6rem 1.25rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.3s ease;">Buka Video <i class="ph-bold ph-arrow-square-out"></i></a>
+                            <a href="https://youtube.com/@hendramahadhika8133?si=s8wF75HLQ58tbs-d" target="_blank" style="background: rgba(255,255,255,0.05); color: #e2e8f0; border: 1px solid rgba(255,255,255,0.15); padding: 0.6rem 1.25rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.4rem; transition: all 0.3s ease;">Channel <i class="ph-bold ph-youtube-logo"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Header Dokumentasi Foto -->
+            <div class="reveal" style="margin-bottom: 1.5rem; text-align: left;">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                    <div style="width: 8px; height: 32px; background: var(--primary-color); border-radius: 4px;"></div>
+                    <h3 style="font-size: 1.8rem; font-weight: 800; color: var(--text-main); margin: 0;">Galeri Lensa PPL</h3>
+                </div>
+                <p style="font-size: 1rem; color: var(--text-muted); margin: 0; max-width: 700px; padding-left: 1.25rem;">Koleksi momen berharga selama pendampingan teori, praktik mesin manual, hingga diskusi kelompok.</p>
+            </div>
+
+            <!-- Dokumentasi Foto -->
+            <div class="galeri-foto reveal">
+                <!-- Card 1 -->
+                <div class="card" onclick="openGalleryModal('https://picsum.photos/800/600?random=31', 'Suasana Lab CAD', 'Pendampingan kelas Teknik Pemesinan saat praktik Autodesk Inventor')">
+                    <img src="https://picsum.photos/800/600?random=31" alt="Suasana Lab CAD">
+                    <div class="gallery-caption">
+                        <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; color: #fff;">Suasana Lab CAD</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.5;">Pendampingan kelas Teknik Pemesinan saat praktik Autodesk Inventor.</p>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card" onclick="openGalleryModal('https://picsum.photos/400/600?random=32', 'Praktik Manual', 'Siswa fokus mengerjakan job sheet pembubutan bertingkat.')">
+                    <img src="https://picsum.photos/400/600?random=32" alt="Praktik Manual">
+                    <div class="gallery-caption">
+                        <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; color: #fff;">Praktik Mesin</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.5;">Siswa fokus mengerjakan job sheet pembubutan bertingkat presisi.</p>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card" onclick="openGalleryModal('https://picsum.photos/400/600?random=33', 'Bimbingan Kelompok', 'Mendampingi siswa dalam memahami teori gambar potongan.')">
+                    <img src="https://picsum.photos/400/600?random=33" alt="Bimbingan Kelompok">
+                    <div class="gallery-caption">
+                        <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; color: #fff;">Bimbingan Siswa</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.5;">Mendampingi pemahaman teknis dan mendalam untuk setiap individu.</p>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="card" onclick="openGalleryModal('https://picsum.photos/400/600?random=34', 'Latihan Mandiri', 'Siswa berlatih pengoperasian mesin CNC dasar.')">
+                    <img src="https://picsum.photos/400/600?random=34" alt="Latihan Mandiri">
+                    <div class="gallery-caption">
+                        <h4 style="font-size: 1.4rem; font-weight: 700; margin-bottom: 0.25rem; color: #fff;">Latihan Mandiri</h4>
+                        <p style="font-size: 0.9rem; color: rgba(255,255,255,0.85); margin: 0; line-height: 1.5;">Siswa berlatih dan memperdalam keterampilan pengoperasian CNC dasar.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -2246,7 +2420,7 @@
                             </div>
                             <div>
                                 <span style="display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.25rem;">EMAIL</span>
-                                <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin: 0; word-break: break-all;">hendradhika46@email.com</h4>
+                                <h4 style="font-size: 1rem; font-weight: 600; color: var(--text-main); margin: 0; word-break: break-all;">hendradhika46@gmail.com</h4>
                             </div>
                         </div>
 
@@ -4488,6 +4662,8 @@
             init();
         }
     </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script>
 </body>
 </html>
 
