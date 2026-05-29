@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Portofolio 2 | Refleksi PPL Terbimbing</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    
+    <style>
+        :root {
+            --bg-main: #0B1120; /* Deep Space Blue */
+            --bg-card: rgba(30, 41, 59, 0.6); /* Glassmorphism */
+            --text-main: #F8FAFC; 
+            --text-muted: #94A3B8; 
+            --primary-color: #06B6D4; /* Cyan */
+            --primary-light: rgba(6, 182, 212, 0.15); 
+            --accent-color: #8B5CF6; /* Purple */
+            
+            --font-body: 'Inter', sans-serif;
+            
+            --border-color: rgba(255, 255, 255, 0.1); 
+            --shadow-glow: 0 0 20px rgba(6, 182, 212, 0.5);
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --glass-blur: blur(12px);
+        }
+
+        body.light-theme {
+            --bg-main: #F8FAFC; /* Slate 50 */
+            --bg-card: rgba(255, 255, 255, 0.7); /* Light Glassmorphism */
+            --text-main: #1E293B; /* Slate 800 */
+            --text-muted: #64748B; /* Slate 500 */
+            --primary-color: #0284C7; /* Darker Cyan for contrast */
+            --primary-light: rgba(2, 132, 199, 0.15); 
+            --border-color: rgba(0, 0, 0, 0.1); 
+            --shadow-glow: 0 0 20px rgba(2, 132, 199, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .brand-logo {
+            height: 40px;
+        }
+
+        .brand-text h1 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.1rem;
+        }
+
+        .brand-text p {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.25rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+
+        .nav-link i {
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        /* Modern, minimal horizontal underline effect */
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 2px;
+        }
+
+        .nav-link:hover::after, .nav-link.active::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--primary-color);
+        }
+        
+        .nav-link:hover i, .nav-link.active i {
+            color: var(--primary-color);
+        }
+
+        .btn-back {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.6rem 1.2rem;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            margin-right: 1rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .btn-back:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: var(--shadow-glow);
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            background: linear-gradient(135deg, #fff 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .placeholder-content {
+            background-color: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: 16px;
+            padding: 4rem 2rem;
+            text-align: center;
+            border: 1px dashed var(--border-color);
+            transition: var(--transition-smooth);
+        }
+
+        .placeholder-content i {
+            font-size: 4rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            opacity: 0.5;
+        }
+
+        .placeholder-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==================== HERO BERANDA ==================== */
+        .hero-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .hero-subtitle {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: var(--primary-light);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero-desc {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            max-width: 90%;
+        }
+
+        .hero-badges-wrapper {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-badge-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.2rem;
+            border-radius: 12px;
+            transition: var(--transition-smooth);
+        }
+
+        .hero-badge-item:hover {
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .hero-badge-icon {
+            width: 36px; height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        .hero-badge-text span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.1rem;
+        }
+
+        .hero-badge-text strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-cyan {
+            background-color: var(--primary-color);
+            color: #fff !important;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-cyan:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(6, 182, 212, 0.6);
+        }
+
+        .btn-outline-glass {
+            background-color: rgba(255,255,255,0.05);
+            color: var(--text-main);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline-glass:hover {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Profile Photo Right Side */
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .profile-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            padding: 1.5rem;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            width: 100%;
+            max-width: 400px;
+            transition: var(--transition-smooth);
+        }
+
+        .profile-card:hover {
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .profile-image-container {
+            width: 100%;
+            aspect-ratio: 4/5;
+            border-radius: 16px;
+            overflow: hidden;
+            background: var(--bg-main);
+            position: relative;
+        }
+
+        .profile-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .profile-card:hover .profile-image-container img {
+            transform: scale(1.05);
+        }
+
+        .floating-badge {
+            position: absolute;
+            bottom: -15px;
+            right: -15px;
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+
+        .floating-badge i {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+
+        .floating-badge-text {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        /* Section Overview Cards (Bottom) */
+        .section-overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .overview-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            transition: var(--transition-smooth);
+            text-decoration: none;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .overview-icon-wrapper {
+            width: 60px; height: 60px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+
+        .overview-text {
+            flex-grow: 1;
+        }
+
+        .overview-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 0.3rem;
+            display: block;
+        }
+
+        .overview-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .overview-desc {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .overview-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--border-color);
+            opacity: 0.5;
+            transition: var(--transition-smooth);
+        }
+
+        .overview-card:hover .overview-number {
+            color: var(--primary-light);
+            opacity: 1;
+        }
+
+        @media (max-width: 992px) {
+            .hero-section {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-badges-wrapper, .hero-actions {
+                justify-content: center;
+            }
+            .section-overview-grid {
+                grid-template-columns: 1fr;
+            }
+            .floating-badge {
+                right: 50%;
+                transform: translateX(50%);
+            }
+        }
+
+        /* ==================== TABS REFLEKSI ==================== */
+        .tabs-nav-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+        .tabs-nav {
+            display: inline-flex;
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 50px;
+            padding: 0.5rem;
+            box-shadow: var(--shadow-sm);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: var(--transition-smooth);
+        }
+        .tab-btn:hover {
+            color: var(--text-main);
+        }
+        .tab-btn.active {
+            background: var(--primary-color);
+            color: #fff;
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .tabs-content {
+            position: relative;
+            min-height: 300px;
+            margin-bottom: 5rem;
+        }
+        .tab-pane {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        .tab-pane.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .refleksi-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2rem;
+            transition: var(--transition-smooth);
+        }
+        .refleksi-card:hover {
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+        .refleksi-card-icon {
+            width: 60px; height: 60px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            transform: rotate(-10deg);
+        }
+        .refleksi-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+        }
+        .refleksi-card p {
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+        .step-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: var(--transition-smooth);
+        }
+        .step-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary-light);
+            box-shadow: var(--shadow-sm);
+        }
+        .step-number {
+            color: #fff;
+            width: 30px; height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
+        }
+        .step-text h4 {
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+            font-size: 1rem;
+        }
+        .step-text p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        /* ==================== FILOSOFI MENGAJAR ==================== */
+        .quote-banner {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+        .quote-banner::before {
+            content: '\201C';
+            font-family: serif;
+            position: absolute;
+            top: -20px; left: 20px;
+            font-size: 8rem;
+            color: var(--primary-light);
+            line-height: 1;
+            z-index: 0;
+        }
+        .quote-text {
+            font-size: 1.4rem;
+            font-weight: 600;
+            line-height: 1.6;
+            color: var(--text-main);
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .philosophy-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            transition: var(--transition-smooth);
+            position: relative;
+        }
+        .philosophy-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary-color);
+        }
+        
+        .number-badge {
+            background-color: var(--bg-main);
+            color: var(--primary-color);
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--border-color);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .philosophy-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+        
+        .philosophy-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .philosophy-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        .philosophy-card ul li {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .philosophy-card ul li::before {
+            content: '\2022'; /* Bullet */
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+            line-height: 0.8;
+        }
+
+        .core-values-container {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+        }
+        .core-values-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .core-values-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .core-value-pill {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            min-width: 220px;
+            text-align: left;
+            transition: var(--transition-smooth);
+        }
+        .core-value-pill:hover {
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        .core-value-icon {
+            width: 45px; height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        .core-value-text h4 {
+            color: var(--text-main);
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+        }
+        .core-value-text p {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+            margin: 0;
+        }
+        
+        @media (max-width: 1024px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 1.5rem;
+            }
+            .nav-right {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+        /* ==================== PEMBELAJARAN GRID & MODAL ==================== */
+        .learning-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .learning-card {
+            background: var(--bg-card);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 2rem;
+            position: relative;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-5px);
+            border-color: #10B981;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+        }
+
+        .learning-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+        }
+
+        .learning-badge span {
+            color: #10B981;
+        }
+
+        .learning-card h4 {
+            font-size: 1.25rem;
+            color: var(--text-main);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .learning-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .btn-lihat-refleksi {
+            align-self: flex-start;
+            background: rgba(16, 185, 129, 0.1);
+            color: #10B981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-lihat-refleksi:hover {
+            background: #10B981;
+            color: #fff;
+        }
+
+        /* Modal Custom Styling */
+        .custom-modal-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            padding: 1rem;
+        }
+
+        .custom-modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .custom-modal-box {
+            background: var(--bg-main);
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+        }
+
+        .custom-modal-overlay.active .custom-modal-box {
+            transform: translateY(0) scale(1);
+        }
+
+        .custom-modal-header {
+            padding: 2rem 2rem 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            background: var(--bg-main);
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .custom-modal-close {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            color: var(--text-muted);
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition-smooth);
+        }
+
+        .custom-modal-close:hover {
+            color: var(--text-main);
+            background: var(--primary-light);
+        }
+
+        .custom-modal-body {
+            padding: 2rem;
+            color: var(--text-muted);
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .custom-modal-body p {
+            margin-bottom: 1.2rem;
+        }
+        
+        .custom-modal-body ul {
+            padding-left: 1.5rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .custom-modal-body li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tantangan-section {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tantangan-section h5 {
+            font-size: 0.8rem;
+            color: #F59E0B;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tantangan-section p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Minimal Navbar -->
+    <nav class="navbar">
+        <div class="nav-left">
+            <div class="brand">
+                <img src="logo.png" alt="Logo" class="brand-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tut_Wuri_Handayani.svg/1024px-Tut_Wuri_Handayani.svg.png'">
+                <div class="brand-text">
+                    <h1>E-Portofolio 2</h1>
+                    <p>Refleksi PPL Terbimbing</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="nav-right">
+            <a href="#beranda" class="nav-link active">
+                <i class="ph ph-layout"></i>
+                Beranda
+            </a>
+            <a href="#refleksi-ppl" class="nav-link">
+                <i class="ph ph-book-bookmark"></i>
+                Refleksi PPL
+            </a>
+            <a href="#filosofi" class="nav-link">
+                <i class="ph ph-book-open"></i>
+                Filosofi Mengajar
+            </a>
+            <div style="display: flex; gap: 0.5rem; margin-left: 0.5rem; border-left: 1px solid var(--border-color); padding-left: 1rem;">
+                <button id="theme-toggle" class="btn-back" title="Mode Terang/Gelap" style="color: #F59E0B; border: none; cursor: pointer; background: var(--primary-light); padding: 0.5rem; justify-content: center;">
+                    <i class="ph-fill ph-moon" style="font-size: 1.5rem;"></i>
+                </button>
+                <a href="index.html?skipSplash=true" id="back-to-selection" class="btn-back" title="Pilih Portofolio (Halaman 2)" style="color: var(--primary-color); text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 0.5rem; border-radius: 8px; transition: var(--transition-smooth); background: var(--primary-light);">
+                    <i class="ph-fill ph-house" style="font-size: 1.5rem;"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container">
+        <!-- Section: Beranda -->
+        <section id="beranda" class="section" style="padding-top: 2rem; padding-bottom: 4rem;">
+            
+            <div class="hero-section">
+                <!-- Left Side: Text -->
+                <div class="hero-content">
+                    <span class="hero-subtitle">Beranda E-Portofolio 2</span>
+                    <h2 class="hero-title">Hendra Mahardhika</h2>
+                    <p class="hero-desc">
+                        Calon guru Teknik Mesin PPG Prajabatan 2026 yang menjalani PPL Terbimbing di SMK Muhammadiyah 3 Yogyakarta. Halaman ini menjadi ruang refleksi perjalanan belajar, praktik mengajar, dan pengembangan diri menuju guru profesional.
+                    </p>
+                    
+                    <div class="hero-badges-wrapper">
+                        <div class="hero-badge-item">
+                            <div class="hero-badge-icon" style="background: rgba(16, 185, 129, 0.15); color: #10B981;">
+                                <i class="ph-fill ph-wrench"></i>
+                            </div>
+                            <div class="hero-badge-text">
+                                <span>Bidang</span>
+                                <strong>Teknik Mesin</strong>
+                            </div>
+                        </div>
+                        <div class="hero-badge-item">
+                            <div class="hero-badge-icon" style="background: rgba(245, 158, 11, 0.15); color: #F59E0B;">
+                                <i class="ph-fill ph-map-pin"></i>
+                            </div>
+                            <div class="hero-badge-text">
+                                <span>Tempat PPL</span>
+                                <strong>SMK Muh 3 YK</strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="hero-actions">
+                        <a href="#refleksi-ppl" class="btn-main btn-cyan nav-link-bypass">
+                            <i class="ph ph-file-text"></i> Lihat Refleksi
+                        </a>
+                        <a href="#filosofi" class="btn-main btn-outline-glass nav-link-bypass">
+                            <i class="ph ph-lightbulb"></i> Filosofi Mengajar
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Side: Photo Card -->
+                <div class="hero-visual">
+                    <div class="profile-card">
+                        <div class="profile-image-container">
+                            <img src="profile2.jpg" alt="Hendra Mahardhika" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                        </div>
+                        <div class="floating-badge">
+                            <i class="ph-fill ph-graduation-cap"></i>
+                            <span class="floating-badge-text">PPG Prajabatan 2026</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Section Overviews -->
+            <div class="section-overview-grid">
+                <a href="#refleksi-ppl" class="overview-card nav-link-bypass">
+                    <div class="overview-icon-wrapper" style="background: #06b6d4;">
+                        <i class="ph-fill ph-book-open"></i>
+                    </div>
+                    <div class="overview-text">
+                        <span class="overview-label">Section 01</span>
+                        <h4 class="overview-title">Refleksi Akhir PPL Terbimbing</h4>
+                        <p class="overview-desc">3 pertanyaan refleksi mendalam tentang pembelajaran, tantangan & umpan balik.</p>
+                    </div>
+                    <div class="overview-number">1</div>
+                </a>
+
+                <a href="#filosofi" class="overview-card nav-link-bypass">
+                    <div class="overview-icon-wrapper" style="background: #8B5CF6;">
+                        <i class="ph-fill ph-lightbulb"></i>
+                    </div>
+                    <div class="overview-text">
+                        <span class="overview-label">Section 02</span>
+                        <h4 class="overview-title">Filosofi Mengajar</h4>
+                        <p class="overview-desc">Prinsip pembelajaran bermakna, fasilitator scaffolder, & 4 nilai inti profesional.</p>
+                    </div>
+                    <div class="overview-number">2</div>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Section: Refleksi PPL -->
+        <section id="refleksi-ppl" class="section" style="padding-top: 4rem;">
+            <div class="page-header">
+                <h2>Refleksi Akhir PPL Terbimbing</h2>
+                <p>Berikut adalah 4 tahapan PPL Terbimbing yang telah saya lalui, silakan klik menu tab di bawah untuk melihat detail refleksi dari masing-masing aspek.</p>
+            </div>
+
+            <div class="steps-grid" style="margin-bottom: 3rem;">
+                <div class="step-card">
+                    <div class="step-number" style="background: #06b6d4;">01</div>
+                    <div class="step-text">
+                        <h4>Observasi</h4>
+                        <p>Mengenali karakter, gaya belajar, dan kebutuhan peserta didik.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number" style="background: #0ea5e9;">02</div>
+                    <div class="step-text">
+                        <h4>Asistensi</h4>
+                        <p>Belajar pengelolaan kelas praktik, K3, dan demonstrasi kerja.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number" style="background: #3b82f6;">03</div>
+                    <div class="step-text">
+                        <h4>Praktik</h4>
+                        <p>Menerapkan pembelajaran terbimbing dan mengelola waktu praktik.</p>
+                    </div>
+                </div>
+                <div class="step-card">
+                    <div class="step-number" style="background: #6366f1;">04</div>
+                    <div class="step-text">
+                        <h4>Evaluasi</h4>
+                        <p>Menerima umpan balik untuk perbaikan PPL Mandiri.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tabs-nav-container">
+                <div class="tabs-nav">
+                    <button class="tab-btn active" data-tab="tab-pembelajaran">
+                        <i class="ph ph-graduation-cap"></i> Pembelajaran
+                    </button>
+                    <button class="tab-btn" data-tab="tab-tantangan">
+                        <i class="ph ph-target"></i> Tantangan
+                    </button>
+                    <button class="tab-btn" data-tab="tab-umpan-balik">
+                        <i class="ph ph-chat-circle-dots"></i> Umpan Balik
+                    </button>
+                </div>
+            </div>
+
+            <div class="tabs-content">
+                <!-- Tab Pembelajaran -->
+                <div id="tab-pembelajaran" class="tab-pane active">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <span class="hero-subtitle" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">01 &mdash; Perjalanan Belajar</span>
+                        <h3 style="font-size: 2.5rem; color: var(--text-main); margin: 1rem 0;">Pembelajaran Selama PPL</h3>
+                        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                            PPL Terbimbing pada Praktik Pemesinan di SMK Muhammadiyah 3 Yogyakarta memberi saya enam pelajaran utama tentang peran guru, observasi, produk pembelajaran, asistensi mengajar, relevansi industri, dan asesmen formatif.
+                        </p>
+                    </div>
+
+                    <div class="learning-grid">
+                        <div class="learning-card">
+                            <div class="learning-badge"><span>01</span> / Pembelajaran</div>
+                            <h4>Peran Guru Profesional</h4>
+                            <p>Saya belajar bahwa guru perlu membaca situasi kelas, mengatur alur pembelajaran, memastikan instruksi dipahami, dan mendampingi siswa yang mengalami kesulitan.</p>
+                            <button class="btn-lihat-refleksi" onclick="openPembelajaranModal(1)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span>02</span> / Pembelajaran</div>
+                            <h4>Belajar dari Observasi</h4>
+                            <p>Observasi dan sit in membantu saya memahami medan kelas sebelum mengajar, terutama cara Guru Pamong membuka pembelajaran, memberi instruksi, dan menjaga fokus siswa.</p>
+                            <button class="btn-lihat-refleksi" onclick="openPembelajaranModal(2)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span>03</span> / Pembelajaran</div>
+                            <h4>Belajar Membuat Produk Pembelajaran</h4>
+                            <p>Saya belajar bahwa RPP, LKM/LKPD, job sheet, media, bahan ajar, dan asesmen harus saling terhubung dan benar-benar membantu jalannya pembelajaran.</p>
+                            <button class="btn-lihat-refleksi" onclick="openPembelajaranModal(3)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span>04</span> / Pembelajaran</div>
+                            <h4>Belajar Asistensi (Mengajar Langsung)</h4>
+                            <p>Saat ikut terlibat langsung dalam pembelajaran, saya belajar bahwa mengajar menuntut kesiapan membaca kondisi siswa dan menyesuaikan arahan di kelas.</p>
+                            <button class="btn-lihat-refleksi" onclick="openPembelajaranModal(4)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span>05</span> / Pembelajaran</div>
+                            <h4>Membuat Pembelajaran Relevan dengan Industri</h4>
+                            <p>Saya semakin memahami bahwa materi praktik perlu dikaitkan dengan standar kerja, ketelitian ukuran, dan proses produksi di industri.</p>
+                            <button class="btn-lihat-refleksi" onclick="openPembelajaranModal(5)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span>06</span> / Pembelajaran</div>
+                            <h4>Melaksanakan Asesmen Formatif</h4>
+                            <p>Saya belajar bahwa asesmen formatif perlu dilakukan selama proses belajar agar kesalahan siswa bisa diketahui dan diperbaiki lebih awal.</p>
+                            <button class="btn-lihat-refleksi" onclick="openPembelajaranModal(6)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Tantangan -->
+                <div id="tab-tantangan" class="tab-pane">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <span class="hero-subtitle" style="background: rgba(245, 158, 11, 0.1); color: #F59E0B;">02 &mdash; Masalah & Respons</span>
+                        <h3 style="font-size: 2.5rem; color: var(--text-main); margin: 1rem 0;">Tantangan yang Dihadapi</h3>
+                        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                            Selama PPL Terbimbing, saya belajar bahwa tantangan di kelas praktik perlu dibaca secara jernih: apa situasinya, dampaknya, dan strategi solutif apa yang dapat dilakukan.
+                        </p>
+                    </div>
+
+                    <div class="learning-grid">
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #F59E0B;">01</span> / Tantangan</div>
+                            <h4>Heterogenitas Kemampuan Siswa</h4>
+                            <p>Perbedaan kemampuan siswa sangat terlihat saat praktik. Ada yang cepat menangkap instruksi, namun ada yang masih kesulitan membaca gambar kerja.</p>
+                            <button class="btn-lihat-refleksi" style="color: #F59E0B; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);" onclick="openTantanganModal(1)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #F59E0B;">02</span> / Tantangan</div>
+                            <h4>Keterbatasan Waktu Praktik</h4>
+                            <p>Alokasi waktu praktik seringkali terasa sangat cepat dan tidak cukup untuk menyelesaikan satu tahapan pekerjaan bengkel yang utuh.</p>
+                            <button class="btn-lihat-refleksi" style="color: #F59E0B; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);" onclick="openTantanganModal(2)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #F59E0B;">03</span> / Tantangan</div>
+                            <h4>Menjaga Motivasi Siswa</h4>
+                            <p>Beberapa siswa menunjukkan penurunan fokus dan kejenuhan saat harus mengerjakan tugas yang menuntut ketelitian berulang kali.</p>
+                            <button class="btn-lihat-refleksi" style="color: #F59E0B; background: rgba(245, 158, 11, 0.1); border-color: rgba(245, 158, 11, 0.3);" onclick="openTantanganModal(3)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab Umpan Balik -->
+                <div id="tab-umpan-balik" class="tab-pane">
+                    <div style="text-align: center; margin-bottom: 3rem;">
+                        <span class="hero-subtitle" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">03 &mdash; Menuju PPL Mandiri</span>
+                        <h3 style="font-size: 2.5rem; color: var(--text-main); margin: 1rem 0;">Umpan Balik</h3>
+                        <p style="color: var(--text-muted); max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                            Umpan balik dari Guru Pamong dan Dosen Pembimbing Lapangan menjadi dasar perbaikan agar praktik mengajar berikutnya lebih jelas, terarah, dan berpihak pada kebutuhan peserta didik.
+                        </p>
+                    </div>
+
+                    <div class="learning-grid">
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #8B5CF6;">01</span> / Umpan Balik</div>
+                            <h4>Tujuan Pembelajaran Lebih Jelas</h4>
+                            <p>Tujuan pembelajaran perlu diperjelas sejak awal agar siswa memahami arah kegiatan, standar hasil, dan kriteria keberhasilan.</p>
+                            <button class="btn-lihat-refleksi" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);" onclick="openUmpanBalikModal(1)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #8B5CF6;">02</span> / Umpan Balik</div>
+                            <h4>Instruksi Lebih Sederhana</h4>
+                            <p>Instruksi perlu dibuat singkat, runtut, dan mudah diikuti, terutama ketika siswa masuk pada kegiatan praktik.</p>
+                            <button class="btn-lihat-refleksi" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);" onclick="openUmpanBalikModal(2)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #8B5CF6;">03</span> / Umpan Balik</div>
+                            <h4>Apersepsi Lebih Kontekstual</h4>
+                            <p>Apersepsi perlu dikaitkan dengan pengalaman siswa, praktik bengkel, dan kebutuhan dunia kerja agar materi terasa dekat.</p>
+                            <button class="btn-lihat-refleksi" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);" onclick="openUmpanBalikModal(3)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #8B5CF6;">04</span> / Umpan Balik</div>
+                            <h4>Pengelolaan Waktu Lebih Efektif</h4>
+                            <p>Waktu pembelajaran perlu dikelola agar apersepsi, demonstrasi, latihan, umpan balik, dan refleksi tetap terlaksana.</p>
+                            <button class="btn-lihat-refleksi" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);" onclick="openUmpanBalikModal(4)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #8B5CF6;">05</span> / Umpan Balik</div>
+                            <h4>Diferensiasi dan Pendampingan</h4>
+                            <p>Pembelajaran diferensiatif perlu diterapkan karena kemampuan, kecepatan belajar, dan kebutuhan bantuan siswa beragam.</p>
+                            <button class="btn-lihat-refleksi" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);" onclick="openUmpanBalikModal(5)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                        <div class="learning-card">
+                            <div class="learning-badge"><span style="color: #8B5CF6;">06</span> / Umpan Balik</div>
+                            <h4>Umpan Balik Lebih Terstruktur</h4>
+                            <p>Mekanisme umpan balik perlu diperkuat melalui catatan pada lembar kerja, komentar singkat, dan refleksi pada pertemuan berikutnya.</p>
+                            <button class="btn-lihat-refleksi" style="color: #8B5CF6; background: rgba(139, 92, 246, 0.1); border-color: rgba(139, 92, 246, 0.3);" onclick="openUmpanBalikModal(6)">Lihat refleksi <i class="ph ph-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Footer Umpan Balik Box -->
+                    <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 16px; display: flex; gap: 1rem; align-items: flex-start;">
+                        <i class="ph-fill ph-sparkle" style="color: #8B5CF6; font-size: 1.5rem; flex-shrink: 0;"></i>
+                        <p style="margin: 0; color: var(--text-muted); line-height: 1.6;">Melalui umpan balik tersebut, saya merasa lebih siap memasuki PPL Mandiri sebagai calon guru Teknik Mesin yang reflektif, terbuka terhadap masukan, dan terus berupaya memperbaiki proses pembelajaran.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Filosofi Mengajar -->
+        <section id="filosofi" class="section" style="padding-top: 4rem;">
+            <div class="page-header">
+                <h2>Filosofi Mengajar</h2>
+                <p>Prinsip, keyakinan, dan nilai yang mendasari praktik pengajaran saya selama PPL Terbimbing.</p>
+            </div>
+
+            <!-- Quote Banner -->
+            <div class="quote-banner">
+                <p class="quote-text">
+                    "Mengajar bukan sekadar mentransfer pengetahuan, melainkan menyalakan api semangat belajar yang akan terus menyala sepanjang hayat."
+                </p>
+            </div>
+
+            <!-- Philosophy Grid -->
+            <div class="philosophy-grid">
+                <!-- Card 1 -->
+                <div class="philosophy-card">
+                    <div class="number-badge">01</div>
+                    <h3>Ki Hadjar Dewantara - Menuntun Kodrat Anak</h3>
+                    <p>Pendidikan merupakan proses menuntun segala kekuatan kodrat yang ada pada anak agar mereka mencapai keselamatan dan kebahagiaan setinggi-tingginya.</p>
+                    <p>Tugas guru adalah menuntun sesuai kondisi masing-masing, bukan memaksakan kecepatan yang sama. Memberi ruang kepada siswa untuk mencoba dan memperbaiki.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="philosophy-card">
+                    <div class="number-badge">02</div>
+                    <h3>Ki Hadjar Dewantara - Ing Ngarsa, Ing Madya, Tut Wuri</h3>
+                    <p>Prinsip ini menjadi dasar dalam praktik pembelajaran kejuruan:</p>
+                    <ul>
+                        <li><strong>Ing Ngarsa Sung Tuladha</strong>: Memberi contoh gambar dan langkah kerja yang teliti.</li>
+                        <li><strong>Ing Madya Mangun Karsa</strong>: Mendampingi saat proses praktik berlangsung.</li>
+                        <li><strong>Tut Wuri Handayani</strong>: Memberi kepercayaan menyelesaikan pekerjaan mandiri.</li>
+                    </ul>
+                </div>
+                <!-- Card 3 -->
+                <div class="philosophy-card">
+                    <div class="number-badge">03</div>
+                    <h3>John Dewey - Learning by Doing</h3>
+                    <p>Siswa tidak cukup hanya mendengar penjelasan, tetapi perlu mengalami, mencoba, dan mengerjakan secara langsung (Experiential Learning).</p>
+                    <p>Teori harus dibuktikan melalui praktik. Materi dijelaskan secara singkat, dilanjutkan dengan mencoba mengerjakan secara bertahap, lalu hasil kerja dijadikan bahan refleksi.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="philosophy-card">
+                    <div class="number-badge">04</div>
+                    <h3>Vygotsky - ZPD dan Scaffolding</h3>
+                    <p>Siswa dapat mencapai kemampuan lebih tinggi ketika mendapat bantuan (scaffolding) yang tepat pada <em>Zone of Proximal Development</em>.</p>
+                    <p>Dalam praktik: Membagi tugas menjadi langkah-langkah kecil, memberi pertanyaan pengarah, dan mengurangi bantuan secara bertahap ketika siswa mulai mampu mandiri.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="philosophy-card">
+                    <div class="number-badge">05</div>
+                    <h3>Pembelajaran Diferensiatif</h3>
+                    <p>Menyesuaikan pembelajaran dengan kesiapan, minat, dan kebutuhan siswa untuk merespons tantangan heterogenitas kemampuan di kelas.</p>
+                    <p>Siswa yang cepat paham diberi pengayaan atau tugas lanjutan, sedangkan siswa yang masih kesulitan diberi panduan lebih sederhana dan pendampingan lebih dekat.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="philosophy-card">
+                    <div class="number-badge">06</div>
+                    <h3>Asesmen Formatif & Umpan Balik</h3>
+                    <p>Asesmen formatif bukan sekadar alat menilai hasil akhir, melainkan bagian dari proses mendampingi siswa untuk perbaikan awal.</p>
+                    <p>Guru mengamati saat siswa bekerja dan segera memberi arahan jika ada kesalahan. Asesmen dilakukan selama proses, bukan hanya di akhir pembelajaran.</p>
+                </div>
+            </div>
+
+            <!-- Core Values -->
+            <div class="core-values-container">
+                <h3 class="core-values-title">Nilai-Nilai Inti</h3>
+                <div class="core-values-grid">
+                    <div class="core-value-pill">
+                        <div class="core-value-icon" style="background: rgba(16, 185, 129, 0.2); color: #10B981;">
+                            <i class="ph-fill ph-target"></i>
+                        </div>
+                        <div class="core-value-text">
+                            <h4>Relevansi</h4>
+                            <p>Sesuai kebutuhan industri</p>
+                        </div>
+                    </div>
+                    <div class="core-value-pill">
+                        <div class="core-value-icon" style="background: rgba(59, 130, 246, 0.2); color: #3B82F6;">
+                            <i class="ph-fill ph-users-three"></i>
+                        </div>
+                        <div class="core-value-text">
+                            <h4>Kolaborasi</h4>
+                            <p>Belajar bersama membangun</p>
+                        </div>
+                    </div>
+                    <div class="core-value-pill">
+                        <div class="core-value-icon" style="background: rgba(139, 92, 246, 0.2); color: #8B5CF6;">
+                            <i class="ph-fill ph-chart-line-up"></i>
+                        </div>
+                        <div class="core-value-text">
+                            <h4>Pertumbuhan</h4>
+                            <p>Kesalahan = kesempatan</p>
+                        </div>
+                    </div>
+                    <div class="core-value-pill">
+                        <div class="core-value-icon" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B;">
+                            <i class="ph-fill ph-rocket-launch"></i>
+                        </div>
+                        <div class="core-value-text">
+                            <h4>Inovasi</h4>
+                            <p>Eksplorasi metode baru</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <!-- Pembelajaran Modal Overlay -->
+    <div id="pembelajaran-modal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <div class="custom-modal-header">
+                <div>
+                    <div class="learning-badge" style="margin-bottom: 0.5rem;"><span style="color: #10B981;" id="modal-badge-num">01</span> / PEMBELAJARAN</div>
+                    <h3 id="modal-title" style="font-size: 1.8rem; color: var(--text-main); margin: 0;">Judul</h3>
+                </div>
+                <button class="custom-modal-close" onclick="closePembelajaranModal()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="custom-modal-body" id="modal-body-content">
+                Isi konten...
+            </div>
+        </div>
+    </div>
+
+    <!-- Tantangan Modal Overlay -->
+    <div id="tantangan-modal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <div class="custom-modal-header">
+                <div>
+                    <div class="learning-badge" style="margin-bottom: 0.5rem;"><span style="color: #F59E0B;" id="tantangan-modal-badge">01</span> / TANTANGAN</div>
+                    <h3 id="tantangan-modal-title" style="font-size: 1.8rem; color: var(--text-main); margin: 0;">Judul</h3>
+                </div>
+                <button class="custom-modal-close" onclick="closeTantanganModal()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="custom-modal-body" id="tantangan-modal-body">
+                Isi konten...
+            </div>
+        </div>
+    </div>
+
+    <!-- Umpan Balik Modal Overlay -->
+    <div id="umpan-balik-modal" class="custom-modal-overlay">
+        <div class="custom-modal-box">
+            <div class="custom-modal-header">
+                <div>
+                    <div class="learning-badge" style="margin-bottom: 0.5rem;"><span style="color: #8B5CF6;" id="umpan-balik-modal-badge">01</span> / UMPAN BALIK</div>
+                    <h3 id="umpan-balik-modal-title" style="font-size: 1.8rem; color: var(--text-main); margin: 0;">Judul</h3>
+                </div>
+                <button class="custom-modal-close" onclick="closeUmpanBalikModal()">
+                    <i class="ph ph-x"></i>
+                </button>
+            </div>
+            <div class="custom-modal-body" id="umpan-balik-modal-body" style="padding: 2rem;">
+                Isi konten...
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for Pembelajaran Modals
+        const pembelajaranData = {
+            1: {
+                title: "Peran Guru Profesional",
+                content: `
+                    <p>Selama PPL Terbimbing, saya mulai memahami bahwa menjadi guru bukan hanya soal bisa menjelaskan materi. Di kelas, guru harus siap membaca situasi, mengatur alur pembelajaran, memastikan siswa paham instruksi, dan tetap mendampingi ketika siswa mulai mengalami kesulitan.</p>
+                    <p>Hal yang paling terasa bagi saya adalah guru harus punya banyak peran dalam satu waktu. Saat pembelajaran berlangsung, guru tidak hanya menjelaskan, tetapi juga mengamati proses kerja siswa, mengecek kerapian, memberi arahan, dan membantu siswa memperbaiki kesalahan.</p>
+                    <p>Dari situ saya belajar bahwa profesionalitas guru terlihat dari kesiapan, kesabaran, dan kemampuan menyesuaikan diri dengan kondisi nyata di kelas.</p>
+                `
+            },
+            2: {
+                title: "Belajar dari Observasi",
+                content: `
+                    <p>Observasi dan sit in menjadi tahap yang membuat saya lebih paham "medan" sebelum mengajar. Saya melihat langsung bagaimana Guru Pamong membuka pembelajaran, memberi instruksi, mengatur kelas, dan menjaga siswa tetap fokus.</p>
+                    <p>Dari kegiatan ini, saya sadar bahwa pembelajaran di SMK tidak bisa terlalu banyak teori. Siswa lebih mudah mengikuti ketika guru memberi contoh visual, menunjukkan langkah kerja, dan mengaitkan materi dengan benda atau pekerjaan nyata di bidang teknik mesin.</p>
+                    <p>Yang saya pelajari dari observasi:</p>
+                    <ul>
+                        <li>Cara guru membangun komunikasi dengan siswa.</li>
+                        <li>Cara memberi instruksi agar tidak membingungkan.</li>
+                        <li>Pentingnya contoh nyata dalam pembelajaran praktik.</li>
+                        <li>Pentingnya memahami karakter kelas sebelum mulai mengajar.</li>
+                    </ul>
+                `
+            },
+            3: {
+                title: "Belajar Membuat Produk Pembelajaran",
+                content: `
+                    <p>Dalam menyusun perangkat pembelajaran, saya menyadari bahwa setiap komponen harus memiliki benang merah yang jelas. RPP, Lembar Kerja (LKM/LKPD), Job Sheet, hingga Media Pembelajaran tidak boleh berdiri sendiri.</p>
+                    <p>Terutama dalam pendidikan vokasi (Teknik Mesin), <i>Job Sheet</i> menjadi instrumen krusial karena ia memandu langkah kerja praktis siswa secara langsung. Saya belajar menyusun instruksi kerja yang sistematis, memuat aspek Keselamatan dan Kesehatan Kerja (K3), serta instrumen asesmen yang dapat mengukur kompetensi secara objektif.</p>
+                `
+            },
+            4: {
+                title: "Belajar Asistensi (Mengajar Langsung)",
+                content: `
+                    <p>Pengalaman asistensi memberikan saya wawasan langsung tentang dinamika pengelolaan kelas. Kesiapan mental dan penguasaan materi sangatlah penting agar kita bisa merespon pertanyaan atau kendala siswa dengan sigap.</p>
+                    <p>Selain itu, memberikan arahan di bengkel mesin menuntut kejelasan instruksi karena melibatkan alat-alat berat dan berisiko. Menyesuaikan nada suara, memusatkan perhatian, dan mengatur formasi siswa saat demonstrasi adalah keterampilan praktis yang sangat berharga yang saya dapatkan selama asistensi.</p>
+                `
+            },
+            5: {
+                title: "Membuat Pembelajaran Relevan dengan Industri",
+                content: `
+                    <p>Salah satu inti dari pendidikan di SMK adalah menjembatani siswa menuju dunia kerja. Saya belajar untuk selalu menyisipkan konteks industri pada setiap materi yang diajarkan.</p>
+                    <p>Misalnya, pada materi Gambar Teknik atau Pemesinan, saya membiasakan siswa menggunakan standar garis, toleransi ukuran, dan simbol pengerjaan sesuai standar ISO yang memang digunakan oleh industri manufaktur sesungguhnya. Hal ini penting agar pemahaman mereka valid dan siap pakai di lapangan.</p>
+                `
+            },
+            6: {
+                title: "Melaksanakan Asesmen Formatif",
+                content: `
+                    <p>Asesmen formatif terbukti sangat efektif untuk mengkalibrasi pemahaman siswa di tengah proses pembelajaran. Saya belajar untuk tidak menunggu hingga akhir semester untuk mengetahui apakah siswa paham atau tidak.</p>
+                    <p>Melalui tanya jawab singkat saat berkeliling di bengkel, atau mengecek progres gambar kerja di kelas, saya dapat mendeteksi kesalahan secara dini (<i>early detection</i>) dan langsung memberikan koreksi atau demonstrasi ulang agar siswa tidak tersesat terlalu jauh.</p>
+                `
+            }
+        };
+
+        function openPembelajaranModal(id) {
+            const data = pembelajaranData[id];
+            if(!data) return;
+            
+            document.getElementById('modal-badge-num').innerText = '0' + id;
+            document.getElementById('modal-title').innerText = data.title;
+            document.getElementById('modal-body-content').innerHTML = data.content;
+            
+            const modal = document.getElementById('pembelajaran-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // prevent scrolling
+        }
+
+        function closePembelajaranModal() {
+            const modal = document.getElementById('pembelajaran-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Data for Tantangan Modals
+        const tantanganData = {
+            1: {
+                title: "Heterogenitas Kemampuan Siswa",
+                content: `
+                    <div class="tantangan-section">
+                        <h5><i class="ph-fill ph-warning-circle"></i> Tantangan</h5>
+                        <p>Dalam satu kelas praktik, terdapat perbedaan kemampuan siswa yang signifikan. Ada yang cepat paham instruksi, namun ada yang masih kebingungan membaca gambar kerja dan menentukan langkah awal pemesinan.</p>
+                    </div>
+                    <div class="tantangan-section">
+                        <h5><i class="ph-fill ph-trend-down"></i> Dampak</h5>
+                        <p>Ritme kelas menjadi tidak seimbang. Siswa yang cepat selesai berpotensi hilang fokus, sedangkan yang lambat menjadi tertinggal dan membutuhkan pendampingan ekstra.</p>
+                    </div>
+                    <div class="tantangan-section" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05);">
+                        <h5 style="color: #10B981;"><i class="ph-fill ph-check-circle"></i> Solusi & Tindak Lanjut</h5>
+                        <p>Menerapkan pembelajaran berdiferensiasi: menyederhanakan instruksi kerja, membagi kelompok dengan metode <i>peer tutoring</i> (tutor sebaya), dan memberikan demonstrasi ulang secara visual bagi yang tertinggal.</p>
+                    </div>
+                `
+            },
+            2: {
+                title: "Keterbatasan Waktu Praktik",
+                content: `
+                    <div class="tantangan-section">
+                        <h5><i class="ph-fill ph-warning-circle"></i> Tantangan</h5>
+                        <p>Alokasi waktu praktik (contoh: 4 JP) seringkali terasa singkat untuk mencakup penjelasan teori, persiapan alat (setup), pengerjaan mesin, hingga proses pembersihan area kerja (cleaning).</p>
+                    </div>
+                    <div class="tantangan-section">
+                        <h5><i class="ph-fill ph-trend-down"></i> Dampak</h5>
+                        <p>Target penyelesaian <i>job sheet</i> pada hari itu tidak tercapai, dan beberapa siswa terpaksa melanjutkan pekerjaannya di minggu depan sehingga memutus alur konsentrasi belajar.</p>
+                    </div>
+                    <div class="tantangan-section" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05);">
+                        <h5 style="color: #10B981;"><i class="ph-fill ph-check-circle"></i> Solusi & Tindak Lanjut</h5>
+                        <p>Optimalisasi waktu melalui <i>Flipped Learning</i>: memberikan SOP dan video demonstrasi sebelum kelas dimulai. Di bengkel, fokus langsung pada eksekusi dan membatasi waktu teori maksimal 15 menit.</p>
+                    </div>
+                `
+            },
+            3: {
+                title: "Menjaga Motivasi Siswa",
+                content: `
+                    <div class="tantangan-section">
+                        <h5><i class="ph-fill ph-warning-circle"></i> Tantangan</h5>
+                        <p>Bekerja di bengkel menuntut ketelitian dan repetisi. Ketika terjadi kegagalan (misalnya, benda kerja rusak atau di luar toleransi ukuran), siswa mudah merasa jenuh dan kehilangan motivasi.</p>
+                    </div>
+                    <div class="tantangan-section">
+                        <h5><i class="ph-fill ph-trend-down"></i> Dampak</h5>
+                        <p>Siswa menjadi pasif, kurang teliti di tahap berikutnya, atau bahkan mengabaikan prosedur K3 karena merasa usahanya sudah gagal.</p>
+                    </div>
+                    <div class="tantangan-section" style="border-color: rgba(16, 185, 129, 0.3); background: rgba(16, 185, 129, 0.05);">
+                        <h5 style="color: #10B981;"><i class="ph-fill ph-check-circle"></i> Solusi & Tindak Lanjut</h5>
+                        <p>Membangun budaya bahwa "gagal adalah bagian dari belajar". Saya memberikan <i>reward</i> verbal atas progres sekecil apapun, dan memperbanyak apersepsi relevansi skill tersebut dengan dunia kerja industri nyata.</p>
+                    </div>
+                `
+            }
+        };
+
+        function openTantanganModal(id) {
+            const data = tantanganData[id];
+            if(!data) return;
+            
+            document.getElementById('tantangan-modal-badge').innerText = '0' + id;
+            document.getElementById('tantangan-modal-title').innerText = data.title;
+            document.getElementById('tantangan-modal-body').innerHTML = data.content;
+            
+            const modal = document.getElementById('tantangan-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeTantanganModal() {
+            const modal = document.getElementById('tantangan-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Data for Umpan Balik Modals
+        const umpanBalikData = {
+            1: {
+                title: "Tujuan Pembelajaran Lebih Jelas",
+                content: `
+                    <p>Masukan dari Guru Pamong dan Dosen Pembimbing Lapangan menegaskan pentingnya menyampaikan tujuan pembelajaran dengan bahasa yang mudah dipahami. Siswa perlu tahu apa yang akan dikerjakan, mengapa kegiatan itu penting, dan seperti apa hasil kerja yang diharapkan.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                        <p style="margin:0; color:var(--text-main);"><b><i class="ph ph-arrow-right"></i> Tindak Lanjut:</b></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Saya akan menuliskan tujuan pembelajaran dan kriteria sukses di papan tulis atau slide presentasi sebelum kegiatan praktik bengkel dimulai.</p>
+                    </div>
+                `
+            },
+            2: {
+                title: "Instruksi Lebih Sederhana",
+                content: `
+                    <p>Seringkali saya memberikan terlalu banyak instruksi sekaligus sebelum siswa masuk bengkel, yang ternyata membuat mereka lupa langkah-langkah detailnya.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                        <p style="margin:0; color:var(--text-main);"><b><i class="ph ph-arrow-right"></i> Tindak Lanjut:</b></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Memecah instruksi panjang menjadi instruksi bertahap (<i>step-by-step</i>), didukung dengan <i>Job Sheet</i> yang jelas dan mudah dibaca.</p>
+                    </div>
+                `
+            },
+            3: {
+                title: "Apersepsi Lebih Kontekstual",
+                content: `
+                    <p>Membuka pelajaran hanya dengan teori ternyata kurang menarik minat siswa SMK. Dosen mengingatkan saya untuk menggunakan studi kasus atau contoh nyata dari industri manufaktur sebagai apersepsi.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                        <p style="margin:0; color:var(--text-main);"><b><i class="ph ph-arrow-right"></i> Tindak Lanjut:</b></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Mengawali kelas dengan menunjukkan benda kerja nyata, kerusakan alat akibat kesalahan prosedur, atau tayangan video proses pemesinan di industri besar.</p>
+                    </div>
+                `
+            },
+            4: {
+                title: "Pengelolaan Waktu Lebih Efektif",
+                content: `
+                    <p>Saya mendapat masukan bahwa alokasi waktu sering molor di bagian penjelasan teori awal, sehingga waktu <i>hands-on</i> siswa berkurang drastis.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                        <p style="margin:0; color:var(--text-main);"><b><i class="ph ph-arrow-right"></i> Tindak Lanjut:</b></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Membatasi waktu pembukaan maksimal 15-20 menit. Menggunakan pengingat waktu (<i>timer</i>) saat siswa berdiskusi atau melakukan setup mesin.</p>
+                    </div>
+                `
+            },
+            5: {
+                title: "Diferensiasi dan Pendampingan",
+                content: `
+                    <p>Teman sejawat menyoroti bahwa saya kadang terlalu fokus mendampingi siswa yang bertanya, sementara siswa yang diam (namun sebenarnya kesulitan) kurang mendapat perhatian.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                        <p style="margin:0; color:var(--text-main);"><b><i class="ph ph-arrow-right"></i> Tindak Lanjut:</b></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Menerapkan sistem patroli bengkel yang lebih merata. Mengelompokkan siswa secara heterogen agar mereka bisa melakukan <i>peer-tutoring</i> (tutor sebaya) saat saya mendampingi kelompok lain.</p>
+                    </div>
+                `
+            },
+            6: {
+                title: "Umpan Balik Lebih Terstruktur",
+                content: `
+                    <p>Siswa membutuhkan kepastian tentang letak kesalahan dan apa yang sudah benar dari hasil kerja mereka. Komentar verbal saja seringkali cepat dilupakan.</p>
+                    <div style="background: rgba(139, 92, 246, 0.05); padding: 1rem; border-left: 4px solid #8B5CF6; border-radius: 0 8px 8px 0; margin-top: 1rem;">
+                        <p style="margin:0; color:var(--text-main);"><b><i class="ph ph-arrow-right"></i> Tindak Lanjut:</b></p>
+                        <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem;">Memberikan catatan singkat langsung pada lembar penilaian atau <i>Job Sheet</i> siswa, serta melakukan <i>review</i> klasikal di akhir sesi praktik untuk membahas kesalahan umum (<i>common mistakes</i>) yang terjadi hari itu.</p>
+                    </div>
+                `
+            }
+        };
+
+        function openUmpanBalikModal(id) {
+            const data = umpanBalikData[id];
+            if(!data) return;
+            
+            document.getElementById('umpan-balik-modal-badge').innerText = '0' + id;
+            document.getElementById('umpan-balik-modal-title').innerText = data.title;
+            document.getElementById('umpan-balik-modal-body').innerHTML = data.content;
+            
+            const modal = document.getElementById('umpan-balik-modal');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeUmpanBalikModal() {
+            const modal = document.getElementById('umpan-balik-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on outside click
+        window.addEventListener('click', function(e) {
+            const modalPem = document.getElementById('pembelajaran-modal');
+            const modalTan = document.getElementById('tantangan-modal');
+            const modalUmp = document.getElementById('umpan-balik-modal');
+            if (e.target === modalPem) {
+                closePembelajaranModal();
+            } else if (e.target === modalTan) {
+                closeTantanganModal();
+            } else if (e.target === modalUmp) {
+                closeUmpanBalikModal();
+            }
+        });
+
+        // Simple active state toggler for navbar links
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Scroll Spy Logic
+        const sections = document.querySelectorAll('.section');
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Bypass Link smooth scroll
+        const bypassLinks = document.querySelectorAll('.nav-link-bypass');
+        bypassLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                if (this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                }
+            });
+        });
+
+        // Theme Toggle Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const themeToggleBtn = document.getElementById('theme-toggle');
+            if (themeToggleBtn) {
+                const themeIcon = themeToggleBtn.querySelector('i');
+                
+                // Check LocalStorage
+                if (localStorage.getItem('theme') === 'light') {
+                    document.body.classList.add('light-theme');
+                    themeIcon.classList.replace('ph-moon', 'ph-sun');
+                    themeIcon.style.color = '#EF4444';
+                }
+
+                themeToggleBtn.addEventListener('click', () => {
+                    document.body.classList.toggle('light-theme');
+                    if (document.body.classList.contains('light-theme')) {
+                        localStorage.setItem('theme', 'light');
+                        themeIcon.classList.replace('ph-moon', 'ph-sun');
+                        themeIcon.style.color = '#EF4444'; // Red Sun
+                    } else {
+                        localStorage.setItem('theme', 'dark');
+                        themeIcon.classList.replace('ph-sun', 'ph-moon');
+                        themeIcon.style.color = '#F59E0B'; // Orange Moon
+                    }
+                });
+            }
+        });
+
+        // Tabs Logic
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanes.forEach(p => p.classList.remove('active'));
+
+                // Add active class to clicked button and target pane
+                btn.classList.add('active');
+                const targetId = btn.getAttribute('data-tab');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+
+    <!-- End of Body -->
+</body>
+</html>
