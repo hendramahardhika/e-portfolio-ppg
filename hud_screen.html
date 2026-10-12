@@ -1,0 +1,200 @@
+﻿    <div id="semester-screen" class="hidden" style="position: fixed; inset: 0; background-image: url('homepage_bg.png'); background-size: cover; background-position: center; font-family: var(--font-body); transition: opacity 0.5s ease, visibility 0.5s ease; z-index: 50; display: flex; flex-direction: column; align-items: center; justify-content: space-between; overflow: hidden; padding: 1.5rem 0;">
+        
+        <!-- Decorative HUD Elements for Empty Spaces (Hyper Mega HUD) -->
+        <!-- Background Center Tech Mandala -->
+        <div class="semester-decor" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.05; pointer-events: none; z-index: 0;">
+            <svg width="800" height="800" viewBox="0 0 800 800" style="animation: spin-slow 120s linear infinite;">
+                <circle cx="400" cy="400" r="350" stroke="#64C8FF" stroke-width="1.5" stroke-dasharray="10 40" fill="none" />
+                <circle cx="400" cy="400" r="300" stroke="#4ADE80" stroke-width="2" stroke-dasharray="2 20" fill="none" style="animation: spin-reverse 80s linear infinite;" transform-origin="400px 400px"/>
+                <polygon points="400,50 703,225 703,575 400,750 97,575 97,225" fill="none" stroke="#64C8FF" stroke-width="1.5" stroke-dasharray="10 5" opacity="0.6" />
+                <polygon points="400,100 660,250 660,550 400,700 140,550 140,250" fill="none" stroke="#4ADE80" stroke-width="1.5" opacity="0.4" style="animation: spin 60s linear infinite;" transform-origin="400px 400px"/>
+            </svg>
+        </div>
+
+        <!-- Corner Frame (Top-Left) -->
+        <div class="semester-decor" style="position: absolute; top: 0; left: 0; pointer-events: none; z-index: 1;">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+                <path d="M 0 0 L 100 0 L 120 20 L 120 40" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <path d="M 0 0 L 0 100 L 20 120 L 40 120" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <path d="M 6 6 L 80 6 L 95 21 L 95 30" stroke="#4ADE80" stroke-width="1.5" fill="none" stroke-dasharray="20 10" style="animation: dataFlow 4s linear infinite;"/>
+                <path d="M 6 6 L 6 80 L 21 95 L 30 95" stroke="#4ADE80" stroke-width="1.5" fill="none" stroke-dasharray="20 10" style="animation: dataFlow 4s linear infinite;"/>
+                <rect x="2" y="2" width="8" height="8" fill="#4ADE80" style="animation: eyeBlink 1.5s infinite alternate;" />
+            </svg>
+        </div>
+
+        <!-- Corner Frame (Top-Right) -->
+        <div class="semester-decor" style="position: absolute; top: 0; right: 0; pointer-events: none; z-index: 1;">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+                <path d="M 150 0 L 50 0 L 30 20 L 30 40" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <path d="M 150 0 L 150 100 L 130 120 L 110 120" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <circle cx="120" cy="30" r="15" stroke="#4ADE80" stroke-width="1.5" fill="none" stroke-dasharray="4 6" style="animation: spin 5s linear infinite;" transform-origin="120px 30px"/>
+                <circle cx="120" cy="30" r="10" stroke="#64C8FF" stroke-width="1.5" fill="none" stroke-dasharray="2 4" style="animation: spin-reverse 3s linear infinite;" transform-origin="120px 30px"/>
+                <circle cx="120" cy="30" r="3" fill="#4ADE80" style="animation: shadowPulse 1s infinite alternate;"/>
+                <rect x="140" y="2" width="8" height="8" fill="#64C8FF" style="animation: eyeBlink 2s infinite alternate;" />
+            </svg>
+        </div>
+
+        <!-- Corner Frame (Bottom-Left) -->
+        <div class="semester-decor" style="position: absolute; bottom: 0; left: 0; pointer-events: none; z-index: 1;">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+                <path d="M 0 150 L 100 150 L 120 130 L 120 110" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <path d="M 0 150 L 0 50 L 20 30 L 40 30" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <text x="12" y="142" fill="#4ADE80" font-family="monospace" font-size="10" font-weight="bold" style="animation: eyeBlink 2.5s infinite;">>_ LOAD</text>
+                <text x="12" y="128" fill="rgba(100,200,255,0.8)" font-family="monospace" font-size="8">0x8F9A</text>
+                <text x="12" y="116" fill="rgba(100,200,255,0.5)" font-family="monospace" font-size="8">0x1B2C</text>
+                <rect x="2" y="140" width="8" height="8" fill="#4ADE80" style="animation: shadowPulse 1.5s infinite alternate;" />
+            </svg>
+        </div>
+
+        <!-- Corner Frame (Bottom-Right) -->
+        <div class="semester-decor" style="position: absolute; bottom: 0; right: 0; pointer-events: none; z-index: 1;">
+            <svg width="150" height="150" viewBox="0 0 150 150">
+                <path d="M 150 150 L 50 150 L 30 130 L 30 110" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <path d="M 150 150 L 150 50 L 130 30 L 110 30" stroke="#64C8FF" stroke-width="2" fill="none" opacity="0.8"/>
+                <rect x="65" y="132" width="45" height="5" fill="rgba(100,200,255,0.3)"/>
+                <rect x="65" y="132" width="28" height="5" fill="#4ADE80" style="animation: shadowPulse 2s infinite alternate;"/>
+                <text x="115" y="138" fill="#4ADE80" font-family="monospace" font-size="10" font-weight="bold">88%</text>
+                <rect x="140" y="140" width="8" height="8" fill="#64C8FF" style="animation: eyeBlink 3s infinite alternate;" />
+            </svg>
+        </div>
+        <!-- SVG PCB Traces (Top Left) -->
+        <div class="semester-decor" style="position: absolute; top: 8%; left: 0; opacity: 0.4; pointer-events: none; z-index: 1;">
+            <svg width="250" height="250" viewBox="0 0 250 250">
+                <path d="M 0 50 L 80 50 L 130 100 L 130 250" stroke="#4ADE80" stroke-width="1.5" fill="none" stroke-dasharray="10 6" style="animation: dataFlow 8s linear infinite;"/>
+                <path d="M 0 65 L 65 65 L 110 110 L 110 250" stroke="#64C8FF" stroke-width="1" fill="none" stroke-dasharray="5 5" style="animation: dataFlow 5s linear infinite reverse;"/>
+                <circle cx="130" cy="100" r="4" fill="#4ADE80" style="animation: shadowPulse 2s infinite alternate;" />
+                <circle cx="110" cy="110" r="3" fill="#64C8FF" style="animation: shadowPulse 1.5s infinite alternate;" />
+            </svg>
+        </div>
+
+        <!-- Terminal Text & Packets (Bottom Left) -->
+        <div class="semester-decor" style="position: absolute; bottom: 12%; left: 4%; opacity: 0.6; font-family: monospace; font-size: 0.65rem; color: #64C8FF; text-align: left; line-height: 1.6; pointer-events: none; z-index: 1; letter-spacing: 1px;">
+            <div style="animation: shadowPulse 3s infinite alternate;">> SYS.OP.STATUS: <span style="color:#4ADE80; font-weight: bold;">ONLINE</span></div>
+            <div style="animation: shadowPulse 4s infinite alternate-reverse;">> UPLINK: ESTABLISHED</div>
+            <div style="animation: shadowPulse 2.5s infinite alternate;">> ENCRYPTION: 256-BIT</div>
+            <div style="width: 100%; height: 1px; background: #64C8FF; margin: 6px 0; opacity: 0.5;"></div>
+            <div style="display: flex; gap: 5px; margin-top: 6px;">
+                <div style="width: 10px; height: 10px; background: #4ADE80; box-shadow: 0 0 8px #4ADE80; animation: eyeBlink 1s infinite;"></div>
+                <div style="width: 10px; height: 10px; border: 1px solid #4ADE80;"></div>
+                <div style="width: 10px; height: 10px; background: #64C8FF; box-shadow: 0 0 8px #64C8FF; animation: eyeBlink 1.5s infinite;"></div>
+            </div>
+        </div>
+
+        <!-- Complex Tech Radar (Right Center) -->
+        <div class="semester-decor" style="position: absolute; right: -80px; top: 50%; transform: translateY(-50%); opacity: 0.35; pointer-events: none; z-index: 1;">
+            <svg width="400" height="400" viewBox="0 0 400 400" style="animation: spin-slow 40s linear infinite;">
+                <circle cx="200" cy="200" r="180" stroke="#64C8FF" stroke-width="1.5" stroke-dasharray="2 12" fill="none" />
+                <circle cx="200" cy="200" r="150" stroke="#4ADE80" stroke-width="2" stroke-dasharray="50 20 10 20" fill="none" style="animation: spin-reverse 20s linear infinite;" transform-origin="200px 200px" />
+                <circle cx="200" cy="200" r="120" stroke="#64C8FF" stroke-width="2" stroke-dasharray="10 5" fill="none" style="animation: spin 30s linear infinite;" transform-origin="200px 200px" />
+                <circle cx="200" cy="200" r="90" stroke="rgba(255,255,255,0.15)" stroke-width="25" stroke-dasharray="1 15" fill="none" />
+                <!-- Hexagon core -->
+                <polygon points="200,165 230,182 230,218 200,235 170,218 170,182" fill="none" stroke="#4ADE80" stroke-width="2" style="animation: shadowPulse 3s infinite alternate;"/>
+                <!-- Outer Crosshairs on Radar -->
+                <line x1="200" y1="0" x2="200" y2="20" stroke="#64C8FF" stroke-width="2" />
+                <line x1="200" y1="380" x2="200" y2="400" stroke="#64C8FF" stroke-width="2" />
+                <line x1="0" y1="200" x2="20" y2="200" stroke="#64C8FF" stroke-width="2" />
+                <line x1="380" y1="200" x2="400" y2="200" stroke="#64C8FF" stroke-width="2" />
+            </svg>
+        </div>
+
+        <!-- Dot Grid Pattern (Top Right) -->
+        <div class="semester-decor" style="position: absolute; top: 12%; right: 6%; opacity: 0.5; pointer-events: none; z-index: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%; animation: shadowPulse 1s infinite alternate;"></div>
+            <div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: transparent; border: 1px solid #4ADE80; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: #4ADE80; box-shadow: 0 0 5px #4ADE80; border-radius: 50%; animation: eyeBlink 2s infinite alternate;"></div>
+            
+            <div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: transparent; border: 1px solid #4ADE80; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>
+            
+            <div style="width: 5px; height: 5px; background: #4ADE80; border-radius: 50%; animation: shadowPulse 2.5s infinite alternate;"></div>
+            <div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: transparent; border: 1px solid #64C8FF; border-radius: 50%;"></div>
+            <div style="width: 5px; height: 5px; background: #64C8FF; box-shadow: 0 0 5px #64C8FF; border-radius: 50%; animation: eyeBlink 3s infinite;"></div>
+        </div>
+
+        <!-- Floating Data Bars (Bottom Right) -->
+        <div class="semester-decor" style="position: absolute; bottom: 12%; right: 10%; opacity: 0.7; pointer-events: none; z-index: 1; display: flex; align-items: flex-end; gap: 8px;">
+            <div style="width: 15px; height: 50px; border: 1px solid #64C8FF; background: rgba(100,200,255,0.15); animation: shadowPulse 2s infinite alternate;"></div>
+            <div style="width: 15px; height: 30px; border: 1px solid #4ADE80; background: rgba(74,222,128,0.25); animation: shadowPulse 1.5s infinite alternate-reverse;"></div>
+            <div style="width: 15px; height: 75px; border: 1px solid #64C8FF; background: rgba(100,200,255,0.15); animation: shadowPulse 3s infinite alternate;"></div>
+            <div style="width: 15px; height: 20px; background: #4ADE80; box-shadow: 0 0 10px #4ADE80; animation: eyeBlink 2.5s infinite;"></div>
+        </div>
+
+        <!-- Horizontal Laser Streams (Top & Bottom Edge) -->
+        <div class="semester-decor" style="position: absolute; top: 0; left: 20%; width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(100,200,255,0.8), transparent); opacity: 0.6; animation: shadowPulse 4s infinite alternate;"></div>
+        <div class="semester-decor" style="position: absolute; bottom: 0; left: 20%; width: 60%; height: 2px; background: linear-gradient(90deg, transparent, rgba(74,222,128,0.8), transparent); opacity: 0.6; animation: shadowPulse 3s infinite alternate-reverse;"></div>
+
+        <!-- Profile Identity -->
+        <div style="display: flex; align-items: center; justify-content: center; gap: 0.8rem; background: rgba(10, 20, 40, 0.45); backdrop-filter: blur(8px); padding: 0.6rem 1.5rem 0.6rem 1.2rem; border-radius: 50px; border: 1px solid rgba(255, 255, 255, 0.15); box-shadow: 0 8px 20px rgba(0,0,0,0.3);">
+            <img src="assets/ust-logo.png" alt="Logo UST" style="height: 45px; object-fit: contain; filter: drop-shadow(0 0 8px rgba(74, 222, 128, 0.4));">
+            <div style="display: flex; flex-direction: column; text-align: left;">
+                <span style="color: #4ADE80; font-size: 0.65rem; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">PPG PRAJABATAN 2026</span>
+                <span style="color: #F8FAFC; font-size: 1.15rem; font-weight: 700; text-shadow: 0 2px 4px rgba(0,0,0,0.9);">Hendra Mahardhika</span>
+            </div>
+        </div>
+
+        <!-- Main Content Wrapper -->
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%;">
+            <div class="semester-header" style="text-align: center; margin-bottom: 2.5rem;">
+            <h4 style="color: #F1F5F9; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; font-weight: 700; text-shadow: 0 2px 5px rgba(0,0,0,0.8), 0 0 10px rgba(0,0,0,0.6);">PILIH HALAMAN</h4>
+            <h2 style="color: #FFFFFF; font-size: 2.2rem; font-weight: 700; margin-top: 0.3rem; text-shadow: 0 3px 8px rgba(0,0,0,0.9), 0 0 25px rgba(0,0,0,0.7);">Pilih e-portofolio yang ingin dibuka</h2>
+        </div>
+        <div class="semester-cards" style="display: flex; gap: 2.5rem; max-width: 1000px; width: 95%; justify-content: center; flex-wrap: wrap;">
+            <!-- Card Semester 1 -->
+            <div class="semester-card" id="btn-semester1" style="background: rgba(15, 30, 80, 0.5); backdrop-filter: blur(10px); border: 2px solid rgba(100, 200, 255, 0.4); border-radius: 16px; box-shadow: 0 0 20px rgba(0, 150, 255, 0.3), inset 0 0 15px rgba(100, 200, 255, 0.1); padding: 1.6rem; width: 380px; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; cursor: pointer;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                    <div style="width: 40px; height: 40px; border: 2px solid rgba(100, 200, 255, 0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #64C8FF; box-shadow: 0 0 10px rgba(100,200,255,0.4);">
+                        <i class="ph ph-book-open"></i>
+                    </div>
+                    <div style="background: rgba(10, 25, 60, 0.8); border: 1px solid rgba(100, 200, 255, 0.5); color: #64C8FF; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px;">SEMESTER 1</div>
+                </div>
+                
+                <h5 style="color: #94A3B8; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.2rem; letter-spacing: 0.5px; font-weight: 600;">PPG PRAJABATAN</h5>
+                <h3 style="color: #F8FAFC; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 700;">Semester 1</h3>
+                
+                <p style="color: #E2E8F0; font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">Berisi filosofi pendidikan, pemahaman peserta didik, pembelajaran, refleksi, dan PPL terbimbing.</p>
+                
+                <ul style="color: #E2E8F0; font-size: 0.85rem; margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; padding: 0; list-style: none;">
+                    <li style="background: rgba(100, 200, 255, 0.1); padding: 0.4rem 0.8rem; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;"><div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>Profil dan Dokumentasi</li>
+                    <li style="background: rgba(100, 200, 255, 0.1); padding: 0.4rem 0.8rem; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;"><div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>RPP, Materi, Media, LKM, Asesmen</li>
+                    <li style="background: rgba(100, 200, 255, 0.1); padding: 0.4rem 0.8rem; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;"><div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>Refleksi PPL dan Filosofi Mengajar</li>
+                </ul>
+                
+                <button style="background: #3B82F6; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: background 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 0.4rem; width: max-content; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);">Buka Semester 1 <i class="ph ph-arrow-right"></i></button>
+            </div>
+
+            <!-- Card Semester 2 -->
+            <div class="semester-card" id="btn-semester2" style="background: rgba(15, 30, 80, 0.5); backdrop-filter: blur(10px); border: 2px solid rgba(100, 200, 255, 0.4); border-radius: 16px; box-shadow: 0 0 20px rgba(0, 150, 255, 0.3), inset 0 0 15px rgba(100, 200, 255, 0.1); padding: 1.6rem; width: 380px; position: relative; overflow: hidden; display: flex; flex-direction: column; transition: all 0.3s ease; cursor: pointer;">
+                <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem;">
+                    <div style="width: 40px; height: 40px; border: 2px solid rgba(100, 200, 255, 0.8); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: #64C8FF; box-shadow: 0 0 10px rgba(100,200,255,0.4);">
+                        <i class="ph ph-trend-up"></i>
+                    </div>
+                    <div style="background: rgba(10, 25, 60, 0.8); border: 1px solid rgba(100, 200, 255, 0.5); color: #64C8FF; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.5px;">SEMESTER 2</div>
+                </div>
+                
+                <h5 style="color: #94A3B8; font-size: 0.8rem; text-transform: uppercase; margin-bottom: 0.2rem; letter-spacing: 0.5px; font-weight: 600;">PENGEMBANGAN PROFESI</h5>
+                <h3 style="color: #F8FAFC; font-size: 1.4rem; margin-bottom: 0.8rem; font-weight: 700;">Semester 2</h3>
+                
+                <p style="color: #E2E8F0; font-size: 0.85rem; line-height: 1.4; margin-bottom: 1rem;">Berisi pembelajaran mendalam, asesmen, kepemimpinan, proyek, dan PPL mandiri.</p>
+                
+                <ul style="color: #E2E8F0; font-size: 0.85rem; margin-bottom: 1.2rem; display: flex; flex-direction: column; gap: 0.4rem; flex-grow: 1; padding: 0; list-style: none;">
+                    <li style="background: rgba(100, 200, 255, 0.1); padding: 0.4rem 0.8rem; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;"><div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>Pembelajaran Mendalam</li>
+                    <li style="background: rgba(100, 200, 255, 0.1); padding: 0.4rem 0.8rem; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;"><div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>Proyek Kepemimpinan</li>
+                    <li style="background: rgba(100, 200, 255, 0.1); padding: 0.4rem 0.8rem; border-radius: 6px; display: flex; align-items: center; gap: 0.6rem;"><div style="width: 5px; height: 5px; background: #64C8FF; border-radius: 50%;"></div>Praktik Pengalaman Lapangan Mandiri</li>
+                </ul>
+                
+                <button style="background: #3B82F6; color: white; border: none; padding: 0.6rem 1.2rem; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: background 0.3s ease; display: flex; justify-content: center; align-items: center; gap: 0.4rem; width: max-content; box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);">Buka Semester 2 <i class="ph ph-arrow-right"></i></button>
+            </div>
+        </div>
+        </div>
+        
+        <!-- Bottom Instruction -->
+        <div style="color: rgba(255,255,255,0.7); font-size: 0.85rem; display: flex; align-items: center; gap: 0.5rem; justify-content: center;">
+            <i class="ph ph-mouse" style="font-size: 1.2rem;"></i> Pilih salah satu semester untuk melanjutkan
+        </div>
+    </div>
+
+

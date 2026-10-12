@@ -1,0 +1,87 @@
+﻿    <!-- SEMESTER 1 SCREEN (SIMPLE OLD STYLE) -->
+    <style>
+        #semester1-screen {
+            position: fixed !important;
+            inset: 0 !important;
+            z-index: 9998 !important;
+            background-image: url('homepage_bg.png') !important;
+            background-size: cover !important;
+            background-position: center !important;
+            background-attachment: fixed !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        
+        #semester1-screen::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.6) !important;
+            z-index: -1 !important;
+            width: 100% !important;
+            height: 100% !important;
+            transform: none !important;
+        }
+        
+        #semester1-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+    </style>
+
+    <div id="semester1-screen" class="hidden">
+        <div class="selection-header" style="text-align: center;">
+            <img src="logo.png" alt="Logo UST" style="height: 120px; width: auto; margin: 0 auto 1rem auto; display: block;" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Tut_Wuri_Handayani.svg/1024px-Tut_Wuri_Handayani.svg.png'">
+            <h2 class="selection-title" style="color: #F8FAFC; font-size: 2.2rem; font-weight: 700; margin-bottom: 0.5rem;">E-Portfolio Semester 1</h2>
+            <p class="selection-subtitle" style="color: #94A3B8; font-size: 1rem; margin-bottom: 2.5rem;">Silakan pilih e-portfolio yang ingin Anda lihat</p>
+        </div>
+
+        <!-- Back Button -->
+        <div style="display: flex; justify-content: center; margin-bottom: 3.5rem; position: relative; z-index: 10;">
+            <div id="btn-back-semester1" style="display: inline-flex; align-items: center; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.3s ease; backdrop-filter: blur(5px); padding: 0.3rem;" onmouseover="this.style.background='rgba(255,255,255,0.15)'" onmouseout="this.style.background='rgba(255,255,255,0.05)'">
+                <div style="background: #06B6D4; width: 34px; height: 34px; display: flex; justify-content: center; align-items: center; color: white; font-size: 1.2rem; border-radius: 3px;">
+                    <i class="ph ph-arrow-left"></i>
+                </div>
+                <div style="padding: 0 1.2rem; color: #F8FAFC; font-weight: 600; font-size: 0.95rem;">
+                    Pilih semester lain
+                </div>
+            </div>
+        </div>
+
+        <div class="selection-cards" style="display: flex; gap: 2rem; max-width: 1000px; width: 90%; margin: 0 auto; justify-content: center; flex-wrap: wrap; padding-bottom: 2rem;">
+            <!-- Card 1 -->
+            <div class="selection-card" id="btn-sem1-port1" style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem 2rem; position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; width: 380px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(6, 182, 212, 0.5)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+                <div style="background: #06B6D4; color: #F8FAFC; position: absolute; top: 1.5rem; right: 1.5rem; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">UTS</div>
+                
+                <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                    <i class="ph-fill ph-books" style="font-size: 4rem; color: #06B6D4;"></i>
+                </div>
+                
+                <h3 style="font-size: 1.6rem; color: #F8FAFC; margin-bottom: 1rem; font-weight: 700;">E-Portfolio 1</h3>
+                <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1;">Dokumentasi perjalanan profesional, karya, dan refleksi pembelajaran selama PPG Prajabatan 2026</p>
+                
+                <div style="color: #06B6D4; font-weight: 600; font-size: 0.95rem;">
+                    Lihat E-Portfolio 1 &rarr;
+                </div>
+            </div>
+            <!-- Card 2 -->
+            <div class="selection-card" id="btn-sem1-port2" style="background: rgba(30, 41, 59, 0.8); border: 1px solid rgba(255,255,255,0.1); border-radius: 20px; padding: 2.5rem 2rem; position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; width: 380px; cursor: pointer; transition: all 0.3s ease;" onclick="document.body.classList.remove('splash-active');" onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='rgba(6, 182, 212, 0.5)'; this.style.boxShadow='0 10px 30px rgba(0,0,0,0.5)'" onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(255,255,255,0.1)'; this.style.boxShadow='none'">
+                <div style="background: #06B6D4; color: #F8FAFC; position: absolute; top: 1.5rem; right: 1.5rem; padding: 0.3rem 1rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">UAS</div>
+                
+                <div style="margin-top: 1rem; margin-bottom: 1.5rem;">
+                    <i class="ph-fill ph-target" style="font-size: 4rem; color: #06B6D4;"></i>
+                </div>
+                
+                <h3 style="font-size: 1.6rem; color: #F8FAFC; margin-bottom: 1rem; font-weight: 700;">E-Portfolio 2</h3>
+                <p style="color: #94A3B8; font-size: 0.95rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1;">Refleksi akhir Praktik Pengalaman Lapangan Terbimbing dan Filosofi Mengajar</p>
+                
+                <div style="color: #06B6D4; font-weight: 600; font-size: 0.95rem;">
+                    Lihat E-Portfolio 2 &rarr;
+                </div>
+            </div>
+        </div>
+    </div>

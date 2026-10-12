@@ -1,0 +1,789 @@
+<style id="style-sem2">
+    /* Beranda (Split Layout) */
+    .hero-split {
+        display: flex;
+        flex-wrap: wrap;
+        min-height: 100vh;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 80px;
+        position: relative;
+    }
+    .hero-split-left {
+        flex: 1;
+        min-width: 300px;
+        padding: 2rem;
+        z-index: 10;
+    }
+    .hero-split-right {
+        flex: 1;
+        min-width: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        z-index: 10;
+    }
+    .orb-futuristic {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        background: conic-gradient(from 0deg, rgba(100,200,255,0.1), rgba(100,200,255,0.5), rgba(10,25,60,0.8), rgba(100,200,255,0.1));
+        animation: spin-slow 20s linear infinite;
+        box-shadow: 0 0 50px rgba(100,200,255,0.3);
+        border: 2px dashed rgba(100,200,255,0.6);
+    }
+    .orb-core {
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        background: rgba(10,25,60,0.8);
+        border-radius: 50%;
+        border: 1px solid rgba(100,200,255,0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #64C8FF;
+        font-family: monospace;
+        font-weight: bold;
+        box-shadow: inset 0 0 20px rgba(100,200,255,0.5);
+    }
+
+    /* Profil (Horizontal ID Card) */
+    .id-card-modern {
+        display: flex;
+        flex-wrap: wrap;
+        background: rgba(15, 30, 80, 0.4);
+        backdrop-filter: blur(15px);
+        border: 1px solid rgba(100,200,255,0.3);
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 2rem auto;
+        max-width: 900px;
+        box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    .id-card-photo {
+        flex: 0 0 250px;
+        background: rgba(10, 25, 60, 0.6);
+        padding: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid rgba(100,200,255,0.2);
+    }
+    .id-card-photo img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 4px solid rgba(100,200,255,0.5);
+        margin-bottom: 1rem;
+        box-shadow: 0 0 20px rgba(100,200,255,0.3);
+    }
+    .id-card-info {
+        flex: 1;
+        padding: 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    .id-data-point {
+        background: rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        border-radius: 12px;
+        border-left: 4px solid #64C8FF;
+    }
+    .id-data-label {
+        font-size: 0.75rem;
+        color: #94A3B8;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.3rem;
+    }
+    .id-data-value {
+        font-size: 1.1rem;
+        color: #F8FAFC;
+        font-weight: 600;
+    }
+
+    /* Artefak (Masonry Layout) */
+    .masonry-grid {
+        column-count: 3;
+        column-gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    .masonry-item {
+        background: rgba(15, 30, 80, 0.5);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(100,200,255,0.2);
+        border-radius: 16px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        width: 100%;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .masonry-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(100,200,255,0.2);
+        border-color: rgba(100,200,255,0.6);
+    }
+    @media (max-width: 900px) { .masonry-grid { column-count: 2; } }
+    @media (max-width: 600px) { .masonry-grid { column-count: 1; } }
+
+    /* Analisis (Dashboard) */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+    .dash-widget {
+        background: rgba(15, 30, 80, 0.5);
+        border: 1px solid rgba(100,200,255,0.3);
+        border-radius: 16px;
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .ring-chart {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: conic-gradient(#64C8FF 0% 75%, rgba(100,200,255,0.1) 75% 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+    .ring-inner {
+        width: 80px;
+        height: 80px;
+        background: var(--bg-main, #0B1120);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #F8FAFC;
+    }
+    
+    /* Inovasi (Spotlight) */
+    .spotlight-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    .spotlight-card {
+        background: rgba(10, 25, 60, 0.4);
+        border: 1px solid rgba(100,200,255,0.2);
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        transition: all 0.4s ease;
+        overflow: hidden;
+    }
+    .spotlight-card::before {
+        content: '';
+        position: absolute;
+        top: -50px; left: -50px;
+        width: 150px; height: 150px;
+        background: radial-gradient(circle, rgba(100,200,255,0.4) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        border-radius: 50%;
+        pointer-events: none;
+    }
+    .spotlight-card:hover::before { opacity: 1; }
+    .spotlight-card:hover {
+        transform: scale(1.02);
+        border-color: #64C8FF;
+        box-shadow: 0 0 30px rgba(100,200,255,0.2);
+    }
+</style>
+
+<header id="hero-sem2" class="section hero-split" style="display: none;">
+    <div class="hero-split-left reveal">
+        <div class="hero-badge-modern"><i class="ph-bold ph-fingerprint"></i> PPG PRAJABATAN</div>
+        <h1 class="hero-title-modern">Hendra<br>Mahardhika</h1>
+        <h3 class="hero-subtitle-modern">Teknik Mesin</h3>
+        <p class="hero-desc-modern">
+            Berproses, belajar, dan berkembang untuk menjadi guru<br>
+            Teknik Mesin yang <strong>inspiratif, profesional, dan berdampak nyata.</strong>
+        </p>
+        <div class="hero-btns-modern" style="margin-bottom: 2rem;">
+            <a href="#artefak-sem2" class="btn-modern btn-blue-gradient">
+                <i class="ph-fill ph-folder-open" style="color: #FCD34D; font-size: 1.2rem;"></i> Lihat Portofolio
+            </a>
+            <a href="#kontak" class="btn-modern btn-white-shadow">
+                <i class="ph-fill ph-envelope" style="color: #0284C7; font-size: 1.2rem;"></i> Hubungi Saya
+            </a>
+        </div>
+        
+        <div class="social-icons-modern">
+            <a href="https://linkedin.com/in/hendramahardhika" target="_blank" class="social-icon linkedin"><i class="ph-bold ph-linkedin-logo"></i></a>
+            <a href="https://instagram.com/hendramahardhika" target="_blank" class="social-icon instagram"><i class="ph-bold ph-instagram-logo"></i></a>
+            <a href="https://youtube.com/@hendramahardhika" target="_blank" class="social-icon youtube"><i class="ph-bold ph-youtube-logo"></i></a>
+            <a href="mailto:hendra@example.com" class="social-icon email"><i class="ph-bold ph-envelope-simple"></i></a>
+        </div>
+    </div>
+    <div class="hero-split-right reveal">
+        <div class="orb-futuristic"></div>
+        <div class="orb-core">SYS_READY</div>
+    </div>
+</header>
+
+<section id="profil-sem2" class="section" style="display: none;">
+    <div class="container reveal">
+        <div class="section-header-modern" style="text-align: center; margin-bottom: 3rem;">
+            <h2 class="section-title-modern" style="color: var(--text-main); font-size: 2.5rem; margin-bottom: 0.5rem;">Identifikasi Diri</h2>
+            <div class="title-line-modern" style="width: 80px; height: 4px; background: #64C8FF; margin: 0 auto; border-radius: 2px;"></div>
+        </div>
+        
+        <div class="id-card-modern">
+            <div class="id-card-photo">
+                <img src="https://i.ibb.co.com/gFRY4n61/DALL-E-2025-02-23-01-38-51-A-professional-yet-modern-profile-picture-of-a-male-teacher-in-his-30s-l.webp" alt="Foto Hendra">
+                <h3 style="color: #F8FAFC; margin: 0; font-size: 1.2rem;">Hendra M.</h3>
+                <p style="color: #64C8FF; margin: 0; font-size: 0.8rem;">Peserta Seminar PPG</p>
+            </div>
+            <div class="id-card-info">
+                <div class="id-data-point">
+                    <div class="id-data-label">Nama Lengkap</div>
+                    <div class="id-data-value">Hendra Mahardhika</div>
+                </div>
+                <div class="id-data-point">
+                    <div class="id-data-label">NIM / ID</div>
+                    <div class="id-data-value">2026-PPG-9901</div>
+                </div>
+                <div class="id-data-point">
+                    <div class="id-data-label">Bidang Studi</div>
+                    <div class="id-data-value">Teknik Mesin</div>
+                </div>
+                <div class="id-data-point">
+                    <div class="id-data-label">Universitas</div>
+                    <div class="id-data-value">Universitas Sarjanawiyata Tamansiswa</div>
+                </div>
+                <div class="id-data-point" style="grid-column: span 2;">
+                    <div class="id-data-label">Visi Mengajar</div>
+                    <div class="id-data-value" style="font-size: 0.95rem; font-weight: 400;">Menjadi pendidik yang mengintegrasikan teknologi dan empati untuk membangun karakter dan kompetensi teknis siswa secara berkelanjutan.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="artefak-sem2" class="section" style="display: none;">
+    <div class="container reveal">
+        <div class="section-title reveal" style="text-align: center; margin-bottom: 2.5rem;">
+            <span style="display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.8rem; background-color: var(--primary-light); color: var(--primary-color); padding: 0.3rem 0.8rem; border-radius: 20px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.75rem; border: 1px solid var(--border-color);">
+                <i class="ph-bold ph-folder-open"></i> REFLEKSI
+            </span>
+            <h2 style="font-size: 2.2rem; color: var(--primary-color); font-weight: 800; margin-bottom: 0.5rem;">Daftar Refleksi Mata Kuliah</h2>
+            <p style="font-size: 0.95rem; color: var(--text-muted); max-width: 600px; margin: 0 auto; line-height: 1.5;">
+                Kumpulan refleksi dari berbagai mata kuliah di Semester 1 dan 2.
+            </p>
+        </div>
+        
+        <div class="filter-container-wrapper">
+            <div class="filter-group-sub">
+                <button class="filter-sub-btn active" id="btn-sem1-ref" onclick="showSemRefleksi(1)">Semester 1</button>
+                <button class="filter-sub-btn" id="btn-sem2-ref" onclick="showSemRefleksi(2)">Semester 2</button>
+            </div>
+        </div>
+        
+        <!-- SEMESTER 1 GRID -->
+                <div class="portfolio-grid" id="grid-sem1-ref">
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #3b82f6; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Filosofi Pendidikan dan Nilai</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Refleksi mendalam mengenai nilai-nilai filosofis pendidikan Indonesia.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="materi-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #10b981; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Growth Mindset</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Penerapan pola pikir berkembang bagi pendidik dan peserta didik.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="media-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #f59e0b; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Pemahaman Peserta Didik</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Strategi memahami karakteristik dan kebutuhan belajar siswa.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="rpp-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #8b5cf6; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Pembelajaran Mendalam & Asesmen Dasar</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Perancangan asesmen formatif dan sumatif yang efektif.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="materi-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #ef4444; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">PPL Terbimbing SMK Muhammadiyah 3 Yogyakarta</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Pengalaman langsung mengajar dan membimbing di sekolah menengah kejuruan.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="media-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #ec4899; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Inovasi Pembelajaran Berbasis Tamansiswa</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Pengembangan pembelajaran dengan mengintegrasikan nilai-nilai luhur Tamansiswa.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="rpp-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+        </div>
+
+                <div class="portfolio-grid" id="grid-sem2-ref" style="display: none;">
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #3b82f6; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Pembelajaran Sosial Emosional</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Mereviu dan merefleksi pengalaman belajar Mata Kuliah Pembelajaran Sosial Emosional.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="media-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #10b981; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Pembelajaran Mendalam dan Asesmen Lanjut</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Mereviu dan merefleksi pengalaman belajar Mata Kuliah Pembelajaran Mendalam dan Asesmen Lanjut.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="rpp-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #f59e0b; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Praktik Pengalaman Lapangan (PPL) Mandiri</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Mereviu dan merefleksi pengalaman belajar Mata Kuliah PPL Mandiri.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="materi-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #8b5cf6; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Projek Kepemimpinan</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Mereviu dan merefleksi pengalaman belajar Mata Kuliah Projek Kepemimpinan.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="media-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #ef4444; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Pendidikan Inklusif Tingkat Dasar</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Mereviu dan merefleksi pengalaman belajar Mata Kuliah Pendidikan Inklusif Tingkat Dasar.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="rpp-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #10b981; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Pembelajaran Sosial Emosional</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Penerapan kompetensi sosial emosional dalam konteks kelas.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="rpp-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #f59e0b; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Seminar Pendidikan Profesi Guru</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Jurnal refleksi komprehensif mengenai seluruh kegiatan seminar.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="materi-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #8b5cf6; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Proyek Kepemimpinan</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Desain dan inisiatif program kepemimpinan untuk perubahan di sekolah.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="media-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+            <div class="refleksi-card reveal reveal-active" style="border-top: 5px solid #ef4444; padding: 1rem;">
+                <h3 class="refleksi-title" style="font-family: var(--font-body); font-weight: 700; color: #1e3a8a; font-size: 1.1rem; margin-bottom: 0.75rem; min-height: 3rem;">Praktik Pengalaman Lapangan II</h3>
+                <p class="refleksi-desc" style="color: var(--text-muted); font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.25rem; flex-grow: 1; text-align: justify;">Laporan pengajaran mandiri tingkat lanjut di sekolah mitra.</p>
+                <div class="refleksi-viewer portfolio-img-wrapper" style="position: relative; width: 100%; padding-top: 62.5%; background-color: #f1f5f9; border-radius: 8px; overflow: hidden; margin-bottom: 1.5rem; border: 1px solid #e2e8f0;">
+                    <img src="rpp-cover.png" alt="Cover" class="refleksi-viewer-bg portfolio-img" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                    <div class="refleksi-controls" style="position: absolute; bottom: 0; left: 0; right: 0; background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(4px); color: #ffffff; padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;">
+                        <span>Halaman &nbsp; 1 &nbsp; / &nbsp; 10</span>
+                        <div class="refleksi-zoom" style="display: flex; align-items: center; gap: 12px; font-size: 1rem;">
+                            <i class="ph-bold ph-minus"></i>
+                            <i class="ph-bold ph-plus"></i>
+                            <i class="ph-bold ph-magnifying-glass"></i>
+                        </div>
+                    </div>
+                    <!-- Hover Overlay -->
+                    <a href="#" target="_blank" class="pdf-overlay" style="z-index: 20;">
+                        <span class="glass-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" style="vertical-align: middle; margin-right: 4px;">
+                                <path d="M6 2H14L20 8V20C20 21.1 19.1 22 18 22H6C4.9 22 4 21.1 4 20V4C4 2.9 4.9 2 6 2Z" fill="#1e3a8a" />
+                                <path d="M14 2V8H20L14 2Z" fill="#3b82f6" />
+                                <rect x="7" y="11" width="10" height="7" rx="1.5" fill="#ef4444" />
+                                <text x="12" y="16" font-family="'Inter', sans-serif" font-size="5.2" font-weight="900" fill="white" text-anchor="middle" letter-spacing="0.1">PDF</text>
+                            </svg>
+                            Buka PDF di Drive
+                        </span>
+                    </a>
+                </div>
+                <div class="refleksi-btn-row" style="display: flex; gap: 10px; margin-top: auto;">
+                    <a href="#" class="btn-ref-blue" style="flex: 1; background: #1d4ed8; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Preview 2</a>
+                    <a href="#" class="btn-ref-green" style="flex: 1; background: #10b981; color: white; border: none; padding: 10px 0; border-radius: 20px; font-weight: 600; font-size: 0.9rem; cursor: pointer; transition: 0.2s; text-align: center; text-decoration: none;">Lihat Refleksi</a>
+                </div>
+            </div>
+        </div>

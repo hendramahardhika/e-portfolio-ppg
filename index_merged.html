@@ -1108,9 +1108,47 @@
             margin-bottom: -2rem;
             position: relative;
         }
-        .splash-spline-container spline-viewer {
-            width: 100%;
-            height: 100%;
+        .robot-svg-container {
+            width: 300px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @keyframes floatBody {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes shadowPulse {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(0.8); opacity: 0.2; }
+        }
+
+        @keyframes armWave {
+            0% { transform: rotate(-10deg); }
+            100% { transform: rotate(-110deg); }
+        }
+
+        @keyframes eyeBlink {
+            0%, 95%, 100% { transform: scaleY(1); stroke-width: 5; }
+            97% { transform: scaleY(0.1); stroke-width: 10; }
+        }
+
+        .robot-shadow {
+            animation: shadowPulse 4s ease-in-out infinite;
+            transform-origin: center;
+        }
+
+        .robot-arm-wave {
+            transform-origin: 0px 0px;
+            animation: armWave 1.2s ease-in-out infinite alternate;
+        }
+
+        .eye-blink {
+            transform-origin: center 8px;
+            animation: eyeBlink 5s infinite;
         }
         .splash-content {
             text-align: center;
@@ -1337,14 +1375,149 @@
             transform: translateY(0);
         }
     </style>
-    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.9.82/build/spline-viewer.js"></script>
 </head>
 <body class="splash-active">
 
     <!-- Splash Screen -->
     <div id="splash-screen">
         <div class="splash-spline-container">
-            <spline-viewer url="https://prod.spline.design/FcZ66SFMX1YbF-0I/scene.splinecode"></spline-viewer>
+                                                                                        <div class="robot-svg-container" style="position: relative; width: 350px; height: 350px; display: flex; justify-content: center; align-items: center; margin: 0 auto; z-index: 10;">
+            <style>
+                @keyframes floatSway {
+                    0%, 100% { transform: translateY(0px) rotate(0deg); }
+                    50% { transform: translateY(-25px) rotate(1.5deg); }
+                }
+                @keyframes armWave {
+                    0% { transform: rotate(10deg); }
+                    100% { transform: rotate(120deg); }
+                }
+                @keyframes eyeBlink {
+                    0%, 94%, 98%, 100% { transform: scaleY(1); }
+                    96% { transform: scaleY(0.1); }
+                }
+                @keyframes shadowPulse {
+                    0%, 100% { transform: scale(1); opacity: 0.6; }
+                    50% { transform: scale(0.7); opacity: 0.3; }
+                }
+                .robot-arm-wave {
+                    animation: armWave 1.5s ease-in-out infinite alternate;
+                }
+                .eye-blink {
+                    transform-origin: center -5px;
+                    animation: eyeBlink 5s infinite;
+                }
+                .shadow-pulse {
+                    transform-origin: 150px 350px;
+                    animation: shadowPulse 5s ease-in-out infinite;
+                }
+            </style>
+            <svg viewBox="0 -10 300 420" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" style="overflow: visible;">
+                <defs>
+                    <radialGradient id="bodyGrad" cx="30%" cy="30%" r="70%">
+                        <stop offset="0%" stop-color="#4B7BFF" />
+                        <stop offset="50%" stop-color="#1A3A75" />
+                        <stop offset="100%" stop-color="#0B1C40" />
+                    </radialGradient>
+                    <radialGradient id="headGrad" cx="35%" cy="20%" r="75%">
+                        <stop offset="0%" stop-color="#5B8DFF" />
+                        <stop offset="45%" stop-color="#1A3A75" />
+                        <stop offset="100%" stop-color="#071330" />
+                    </radialGradient>
+                    <linearGradient id="visorGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stop-color="#0A1C40" />
+                        <stop offset="100%" stop-color="#020815" />
+                    </linearGradient>
+                    
+                    <filter id="neonGlow" x="-100%" y="-100%" width="300%" height="300%">
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur1" />
+                        <feGaussianBlur in="SourceGraphic" stdDeviation="4.5" result="blur2" />
+                        <feMerge>
+                            <feComponentTransfer in="blur2" result="softBlur">
+                                <feFuncA type="linear" slope="0.7"/>
+                            </feComponentTransfer>
+                            <feMergeNode in="softBlur" />
+                            <feMergeNode in="blur1" />
+                            <feMergeNode in="SourceGraphic" />
+                        </feMerge>
+                    </filter>
+                    
+                    <filter id="dropShadow" x="-30%" y="-30%" width="160%" height="160%">
+                        <feDropShadow dx="0" dy="25" stdDeviation="15" flood-color="#000" flood-opacity="0.8" />
+                    </filter>
+                </defs>
+
+                <g class="robot-float" filter="url(#dropShadow)" style="transform-origin: 150px 200px; animation: floatSway 5s ease-in-out infinite;">
+                    
+                                                            <!-- Left Arm (waving) -->
+                    <g transform="translate(65, 165)">
+                        <g class="robot-arm-wave" style="transform-origin: 20px 15px;">
+                            <!-- Shoulder Cap -->
+                            <path d="M 5 0 C 15 -5, 25 -5, 35 0 C 40 10, 35 25, 20 25 C 5 25, 0 10, 5 0 Z" fill="url(#bodyGrad)" />
+                            <!-- Upper Arm -->
+                            <rect x="15" y="15" width="10" height="30" rx="5" fill="#1A3A75" />
+                            <!-- Cuff -->
+                            <rect x="5" y="40" width="30" height="40" rx="12" fill="url(#bodyGrad)" />
+                        </g>
+                    </g>
+                    
+                    <!-- Body -->
+                    <path d="M 100 130 
+                             C 100 100, 200 100, 200 130 
+                             C 210 210, 190 260, 150 260 
+                             C 110 260, 90 210, 100 130 Z" 
+                          fill="url(#bodyGrad)" />
+                          
+                    <!-- Chest Ring -->
+                    <circle cx="150" cy="190" r="16" fill="none" stroke="#00E5FF" stroke-width="6" filter="url(#neonGlow)" />
+                    <circle cx="150" cy="190" r="16" fill="none" stroke="#ffffff" stroke-width="2.5" opacity="0.9" />
+
+                    <!-- Head -->
+                    <g transform="translate(150, 90)">
+                        <!-- Earmuffs -->
+                        <rect x="-105" y="-15" width="25" height="45" rx="12.5" fill="#0A1C40" />
+                        <rect x="80" y="-15" width="25" height="45" rx="12.5" fill="#0A1C40" />
+                        <path d="M -100 -5 Q -115 7.5 -100 20" fill="none" stroke="#00E5FF" stroke-width="5" stroke-linecap="round" filter="url(#neonGlow)" />
+                        <path d="M 100 -5 Q 115 7.5 100 20" fill="none" stroke="#00E5FF" stroke-width="5" stroke-linecap="round" filter="url(#neonGlow)" />
+                        
+                        <!-- Head Shape -->
+                        <ellipse cx="0" cy="0" rx="90" ry="75" fill="url(#headGrad)" />
+                        
+                        <!-- Visor -->
+                        <ellipse cx="0" cy="5" rx="70" ry="50" fill="url(#visorGrad)" />
+                        
+                        <!-- Visor Highlights -->
+                        <path d="M -50 -25 Q 0 -50 50 -25 Q 0 -35 -50 -25 Z" fill="rgba(255, 255, 255, 0.2)" />
+                        
+                        <!-- Face -->
+                        <g filter="url(#neonGlow)" fill="none" stroke="#00E5FF" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M -35 -5 Q -25 -20 -15 -5" class="eye-blink" />
+                            <path d="M 15 -5 Q 25 -20 35 -5" class="eye-blink" />
+                            <path d="M -15 25 Q 0 45 15 25" />
+                        </g>
+                        <g fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.9">
+                            <path d="M -35 -5 Q -25 -20 -15 -5" class="eye-blink" />
+                            <path d="M 15 -5 Q 25 -20 35 -5" class="eye-blink" />
+                            <path d="M -15 25 Q 0 45 15 25" />
+                        </g>
+                    </g>
+                    
+                                                            <!-- Right Arm (hanging) -->
+                    <g transform="translate(235, 165)">
+                        <g transform="scale(-1, 1) rotate(10, 20, 15)">
+                            <!-- Shoulder Cap -->
+                            <path d="M 5 0 C 15 -5, 25 -5, 35 0 C 40 10, 35 25, 20 25 C 5 25, 0 10, 5 0 Z" fill="url(#bodyGrad)" />
+                            <!-- Upper Arm -->
+                            <rect x="15" y="15" width="10" height="30" rx="5" fill="#1A3A75" />
+                            <!-- Cuff -->
+                            <rect x="5" y="40" width="30" height="40" rx="12" fill="url(#bodyGrad)" />
+                        </g>
+                    </g>
+                </g>
+                
+                <!-- Floor Shadow -->
+                <ellipse cx="150" cy="350" rx="80" ry="15" fill="rgba(0,0,0,0.6)" filter="blur(5px)" class="shadow-pulse" />
+            </svg>
+        </div>
         </div>
         <div class="splash-content">
             <h1 class="splash-title">
@@ -5054,104 +5227,9 @@
             };
 
 
-            const closeModal = () => {
-                modal.classList.remove('active');
-                modalPdf.src = '';
-            };
-            closeModalBtn.addEventListener('click', closeModal);
-            window.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
-        };
-
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', init);
-        } else {
-            init();
-        }
-    </script>
-
-    <!-- Splash Screen Script -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const splashScreen = document.getElementById('splash-screen');
-            const enterBtn = document.getElementById('enter-btn');
-            
-            // Cek jika kembali dari Portfolio 2
-            const urlParams = new URLSearchParams(window.location.search);
-            const skipSplash = urlParams.get('skipSplash') === 'true';
-
-            function hideSplash() {
-                if (!splashScreen) return;
-                splashScreen.classList.add('hidden');
-                document.getElementById('selection-screen').classList.remove('hidden');
-            }
-
-            if (skipSplash) {
-                // Langsung sembunyikan splash dan tampilkan selection screen
-                if (splashScreen && splashScreen.parentNode) {
-                    splashScreen.parentNode.removeChild(splashScreen);
-                }
-                document.getElementById('selection-screen').classList.remove('hidden');
-                document.body.classList.add('splash-active');
-            } else {
-                // Jalankan splash screen normal
-                if (enterBtn) {
-                    enterBtn.addEventListener('click', hideSplash);
-                }
-
-                // Fallback auto-hide setelah 10 detik
-                setTimeout(() => {
-                    if (splashScreen.parentNode) {
-                        splashScreen.parentNode.removeChild(splashScreen);
-                    }
-                }, 800);
-            }
-
-            // Selection Screen Actions
-            const btnPortfolio1 = document.getElementById('btn-portfolio1');
-            const btnPortfolio2 = document.getElementById('btn-portfolio2');
-            
-            if (btnPortfolio1) {
-                btnPortfolio1.addEventListener('click', () => {
-                    document.getElementById('selection-screen').classList.add('hidden');
-                    document.body.classList.remove('splash-active');
-                    // Removed the DOM deletion so we can return to this screen later
-                });
-            }
-
-            if (btnPortfolio2) {
-                btnPortfolio2.addEventListener('click', () => {
-                    window.location.href = 'portfolio2.html';
-                });
             }            
             // Click event
             if (enterBtn) {
-                enterBtn.addEventListener('click', hideSplash);
-            }
-            
-            // Prevent accidental hide when clicking on spline-viewer
-            if (splashScreen) {
-                splashScreen.addEventListener('click', (e) => {
-                    if (e.target === splashScreen || e.target.classList.contains('splash-content') || e.target.classList.contains('splash-spline-container')) {
-                        hideSplash();
-                    }
-                });
-            }
-
-            // Keydown event (Enter)
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Enter' && splashScreen && !splashScreen.classList.contains('hidden')) {
-                    hideSplash();
-                }
-            });
-
-            // Hide Spline logo watermark
-            const checkLogo = setInterval(() => {
-                const viewer = document.querySelector('spline-viewer');
-                if (viewer && viewer.shadowRoot) {
-                    const logo = viewer.shadowRoot.querySelector('#logo');
-                    if (logo) {
-                        logo.style.display = 'none';
-                        logo.remove();
                         clearInterval(checkLogo);
                     }
                 }
@@ -6892,6 +6970,22 @@
 </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
